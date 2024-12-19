@@ -1,0 +1,68 @@
+/* 重置所有標籤的樣式 */
+
+* {
+    box-sizing: border-box; //border-box：實際寬高＝所設定的數值(包含border和padding)
+    }
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit; /* inherit 繼承原本的設定 */
+    vertical-align: baseline;
+
+    }
+
+/* 重置字體文字樣式 */
+
+body{
+
+    font-family: 
+    /*西文*/ -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", Helvetica, Arial,
+    /*中文*/ "蘋方-繁", "PingFang TC", "黑體-繁", "Heiti TC", "微軟正黑體", "Microsoft JhengHei", "Noto Sans TC", sans-serif ; /* 自動抓瀏覽器無襯線字 */
+    font-optical-sizing: auto; /* 字體光學尺寸 */
+    line-height: 1.5; /* 設定行高 */
+    letter-spacing:2px;
+}
+
+/* 重置標題文字字重 */
+h1, h2, h3, h4, h5, h6 {
+    font-weight: normal;
+    }
+
+/* 重置ol,ul 標題樣式 */
+ol,ul{
+    list-style: none;
+}
+
+/* 重置圖片 */
+img {
+    display: block; // block 區塊滿版
+    width: 100%;
+}
+
+/* 重置連結樣式 */
+a {
+    display: block; /* 將a預設的inline改為block(區塊），才能設定間距跟寬高 inline不支援上下間距 */
+    color: #222;
+    text-decoration: none;
+}
+
+
+/* 重置區域結束 */
+
+

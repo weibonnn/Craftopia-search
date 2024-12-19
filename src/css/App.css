@@ -1,0 +1,768 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Braah+One&family=Finger+Paint&family=Noto+Sans+TC:wght@100..900&display=swap");
+/* 重置所有標籤的樣式 */
+* {
+  box-sizing: border-box;
+}
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit; /* inherit 繼承原本的設定 */
+  vertical-align: baseline;
+}
+
+/* 重置字體文字樣式 */
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", Helvetica, Arial, "蘋方-繁", "PingFang TC", "黑體-繁", "Heiti TC", "微軟正黑體", "Microsoft JhengHei", "Noto Sans TC", sans-serif; /* 自動抓瀏覽器無襯線字 */
+  font-optical-sizing: auto; /* 字體光學尺寸 */
+  line-height: 1.5; /* 設定行高 */
+  letter-spacing: 2px;
+}
+
+/* 重置標題文字字重 */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: normal;
+}
+
+/* 重置ol,ul 標題樣式 */
+ol, ul {
+  list-style: none;
+}
+
+/* 重置圖片 */
+img {
+  display: block;
+  width: 100%;
+}
+
+/* 重置連結樣式 */
+a {
+  display: block; /* 將a預設的inline改為block(區塊），才能設定間距跟寬高 inline不支援上下間距 */
+  color: #222;
+  text-decoration: none;
+}
+
+/* 重置區域結束 */
+.custom-shake-h, .custom-shake-v, .custom-shake-t {
+  display: inherit;
+  transform-origin: center center;
+}
+
+.shake-freeze,
+.shake-constant.shake-constant--hover:hover,
+.shake-trigger:hover .shake-constant.shake-constant--hover {
+  animation-play-state: paused;
+}
+
+.custom-shake-h:hover, .shake-trigger:hover .custom-shake-h, .custom-shake-v:hover, .shake-trigger:hover .custom-shake-v, .custom-shake-t:hover, .shake-trigger:hover .custom-shake-t, .shake-freeze:hover,
+.shake-trigger:hover .shake-freeze {
+  animation-play-state: running;
+}
+
+body {
+  color: #303030;
+  background-image: url(../images/BG-searchPage.png);
+  background-size: cover;
+  background-position: top;
+}
+
+#topbar {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 28px 64px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+}
+#topbar .logo {
+  width: 232px;
+}
+#topbar .navigation {
+  display: flex;
+  align-items: center;
+}
+#topbar .navigation .search {
+  margin-right: 36px;
+}
+#topbar .navigation .search li {
+  background-image: url(../images/nav-search.svg);
+  background-size: cover;
+  padding: 12px 23px 10px 19px;
+}
+#topbar .navigation .search li a {
+  display: flex;
+  align-items: center;
+}
+#topbar .navigation .search li a img {
+  width: 20px;
+  height: 20px;
+  margin-right: 8px;
+}
+#topbar .navigation .menu li {
+  background-image: url(../images/nav-menu.svg);
+  background-size: cover;
+  padding: 15px 16px;
+}
+#topbar .navigation .menu li img {
+  width: 34px;
+  height: 34px;
+}
+
+/* 課程搜尋區塊 */
+.banner {
+  height: 490px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  background-image: linear-gradient(rgba(127, 127, 127, 0.45), rgba(127, 127, 127, 0.45)), url(../images/banner-search.jpg);
+  background-size: cover;
+  background-position: 50% 50%;
+  backdrop-filter: brightness(60%);
+}
+.banner h2 {
+  color: #ffffff;
+  font-size: 40px;
+  margin-top: 24px 0;
+  text-shadow: 4px 6px 4px rgba(0, 0, 0, 0.25);
+}
+.banner .engTitle {
+  font-family: "Finger Paint", serif;
+  font-size: 36px;
+}
+.banner .searchSection {
+  z-index: 900;
+  width: 86%;
+  background-color: rgba(255, 255, 255, 0.6);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 10px;
+  margin: 64px 0 40px;
+  padding: 27px 48px;
+}
+.banner .searchSection figure {
+  width: 38px;
+  margin-right: 24px;
+}
+.banner .searchSection .search-select {
+  width: 86%;
+  display: flex;
+  justify-content: space-between;
+}
+.banner .searchSection .search-select input {
+  width: 18%;
+  background-color: rgb(255, 255, 255);
+  color: #3d3d3d;
+  border: 1px solid #ADADAD;
+  padding: 12px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.banner .searchSection .search-select .select-location,
+.banner .searchSection .search-select .select-type,
+.banner .searchSection .search-select .select-people {
+  position: relative;
+  width: 24%;
+  height: 48px;
+  border: 1px solid #ADADAD;
+  background-color: #ffffff;
+  border-radius: 6px;
+}
+.banner .searchSection .search-select .select-location .select-header,
+.banner .searchSection .search-select .select-type .select-header,
+.banner .searchSection .search-select .select-people .select-header {
+  color: #838383;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px;
+  cursor: pointer;
+}
+.banner .searchSection .search-select .select-location .select-header .arrowDown,
+.banner .searchSection .search-select .select-type .select-header .arrowDown,
+.banner .searchSection .search-select .select-people .select-header .arrowDown {
+  width: 24px;
+  transform: rotate(360deg);
+  transition: transform 0.5s ease-in-out;
+}
+.banner .searchSection .search-select .select-location .select-header.active,
+.banner .searchSection .search-select .select-type .select-header.active,
+.banner .searchSection .search-select .select-people .select-header.active {
+  color: #222222;
+}
+.banner .searchSection .search-select .select-location .option-container,
+.banner .searchSection .search-select .select-type .option-container,
+.banner .searchSection .search-select .select-people .option-container {
+  display: none;
+  background-color: #ffffff;
+  border: 1px solid #ADADAD;
+  border-top: 0px;
+  width: calc(100% + 2px);
+  position: absolute;
+  top: 100%;
+  left: -1px;
+  z-index: 90;
+  border-radius: 0 0 6px 6px;
+}
+.banner .searchSection .search-select .select-location .option-container .select-option,
+.banner .searchSection .search-select .select-type .option-container .select-option,
+.banner .searchSection .search-select .select-people .option-container .select-option {
+  padding: 12px;
+  cursor: pointer;
+}
+.banner .searchSection .search-select .select-location .option-container .select-option:hover,
+.banner .searchSection .search-select .select-type .option-container .select-option:hover,
+.banner .searchSection .search-select .select-people .option-container .select-option:hover {
+  background-color: #483D3F;
+  color: #ffffff;
+}
+.banner .searchSection .search-select .select-location .option-container .select-option.active,
+.banner .searchSection .search-select .select-type .option-container .select-option.active,
+.banner .searchSection .search-select .select-people .option-container .select-option.active {
+  background-color: #483D3F;
+  color: #ffffff;
+}
+.banner .searchSection .search-select .select-location.open,
+.banner .searchSection .search-select .select-type.open,
+.banner .searchSection .search-select .select-people.open {
+  border-radius: 6px 6px 0 0;
+  border-bottom: 0px;
+}
+.banner .searchSection .search-select .select-location.open .arrowDown,
+.banner .searchSection .search-select .select-type.open .arrowDown,
+.banner .searchSection .search-select .select-people.open .arrowDown {
+  transform: rotate(180deg);
+  transition: transform 0.5s ease-in-out;
+}
+.banner .searchSection .search-select .select-location.open .option-container,
+.banner .searchSection .search-select .select-type.open .option-container,
+.banner .searchSection .search-select .select-people.open .option-container {
+  display: block;
+}
+.banner .searchSection .search-select .select-people {
+  width: 32%;
+}
+.banner .searchSection .search-select .select-people .select-header {
+  color: #222222;
+}
+.banner .searchSection .search-select .select-people .number-option {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px;
+}
+.banner .searchSection .search-select .select-people .number-option .label small {
+  color: #5a5a5a;
+  font-size: 14px;
+}
+.banner .searchSection .search-select .select-people .number-option .number-input {
+  width: auto;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+.banner .searchSection .search-select .select-people .number-option .number-input input {
+  width: 42px;
+  height: 24px;
+  text-align: center;
+}
+.banner .searchSection .search-select .select-people .number-option .number-input button {
+  font-size: 18px;
+  width: 28px;
+  height: 28px;
+  border: none;
+  line-height: 28px;
+  border-radius: 100px;
+  background-color: #FEEBBA;
+  margin: 0 8px;
+  cursor: pointer;
+}
+.banner .searchSection .searchBtn {
+  width: 120px;
+  color: #ffffff;
+  background-color: #483D3F;
+  border: none;
+  border-radius: 100px;
+  margin-left: 24px;
+  padding: 14px 24px;
+  letter-spacing: 2px;
+  cursor: pointer;
+}
+.banner .left-filled {
+  position: absolute;
+  top: 150px;
+  left: 140px;
+}
+.banner .left-stroke {
+  position: absolute;
+  top: 252px;
+  left: 90px;
+}
+.banner .left-tool {
+  position: absolute;
+  top: 163px;
+  left: 224px;
+}
+.banner .right-filled {
+  position: absolute;
+  top: 225px;
+  right: 80px;
+}
+.banner .right-stroke {
+  position: absolute;
+  top: 160px;
+  right: 100px;
+}
+.banner .right-tool {
+  position: absolute;
+  top: 165px;
+  right: 150px;
+}
+
+/* 列表分類過濾器 */
+.allFilter {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 32px 8%;
+}
+.allFilter .filter {
+  position: relative;
+  width: 110px;
+  height: 48px;
+  border: 1px solid #ADADAD;
+  background-color: #ffffff;
+  border-radius: 100px;
+}
+.allFilter .filter .select-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px;
+  cursor: pointer;
+}
+.allFilter .filter .select-header .arrowDown {
+  width: 24px;
+  transform: rotate(360deg);
+  transition: transform 0.5s ease-in-out;
+}
+.allFilter .filter.open {
+  border-radius: 24px 24px 0 0;
+  border-bottom: 0px;
+}
+.allFilter .filter.open .arrowDown {
+  transform: rotate(180deg);
+  transition: transform 0.5s ease-in-out;
+}
+.allFilter .filter.open .option-container {
+  display: block;
+}
+.allFilter .classify .option-container {
+  display: none;
+  background-color: #ffffff;
+  border: 1px solid #ADADAD;
+  border-top: 0px;
+  width: calc(100% + 2px);
+  position: absolute;
+  top: 100%;
+  left: -1px;
+  z-index: 90;
+  border-radius: 0 0 24px 24px;
+}
+.allFilter .classify .option-container .select-option {
+  padding: 24px;
+}
+.allFilter .classify .option-container .select-option div {
+  display: flex;
+  margin-top: 16px;
+}
+.allFilter .classify .option-container .select-option div .classify-content {
+  border: #483D3F 1px solid;
+  border-radius: 100px;
+  padding: 8px 12px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+.allFilter .classify .option-container .select-option div .classify-content.selected {
+  background-color: #483D3F;
+  color: #ffffff;
+}
+.allFilter .classify.open {
+  width: 640px;
+}
+.allFilter .order .option-container {
+  display: none;
+  background-color: #ffffff;
+  border: 1px solid #ADADAD;
+  border-top: 0px;
+  width: calc(100% + 2px);
+  position: absolute;
+  top: 100%;
+  left: -1px;
+  z-index: 90;
+  overflow: hidden;
+  border-radius: 0 0 24px 24px;
+}
+.allFilter .order .option-container .select-option {
+  padding: 12px;
+  text-align: center;
+  cursor: pointer;
+}
+.allFilter .order .option-container .select-option:hover {
+  background-color: #483D3F;
+  color: #ffffff;
+}
+.allFilter .order .option-container .select-option.active {
+  background-color: #483D3F;
+  color: #ffffff;
+}
+
+/* 課程列表區 */
+.searchResault,
+.hotClassRecommend,
+.newestClass {
+  margin: 100px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.searchResault .listTitle,
+.hotClassRecommend .listTitle,
+.newestClass .listTitle {
+  margin-bottom: 80px;
+}
+.searchResault .listTitle img,
+.hotClassRecommend .listTitle img,
+.newestClass .listTitle img {
+  height: 42px;
+}
+.searchResault .classList,
+.hotClassRecommend .classList,
+.newestClass .classList {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  margin-bottom: 80px;
+}
+.searchResault .classList .classCard,
+.hotClassRecommend .classList .classCard,
+.newestClass .classList .classCard {
+  position: relative;
+  width: 320px;
+}
+.searchResault .classList .classCard div,
+.hotClassRecommend .classList .classCard div,
+.newestClass .classList .classCard div {
+  display: flex;
+  justify-content: space-between;
+}
+.searchResault .classList .classCard .classPhoto,
+.hotClassRecommend .classList .classCard .classPhoto,
+.newestClass .classList .classCard .classPhoto {
+  position: relative;
+  width: 320px;
+  height: auto;
+  border-radius: 10px;
+  overflow: hidden;
+}
+.searchResault .classList .classCard .classPhoto .tagHotorNew,
+.hotClassRecommend .classList .classCard .classPhoto .tagHotorNew,
+.newestClass .classList .classCard .classPhoto .tagHotorNew {
+  width: 56px;
+  position: absolute;
+  left: 4px;
+  top: 4px;
+  z-index: 10;
+}
+.searchResault .classList .classCard .classPhoto .defaultPhoto,
+.hotClassRecommend .classList .classCard .classPhoto .defaultPhoto,
+.newestClass .classList .classCard .classPhoto .defaultPhoto {
+  width: 320px;
+  height: 240px;
+  object-fit: cover;
+  transition: all 0.4s ease-out;
+}
+.searchResault .classList .classCard .classPhoto .maskLayer,
+.searchResault .classList .classCard .classPhoto .maskLayer2,
+.hotClassRecommend .classList .classCard .classPhoto .maskLayer,
+.hotClassRecommend .classList .classCard .classPhoto .maskLayer2,
+.newestClass .classList .classCard .classPhoto .maskLayer,
+.newestClass .classList .classCard .classPhoto .maskLayer2 {
+  width: 320px;
+  height: 240px;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  -webkit-mask: url("../images/mask-01.svg") no-repeat center center;
+  mask: url("../images/mask-01.svg") no-repeat center center;
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  -webkit-mask-position: center top;
+  transition: all 0.5s ease-out;
+  opacity: 0;
+  /* 初始透明 */
+  visibility: hidden;
+  /* 初始不可見 */
+}
+.searchResault .classList .classCard .classPhoto .maskLayer2,
+.hotClassRecommend .classList .classCard .classPhoto .maskLayer2,
+.newestClass .classList .classCard .classPhoto .maskLayer2 {
+  -webkit-mask: url("..//images/mask-02.svg") no-repeat center center;
+  mask: url("../images/mask-02.svg") no-repeat center center;
+  transition: all 0.5s ease-out;
+}
+.searchResault .classList .classCard .classTag,
+.hotClassRecommend .classList .classCard .classTag,
+.newestClass .classList .classCard .classTag {
+  margin: 20px 0;
+  justify-content: left;
+}
+.searchResault .classList .classCard .classTag p,
+.hotClassRecommend .classList .classCard .classTag p,
+.newestClass .classList .classCard .classTag p {
+  color: #ffffff;
+  font-size: 13px;
+  margin-right: 12px;
+}
+.searchResault .classList .classCard .classTag .classLevel,
+.hotClassRecommend .classList .classCard .classTag .classLevel,
+.newestClass .classList .classCard .classTag .classLevel {
+  background-image: url(../images/tag-level.svg);
+  padding: 7px 16px 8px;
+}
+.searchResault .classList .classCard .classTag .classTime,
+.hotClassRecommend .classList .classCard .classTag .classTime,
+.newestClass .classList .classCard .classTag .classTime {
+  background-image: url(../images/tag-time.svg);
+  padding: 5px 17.5px 4px 13px;
+}
+.searchResault .classList .classCard .classTitle,
+.hotClassRecommend .classList .classCard .classTitle,
+.newestClass .classList .classCard .classTitle {
+  align-items: start;
+  margin-bottom: 24px;
+}
+.searchResault .classList .classCard .classTitle h3,
+.hotClassRecommend .classList .classCard .classTitle h3,
+.newestClass .classList .classCard .classTitle h3 {
+  font-size: 18px;
+  font-weight: 600;
+}
+.searchResault .classList .classCard .classPrice,
+.hotClassRecommend .classList .classCard .classPrice,
+.newestClass .classList .classCard .classPrice {
+  align-items: center;
+}
+.searchResault .classList .classCard .classPrice .classStoreName,
+.hotClassRecommend .classList .classCard .classPrice .classStoreName,
+.newestClass .classList .classCard .classPrice .classStoreName {
+  color: #5a5a5a;
+}
+.searchResault .classList .classCard .classPrice .classPrice,
+.hotClassRecommend .classList .classCard .classPrice .classPrice,
+.newestClass .classList .classCard .classPrice .classPrice {
+  color: #483D3F;
+  font-size: 22px;
+}
+.searchResault .classList .classCard .icons-heart,
+.hotClassRecommend .classList .classCard .icons-heart,
+.newestClass .classList .classCard .icons-heart {
+  width: 24px;
+}
+.searchResault .classList .classCard:hover .maskLayer,
+.searchResault .classList .classCard:hover .maskLayer2,
+.hotClassRecommend .classList .classCard:hover .maskLayer,
+.hotClassRecommend .classList .classCard:hover .maskLayer2,
+.newestClass .classList .classCard:hover .maskLayer,
+.newestClass .classList .classCard:hover .maskLayer2 {
+  opacity: 1;
+  visibility: visible;
+  transition: all 0.5s ease-out;
+  /* 添加漸變效果 */
+}
+.searchResault .classList .classCard:hover .defaultPhoto,
+.hotClassRecommend .classList .classCard:hover .defaultPhoto,
+.newestClass .classList .classCard:hover .defaultPhoto {
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.5s ease-in-out;
+  /* 添加漸變效果 */
+}
+.searchResault .seeMore,
+.hotClassRecommend .seeMore,
+.newestClass .seeMore {
+  width: 160px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+.searchResault .seeMore figure,
+.hotClassRecommend .seeMore figure,
+.newestClass .seeMore figure {
+  position: absolute;
+  left: -4px;
+  top: -6px;
+  width: 40px;
+  height: 38px;
+}
+.searchResault .seeMore div,
+.hotClassRecommend .seeMore div,
+.newestClass .seeMore div {
+  z-index: 20;
+}
+.searchResault .seeMore div p,
+.hotClassRecommend .seeMore div p,
+.newestClass .seeMore div p {
+  font-weight: 800;
+  margin: 4px;
+}
+.searchResault .seeMore div a,
+.hotClassRecommend .seeMore div a,
+.newestClass .seeMore div a {
+  display: flex;
+  align-items: center;
+}
+.searchResault .seeMore .icons-arrowDown,
+.hotClassRecommend .seeMore .icons-arrowDown,
+.newestClass .seeMore .icons-arrowDown {
+  width: 24px;
+}
+
+/* 頁尾區 */
+footer {
+  background-color: #483D3F;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+footer .footer-bgDeco {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+footer .footer-bgDeco img {
+  position: absolute;
+  bottom: -1px;
+}
+footer .foot-content {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 50px 100px;
+}
+footer .foot-content img {
+  width: 338px;
+  height: 72px;
+}
+footer .menu {
+  display: flex;
+  text-align: center;
+}
+footer .menu > li {
+  width: 6rem;
+  margin: 0 10px;
+  font-size: 14px;
+  font-weight: 400;
+}
+footer .menu > li ul {
+  margin: 15px 0;
+}
+footer .menu > li ul > li {
+  padding: 4px 0;
+}
+footer a,
+footer li,
+footer small {
+  color: white;
+}
+footer small {
+  margin-bottom: 50px;
+  font-size: 0.8rem;
+}
+
+/* 自訂義抖動效果 */
+@keyframes custom-shake-h {
+  20% {
+    transform: translate(-2.5px, 0.5px) rotate(-1.5deg);
+  }
+  40% {
+    transform: translate(0.5px, 2.5px) rotate(-0.5deg);
+  }
+  60% {
+    transform: translate(-8.5px, 0.5px) rotate(-1.5deg);
+  }
+  80% {
+    transform: translate(-0.5px, 2.5px) rotate(-0.5deg);
+  }
+  0%, 100% {
+    transform: translate(0, 0) rotate(0);
+  }
+}
+.custom-shake-h:hover, .shake-trigger:hover .custom-shake-h, .custom-shake-h.shake-freeze, .custom-shake-h.shake-constant {
+  animation-name: custom-shake-h;
+  animation-duration: 5500ms;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+@keyframes custom-shake-v {
+  20% {
+    transform: translate(-0.5px, -9.5px) rotate(0.5deg);
+  }
+  40% {
+    transform: translate(0.5px, -0.5px) rotate(1.5deg);
+  }
+  60% {
+    transform: translate(0.5px, 2.5px) rotate(1.5deg);
+  }
+  0%, 80%, 100% {
+    transform: translate(0, 0) rotate(0);
+  }
+}
+.custom-shake-v:hover, .shake-trigger:hover .custom-shake-v, .custom-shake-v.shake-freeze, .custom-shake-v.shake-constant {
+  animation-name: custom-shake-v;
+  animation-duration: 5500ms;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+@keyframes custom-shake-t {
+  20% {
+    transform: translate(2.5px, -7px) rotate(-4.5deg);
+  }
+  40% {
+    transform: translate(-0.5px, -7px) rotate(5.5deg);
+  }
+  60% {
+    transform: translate(2.5px, 10px) rotate(5.5deg);
+  }
+  80% {
+    transform: translate(0.5px, 6px) rotate(4.5deg);
+  }
+  0%, 100% {
+    transform: translate(0, 0) rotate(0);
+  }
+}
+.custom-shake-t:hover, .shake-trigger:hover .custom-shake-t, .custom-shake-t.shake-freeze, .custom-shake-t.shake-constant {
+  animation-name: custom-shake-t;
+  animation-duration: 6000ms;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}/*# sourceMappingURL=App.css.map */

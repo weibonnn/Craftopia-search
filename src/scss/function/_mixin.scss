@@ -1,0 +1,4 @@
+@mixin bordered ($width:1px,$color:#000000){
+    border: $width solid $color;
+}
+
