@@ -1,4 +1,5 @@
 @use "reset";
+@use "variables" as *;
 @use "function" as *;
 @import url('https://fonts.googleapis.com/css2?family=Braah+One&family=Finger+Paint&family=Noto+Sans+TC:wght@100..900&display=swap');
 
@@ -72,11 +73,12 @@ body {
 
 /* 課程搜尋區塊 */
 .banner {
-    height: 490px;
+    height: 560px;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
     align-items: center;
+    position: relative;
 
 
     background-image: linear-gradient(rgb(127, 127, 127, .45), rgb(127, 127, 127, .45)), url(../images/banner-search.jpg);
@@ -100,7 +102,7 @@ body {
 
     .searchSection {
 
-        z-index: 900;
+        z-index: 50;
         width: 86%;
 
         background-color: rgba(255, 255, 255, 0.6);
@@ -139,7 +141,7 @@ body {
             .select-type,
             .select-people {
 
-                
+
                 position: relative;
                 width: 24%;
                 height: 48px;
@@ -154,7 +156,7 @@ body {
                     display: flex;
                     justify-content: space-between;
                     align-items: center;
-                    padding: 12px;
+                    padding: 12px 4px 12px 12px;
                     cursor: pointer;
 
 
@@ -165,12 +167,16 @@ body {
 
                     }
 
-                    &.active{
+                    &.active {
                         color: #222222;
                     }
                 }
 
                 .option-container {
+
+                    max-height: 200px;
+                    overflow: auto;
+
                     display: none;
                     background-color: #ffffff;
                     border: 1px solid #ADADAD;
@@ -179,7 +185,7 @@ body {
                     position: absolute;
                     top: 100%;
                     left: -1px;
-                    z-index: 90;
+                    z-index: 50;
 
                     border-radius: 0 0 6px 6px;
 
@@ -188,17 +194,22 @@ body {
                         padding: 12px;
                         cursor: pointer;
 
+
                         &:hover {
                             background-color: #483D3F;
                             color: #ffffff;
                         }
 
-                        &.active{
+                        &.active {
                             background-color: #483D3F;
                             color: #ffffff;
                         }
 
                     }
+
+
+
+
                 }
 
 
@@ -221,16 +232,18 @@ body {
 
 
 
+
+
             }
 
             .select-people {
                 width: 32%;
 
-                .select-header{
+                .select-header {
                     color: #222222;
 
                 }
-                
+
                 .number-option {
 
                     display: flex;
@@ -338,7 +351,102 @@ body {
 
 }
 
+@media ($mediaMd) {
 
+    .banner {
+        h2 {
+            font-size: 32px;
+        }
+
+        .engTitle {
+            font-size: 28px;
+        }
+
+        .left-filled {
+            width: 170px;
+            top: 140px;
+            left: 30px;
+        }
+
+        .left-stroke {
+            width: 110px;
+            top: 220px;
+            left: 20px;
+        }
+
+        .left-tool {
+            width: 130px;
+            top: 160px;
+            left: 110px;
+        }
+
+        .right-filled {
+            width: 220px;
+
+            top: 200px;
+            right: 80px;
+        }
+
+        .right-stroke {
+            width: 100px;
+            top: 160px;
+            right: 60px;
+        }
+
+        .right-tool {
+            width: 200px;
+            top: 160px;
+            right: 100px;
+        }
+
+
+        .searchSection {
+
+            padding: 27px 20px;
+            flex-direction: column;
+            align-items: center;
+            img{
+                display: none;
+            }
+
+            .search-select {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                width: 100%;
+                gap: 4px;
+
+
+                input{
+                    width: 100%;
+                }
+
+            .select-location,
+            .select-type,
+            .select-people {
+
+                width: 100%;
+            }
+
+
+
+            }
+
+            
+            .searchBtn {
+                margin: 16px 0 0;
+                width: 100%;
+              
+            }
+
+
+        }
+
+    }
+
+
+
+
+}
 
 /* 列表分類過濾器 */
 
@@ -346,9 +454,10 @@ body {
 
     display: flex;
     justify-content: space-between;
-    width: 100%;
 
-    padding: 32px 8%;
+    width: 80%;
+    z-index: 20;
+    padding: 0 0 20px;
 
     .filter {
 
@@ -360,7 +469,7 @@ body {
         background-color: #ffffff;
 
         border-radius: 100px;
-        
+
 
         .select-header {
 
@@ -413,19 +522,19 @@ body {
             position: absolute;
             top: 100%;
             left: -1px;
-            z-index: 90;
+            z-index: 20;
 
             border-radius: 0 0 24px 24px;
 
             .select-option {
 
                 padding: 24px;
-                
-                div{
+
+                div {
                     display: flex;
                     margin-top: 16px;
 
-                    .classify-content{
+                    .classify-content {
                         border: #483D3F 1px solid;
                         border-radius: 100px;
                         padding: 8px 12px;
@@ -433,18 +542,18 @@ body {
                         cursor: pointer;
 
 
-                        &.selected{
+                        &.selected {
                             background-color: #483D3F;
                             color: #ffffff;
                         }
-                        
+
                     }
                 }
             }
         }
 
 
-        &.open{
+        &.open {
             width: 640px;
         }
     }
@@ -461,7 +570,7 @@ body {
             position: absolute;
             top: 100%;
             left: -1px;
-            z-index: 90;
+            z-index: 20;
             overflow: hidden;
             border-radius: 0 0 24px 24px;
 
@@ -489,12 +598,15 @@ body {
 }
 
 
+
+
+
 /* 課程列表區 */
 .searchResault,
 .hotClassRecommend,
 .newestClass {
 
-    margin: 100px 0;
+    margin: 144px 0;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -514,17 +626,23 @@ body {
 
     .classList {
 
-        width: 100%;
-        display: flex;
-        justify-content: space-evenly;
-        margin-bottom: 80px;
+        width: 80%;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        justify-content: space-between;
+        column-gap: 8%;
+
+
+
+
 
 
 
         .classCard {
 
+            margin-bottom: 100px;
             position: relative;
-            width: 320px;
+            width: auto;
 
             div {
 
@@ -535,7 +653,7 @@ body {
             .classPhoto {
 
                 position: relative;
-                width: 320px;
+                width: 100%;
                 height: auto;
                 border-radius: 10px;
                 overflow: hidden;
@@ -552,8 +670,8 @@ body {
                 }
 
                 .defaultPhoto {
-                    width: 320px;
-                    height: 240px;
+                    width: 100%;
+                    height: auto;
                     object-fit: cover;
                     transition: all .4s ease-out;
                 }
@@ -561,19 +679,19 @@ body {
                 .maskLayer,
                 .maskLayer2 {
 
-                    width: 320px;
-                    height: 240px;
+                    width: 100%;
+                    height: auto;
                     object-fit: cover;
 
                     position: absolute;
                     top: 0;
                     left: 0;
 
-                    -webkit-mask: url("../images/mask-01.svg") no-repeat center center;
+
                     mask: url("../images/mask-01.svg") no-repeat center center;
-                    -webkit-mask-size: contain;
+
                     mask-size: contain;
-                    -webkit-mask-position: center top;
+
                     transition: all 0.5s ease-out;
 
 
@@ -584,7 +702,7 @@ body {
                 }
 
                 .maskLayer2 {
-                    -webkit-mask: url("..//images/mask-02.svg") no-repeat center center;
+
                     mask: url("../images/mask-02.svg") no-repeat center center;
                     transition: all 0.5s ease-out;
 
@@ -684,6 +802,15 @@ body {
 
 
 
+    @media ($mediaMd) {
+
+        .classList {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+    }
+
+
     .seeMore {
         width: 160px;
         position: relative;
@@ -699,7 +826,7 @@ body {
         }
 
         div {
-            z-index: 20;
+            z-index: 10;
 
 
             p {
@@ -800,6 +927,14 @@ footer {
     }
 }
 
+@media ($mediaMd) {
+
+    footer {
+        display: none;
+    }
+
+}
+
 
 
 
@@ -822,16 +957,16 @@ footer {
 
 .custom-shake-v {
     @include do-shake($name: 'custom-shake-v', // 動畫名稱
-        $h: 5px, // 水平抖動幅度
-        $v: 25px, // 垂直抖動幅度
+        $h: 8px, // 水平抖動幅度
+        $v: 40px, // 垂直抖動幅度
         $r: 5deg, // 旋轉角度
-        $dur: 5500ms, // 動畫時長
+        $dur: 5000ms, // 動畫時長
         $precision: 0.20, // 隨機性
         $opacity: false, // 是否改變透明度
         $q: infinite, // 動畫重複次數
         $t: ease-in-out, // 過渡效果
         $delay: null, // 延遲
-        $chunk: 80% // 動畫執行百分比
+        $chunk: 90% // 動畫執行百分比
     );
 }
 
@@ -839,7 +974,7 @@ footer {
     @include do-shake($name: 'custom-shake-t', // 動畫名稱
         $h: 5px, // 水平抖動幅度
         $v: 20px, // 垂直抖動幅度
-        $r: 15deg, // 旋轉角度
+        $r: 12deg, // 旋轉角度
         $dur: 6000ms, // 動畫時長
         $precision: 0.20, // 隨機性
         $opacity: false, // 是否改變透明度

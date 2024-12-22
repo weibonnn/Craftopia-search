@@ -33,7 +33,7 @@ function App() {
 
 
 
-          <SearchSection/>
+          <SearchSection />
 
           <figure className="left-filled custom-shake-v shake-constant"><img src="./images/decor-searchBanner-leftbubbleFilled.png" alt="" /></figure>
           <figure className="left-stroke custom-shake-h shake-constant"><img src="./images/decor-searchBanner-leftbubbleStroke.png" alt="" /></figure>
@@ -45,152 +45,252 @@ function App() {
 
         </section>
 
+        {/* 課程搜尋結果 */}
+
         <section className="searchResault">
 
           <figure className="listTitle">
             <img src="./images/title-resault.svg" alt="" />
           </figure>
 
-          <Filter/>
+          <Filter />
           <div className="classList">
 
             <div className="classCard">
-              <a href="#">
-                <figure className="classPhoto">
+
+              <figure className="classPhoto">
+                <a href="#">
                   <img className="defaultPhoto" src="./images/classphoto-01.jpg" alt="" />
                   <img className="tagHotorNew" src="./images/labels-hot.svg" alt="" />
                   <img className="maskLayer" src="./images/classphoto-01.jpg" alt="" />
-                </figure>
-                <div className="classTag">
-                  <p className="classLevel">入門</p>
-                  <p className="classTime">3hr</p>
-                </div>
-                <div className="classTitle">
-                  <h3>創造專屬你們的對戒！『草樹工作坊』銀戒雙人體驗課 </h3>
-                  <img className="icons-heart" src="./images/icons-heart.svg" alt="" />
-                </div>
-                <div className="classPrice">
-                  <p className="classStoreName">草樹工作坊</p>
-                  <p className="classPrice">$ 3800</p>
-                </div>
-              </a>
-            </div>
+                </a>
+              </figure>
+              <div className="classTag">
+                <p className="classLevel">入門</p>
+                <p className="classTime">3hr</p>
+              </div>
+              <div className="classTitle">
+                <h3><a href="#">創造專屬你們的對戒！『草樹工作坊』銀戒雙人體驗課</a></h3>
+                <img className="icons-heart" src="./images/icons-heart.svg" alt="" />
+              </div>
+              <div className="classPrice">
+                <p className="classStoreName"><a href="#">草樹工作坊</a></p>
+                <p className="classPrice">$ 3800</p>
+              </div>
 
-            <div className="classCard">
-              <a href="#">
-                <figure className="classPhoto">
-                  <img className="defaultPhoto" src="./images/classphoto-01.jpg" alt="" />
-                  <img className="tagHotorNew" src="./images/labels-hot.svg" alt="" />
-                  <img className="maskLayer2" src="./images/classphoto-01.jpg" alt="" />
-                </figure>
-                <div className="classTag">
-                  <p className="classLevel">入門</p>
-                  <p className="classTime">3hr</p>
-                </div>
-                <div className="classTitle">
-                  <h3>創造專屬你們的對戒！『草樹工作坊』銀戒雙人體驗課 </h3>
-                  <img className="icons-heart" src="./images/icons-heart.svg" alt="" />
-                </div>
-                <div className="classPrice">
-                  <p className="classStoreName">草樹工作坊</p>
-                  <p className="classPrice">$ 3800</p>
-                </div>
-              </a>
             </div>
-
             <div className="classCard">
-              <a href="#">
-                <figure className="classPhoto">
+
+              <figure className="classPhoto">
+                <a href="#">
                   <img className="defaultPhoto" src="./images/classphoto-01.jpg" alt="" />
                   <img className="tagHotorNew" src="./images/labels-hot.svg" alt="" />
                   <img className="maskLayer" src="./images/classphoto-01.jpg" alt="" />
-                </figure>
-                <div className="classTag">
-                  <p className="classLevel">入門</p>
-                  <p className="classTime">3hr</p>
-                </div>
-                <div className="classTitle">
-                  <h3>創造專屬你們的對戒！『草樹工作坊』銀戒雙人體驗課 </h3>
-                  <img className="icons-heart" src="./images/icons-heart.svg" alt="" />
-                </div>
-                <div className="classPrice">
-                  <p className="classStoreName">草樹工作坊</p>
-                  <p className="classPrice">$ 3800</p>
-                </div>
-              </a>
+                </a>
+              </figure>
+              <div className="classTag">
+                <p className="classLevel">入門</p>
+                <p className="classTime">3hr</p>
+              </div>
+              <div className="classTitle">
+                <h3><a href="#">創造專屬你們的對戒！『草樹工作坊』銀戒雙人體驗課</a></h3>
+                <img className="icons-heart" src="./images/icons-heart.svg" alt="" />
+              </div>
+              <div className="classPrice">
+                <p className="classStoreName"><a href="#">草樹工作坊</a></p>
+                <p className="classPrice">$ 3800</p>
+              </div>
+
+            </div>
+            <div className="classCard">
+
+              <figure className="classPhoto">
+                <a href="#">
+                  <img className="defaultPhoto" src="./images/classphoto-01.jpg" alt="" />
+                  <img className="tagHotorNew" src="./images/labels-hot.svg" alt="" />
+                  <img className="maskLayer" src="./images/classphoto-01.jpg" alt="" />
+                </a>
+              </figure>
+              <div className="classTag">
+                <p className="classLevel">入門</p>
+                <p className="classTime">3hr</p>
+              </div>
+              <div className="classTitle">
+                <h3><a href="#">創造專屬你們的對戒！『草樹工作坊』銀戒雙人體驗課</a></h3>
+                <img className="icons-heart" src="./images/icons-heart.svg" alt="" />
+              </div>
+              <div className="classPrice">
+                <p className="classStoreName"><a href="#">草樹工作坊</a></p>
+                <p className="classPrice">$ 3800</p>
+              </div>
+
+            </div>
+            <div className="classCard">
+
+              <figure className="classPhoto">
+                <a href="#">
+                  <img className="defaultPhoto" src="./images/classphoto-01.jpg" alt="" />
+                  <img className="tagHotorNew" src="./images/labels-hot.svg" alt="" />
+                  <img className="maskLayer" src="./images/classphoto-01.jpg" alt="" />
+                </a>
+              </figure>
+              <div className="classTag">
+                <p className="classLevel">入門</p>
+                <p className="classTime">3hr</p>
+              </div>
+              <div className="classTitle">
+                <h3><a href="#">創造專屬你們的對戒！『草樹工作坊』銀戒雙人體驗課</a></h3>
+                <img className="icons-heart" src="./images/icons-heart.svg" alt="" />
+              </div>
+              <div className="classPrice">
+                <p className="classStoreName"><a href="#">草樹工作坊</a></p>
+                <p className="classPrice">$ 3800</p>
+              </div>
+
+            </div>
+            <div className="classCard">
+
+              <figure className="classPhoto">
+                <a href="#">
+                  <img className="defaultPhoto" src="./images/classphoto-01.jpg" alt="" />
+                  <img className="tagHotorNew" src="./images/labels-hot.svg" alt="" />
+                  <img className="maskLayer" src="./images/classphoto-01.jpg" alt="" />
+                </a>
+              </figure>
+              <div className="classTag">
+                <p className="classLevel">入門</p>
+                <p className="classTime">3hr</p>
+              </div>
+              <div className="classTitle">
+                <h3><a href="#">創造專屬你們的對戒！『草樹工作坊』銀戒雙人體驗課</a></h3>
+                <img className="icons-heart" src="./images/icons-heart.svg" alt="" />
+              </div>
+              <div className="classPrice">
+                <p className="classStoreName"><a href="#">草樹工作坊</a></p>
+                <p className="classPrice">$ 3800</p>
+              </div>
+
+            </div>
+            <div className="classCard">
+
+              <figure className="classPhoto">
+                <a href="#">
+                  <img className="defaultPhoto" src="./images/classphoto-01.jpg" alt="" />
+                  <img className="tagHotorNew" src="./images/labels-hot.svg" alt="" />
+                  <img className="maskLayer" src="./images/classphoto-01.jpg" alt="" />
+                </a>
+              </figure>
+              <div className="classTag">
+                <p className="classLevel">入門</p>
+                <p className="classTime">3hr</p>
+              </div>
+              <div className="classTitle">
+                <h3><a href="#">創造專屬你們的對戒！『草樹工作坊』銀戒雙人體驗課</a></h3>
+                <img className="icons-heart" src="./images/icons-heart.svg" alt="" />
+              </div>
+              <div className="classPrice">
+                <p className="classStoreName"><a href="#">草樹工作坊</a></p>
+                <p className="classPrice">$ 3800</p>
+              </div>
+
+            </div>
+            <div className="classCard">
+
+              <figure className="classPhoto">
+                <a href="#">
+                  <img className="defaultPhoto" src="./images/classphoto-01.jpg" alt="" />
+                  <img className="tagHotorNew" src="./images/labels-hot.svg" alt="" />
+                  <img className="maskLayer" src="./images/classphoto-01.jpg" alt="" />
+                </a>
+              </figure>
+              <div className="classTag">
+                <p className="classLevel">入門</p>
+                <p className="classTime">3hr</p>
+              </div>
+              <div className="classTitle">
+                <h3><a href="#">創造專屬你們的對戒！『草樹工作坊』銀戒雙人體驗課</a></h3>
+                <img className="icons-heart" src="./images/icons-heart.svg" alt="" />
+              </div>
+              <div className="classPrice">
+                <p className="classStoreName"><a href="#">草樹工作坊</a></p>
+                <p className="classPrice">$ 3800</p>
+              </div>
+
+            </div>
+            <div className="classCard">
+
+              <figure className="classPhoto">
+                <a href="#">
+                  <img className="defaultPhoto" src="./images/classphoto-01.jpg" alt="" />
+                  <img className="tagHotorNew" src="./images/labels-hot.svg" alt="" />
+                  <img className="maskLayer" src="./images/classphoto-01.jpg" alt="" />
+                </a>
+              </figure>
+              <div className="classTag">
+                <p className="classLevel">入門</p>
+                <p className="classTime">3hr</p>
+              </div>
+              <div className="classTitle">
+                <h3><a href="#">創造專屬你們的對戒！『草樹工作坊』銀戒雙人體驗課</a></h3>
+                <img className="icons-heart" src="./images/icons-heart.svg" alt="" />
+              </div>
+              <div className="classPrice">
+                <p className="classStoreName"><a href="#">草樹工作坊</a></p>
+                <p className="classPrice">$ 3800</p>
+              </div>
+
+            </div>
+            <div className="classCard">
+
+              <figure className="classPhoto">
+                <a href="#">
+                  <img className="defaultPhoto" src="./images/classphoto-01.jpg" alt="" />
+                  <img className="tagHotorNew" src="./images/labels-hot.svg" alt="" />
+                  <img className="maskLayer" src="./images/classphoto-01.jpg" alt="" />
+                </a>
+              </figure>
+              <div className="classTag">
+                <p className="classLevel">入門</p>
+                <p className="classTime">3hr</p>
+              </div>
+              <div className="classTitle">
+                <h3><a href="#">創造專屬你們的對戒！『草樹工作坊』銀戒雙人體驗課</a></h3>
+                <img className="icons-heart" src="./images/icons-heart.svg" alt="" />
+              </div>
+              <div className="classPrice">
+                <p className="classStoreName"><a href="#">草樹工作坊</a></p>
+                <p className="classPrice">$ 3800</p>
+              </div>
+
+            </div>
+            <div className="classCard">
+
+              <figure className="classPhoto">
+                <a href="#">
+                  <img className="defaultPhoto" src="./images/classphoto-01.jpg" alt="" />
+                  <img className="tagHotorNew" src="./images/labels-hot.svg" alt="" />
+                  <img className="maskLayer" src="./images/classphoto-01.jpg" alt="" />
+                </a>
+              </figure>
+              <div className="classTag">
+                <p className="classLevel">入門</p>
+                <p className="classTime">3hr</p>
+              </div>
+              <div className="classTitle">
+                <h3><a href="#">創造專屬你們的對戒！『草樹工作坊』銀戒雙人體驗課</a></h3>
+                <img className="icons-heart" src="./images/icons-heart.svg" alt="" />
+              </div>
+              <div className="classPrice">
+                <p className="classStoreName"><a href="#">草樹工作坊</a></p>
+                <p className="classPrice">$ 3800</p>
+              </div>
+
             </div>
 
           </div>
 
-          <div className="classList">
 
-            <div className="classCard">
-              <a href="#">
-                <figure className="classPhoto">
-                  <img className="defaultPhoto" src="./images/classphoto-01.jpg" alt="" />
-                  <img className="tagHotorNew" src="./images/labels-hot.svg" alt="" />
-                  <img className="maskLayer" src="./images/classphoto-01.jpg" alt="" />
-                </figure>
-                <div className="classTag">
-                  <p className="classLevel">入門</p>
-                  <p className="classTime">3hr</p>
-                </div>
-                <div className="classTitle">
-                  <h3>創造專屬你們的對戒！『草樹工作坊』銀戒雙人體驗課 </h3>
-                  <img className="icons-heart" src="./images/icons-heart.svg" alt="" />
-                </div>
-                <div className="classPrice">
-                  <p className="classStoreName">草樹工作坊</p>
-                  <p className="classPrice">$ 3800</p>
-                </div>
-              </a>
-            </div>
 
-            <div className="classCard">
-              <a href="#">
-                <figure className="classPhoto">
-                  <img className="defaultPhoto" src="./images/classphoto-01.jpg" alt="" />
-                  <img className="tagHotorNew" src="./images/labels-hot.svg" alt="" />
-                  <img className="maskLayer2" src="./images/classphoto-01.jpg" alt="" />
-                </figure>
-                <div className="classTag">
-                  <p className="classLevel">入門</p>
-                  <p className="classTime">3hr</p>
-                </div>
-                <div className="classTitle">
-                  <h3>創造專屬你們的對戒！『草樹工作坊』銀戒雙人體驗課 </h3>
-                  <img className="icons-heart" src="./images/icons-heart.svg" alt="" />
-                </div>
-                <div className="classPrice">
-                  <p className="classStoreName">草樹工作坊</p>
-                  <p className="classPrice">$ 3800</p>
-                </div>
-              </a>
-            </div>
-
-            <div className="classCard">
-              <a href="#">
-                <figure className="classPhoto">
-                  <img className="defaultPhoto" src="./images/classphoto-01.jpg" alt="" />
-                  <img className="tagHotorNew" src="./images/labels-hot.svg" alt="" />
-                  <img className="maskLayer" src="./images/classphoto-01.jpg" alt="" />
-                </figure>
-                <div className="classTag">
-                  <p className="classLevel">入門</p>
-                  <p className="classTime">3hr</p>
-                </div>
-                <div className="classTitle">
-                  <h3>創造專屬你們的對戒！『草樹工作坊』銀戒雙人體驗課 </h3>
-                  <img className="icons-heart" src="./images/icons-heart.svg" alt="" />
-                </div>
-                <div className="classPrice">
-                  <p className="classStoreName">草樹工作坊</p>
-                  <p className="classPrice">$ 3800</p>
-                </div>
-              </a>
-            </div>
-
-          </div>
 
           <div className="seeMore">
 
@@ -206,6 +306,8 @@ function App() {
           </div>
 
         </section>
+
+        {/* 熱門課程推薦 */}
 
         <section className="hotClassRecommend">
 
@@ -216,139 +318,234 @@ function App() {
           <div className="classList">
 
             <div className="classCard">
-              <a href="#">
-                <figure className="classPhoto">
+
+              <figure className="classPhoto">
+                <a href="#">
                   <img className="defaultPhoto" src="./images/classphoto-01.jpg" alt="" />
                   <img className="tagHotorNew" src="./images/labels-hot.svg" alt="" />
                   <img className="maskLayer" src="./images/classphoto-01.jpg" alt="" />
-                </figure>
-                <div className="classTag">
-                  <p className="classLevel">入門</p>
-                  <p className="classTime">3hr</p>
-                </div>
-                <div className="classTitle">
-                  <h3>創造專屬你們的對戒！『草樹工作坊』銀戒雙人體驗課 </h3>
-                  <img className="icons-heart" src="./images/icons-heart.svg" alt="" />
-                </div>
-                <div className="classPrice">
-                  <p className="classStoreName">草樹工作坊</p>
-                  <p className="classPrice">$ 3800</p>
-                </div>
-              </a>
-            </div>
+                </a>
+              </figure>
+              <div className="classTag">
+                <p className="classLevel">入門</p>
+                <p className="classTime">3hr</p>
+              </div>
+              <div className="classTitle">
+                <h3><a href="#">創造專屬你們的對戒！『草樹工作坊』銀戒雙人體驗課</a></h3>
+                <img className="icons-heart" src="./images/icons-heart.svg" alt="" />
+              </div>
+              <div className="classPrice">
+                <p className="classStoreName"><a href="#">草樹工作坊</a></p>
+                <p className="classPrice">$ 3800</p>
+              </div>
 
-            <div className="classCard">
-              <a href="#">
-                <figure className="classPhoto">
-                  <img className="defaultPhoto" src="./images/classphoto-01.jpg" alt="" />
-                  <img className="tagHotorNew" src="./images/labels-hot.svg" alt="" />
-                  <img className="maskLayer2" src="./images/classphoto-01.jpg" alt="" />
-                </figure>
-                <div className="classTag">
-                  <p className="classLevel">入門</p>
-                  <p className="classTime">3hr</p>
-                </div>
-                <div className="classTitle">
-                  <h3>創造專屬你們的對戒！『草樹工作坊』銀戒雙人體驗課 </h3>
-                  <img className="icons-heart" src="./images/icons-heart.svg" alt="" />
-                </div>
-                <div className="classPrice">
-                  <p className="classStoreName">草樹工作坊</p>
-                  <p className="classPrice">$ 3800</p>
-                </div>
-              </a>
             </div>
-
             <div className="classCard">
-              <a href="#">
-                <figure className="classPhoto">
+
+              <figure className="classPhoto">
+                <a href="#">
                   <img className="defaultPhoto" src="./images/classphoto-01.jpg" alt="" />
                   <img className="tagHotorNew" src="./images/labels-hot.svg" alt="" />
                   <img className="maskLayer" src="./images/classphoto-01.jpg" alt="" />
-                </figure>
-                <div className="classTag">
-                  <p className="classLevel">入門</p>
-                  <p className="classTime">3hr</p>
-                </div>
-                <div className="classTitle">
-                  <h3>創造專屬你們的對戒！『草樹工作坊』銀戒雙人體驗課 </h3>
-                  <img className="icons-heart" src="./images/icons-heart.svg" alt="" />
-                </div>
-                <div className="classPrice">
-                  <p className="classStoreName">草樹工作坊</p>
-                  <p className="classPrice">$ 3800</p>
-                </div>
-              </a>
+                </a>
+              </figure>
+              <div className="classTag">
+                <p className="classLevel">入門</p>
+                <p className="classTime">3hr</p>
+              </div>
+              <div className="classTitle">
+                <h3><a href="#">創造專屬你們的對戒！『草樹工作坊』銀戒雙人體驗課</a></h3>
+                <img className="icons-heart" src="./images/icons-heart.svg" alt="" />
+              </div>
+              <div className="classPrice">
+                <p className="classStoreName"><a href="#">草樹工作坊</a></p>
+                <p className="classPrice">$ 3800</p>
+              </div>
+
             </div>
-
-          </div>
-
-          <div className="classList">
-
             <div className="classCard">
-              <a href="#">
-                <figure className="classPhoto">
+
+              <figure className="classPhoto">
+                <a href="#">
                   <img className="defaultPhoto" src="./images/classphoto-01.jpg" alt="" />
                   <img className="tagHotorNew" src="./images/labels-hot.svg" alt="" />
                   <img className="maskLayer" src="./images/classphoto-01.jpg" alt="" />
-                </figure>
-                <div className="classTag">
-                  <p className="classLevel">入門</p>
-                  <p className="classTime">3hr</p>
-                </div>
-                <div className="classTitle">
-                  <h3>創造專屬你們的對戒！『草樹工作坊』銀戒雙人體驗課 </h3>
-                  <img className="icons-heart" src="./images/icons-heart.svg" alt="" />
-                </div>
-                <div className="classPrice">
-                  <p className="classStoreName">草樹工作坊</p>
-                  <p className="classPrice">$ 3800</p>
-                </div>
-              </a>
-            </div>
+                </a>
+              </figure>
+              <div className="classTag">
+                <p className="classLevel">入門</p>
+                <p className="classTime">3hr</p>
+              </div>
+              <div className="classTitle">
+                <h3><a href="#">創造專屬你們的對戒！『草樹工作坊』銀戒雙人體驗課</a></h3>
+                <img className="icons-heart" src="./images/icons-heart.svg" alt="" />
+              </div>
+              <div className="classPrice">
+                <p className="classStoreName"><a href="#">草樹工作坊</a></p>
+                <p className="classPrice">$ 3800</p>
+              </div>
 
-            <div className="classCard">
-              <a href="#">
-                <figure className="classPhoto">
-                  <img className="defaultPhoto" src="./images/classphoto-01.jpg" alt="" />
-                  <img className="tagHotorNew" src="./images/labels-hot.svg" alt="" />
-                  <img className="maskLayer2" src="./images/classphoto-01.jpg" alt="" />
-                </figure>
-                <div className="classTag">
-                  <p className="classLevel">入門</p>
-                  <p className="classTime">3hr</p>
-                </div>
-                <div className="classTitle">
-                  <h3>創造專屬你們的對戒！『草樹工作坊』銀戒雙人體驗課 </h3>
-                  <img className="icons-heart" src="./images/icons-heart.svg" alt="" />
-                </div>
-                <div className="classPrice">
-                  <p className="classStoreName">草樹工作坊</p>
-                  <p className="classPrice">$ 3800</p>
-                </div>
-              </a>
             </div>
-
             <div className="classCard">
-              <a href="#">
-                <figure className="classPhoto">
+
+              <figure className="classPhoto">
+                <a href="#">
                   <img className="defaultPhoto" src="./images/classphoto-01.jpg" alt="" />
                   <img className="tagHotorNew" src="./images/labels-hot.svg" alt="" />
                   <img className="maskLayer" src="./images/classphoto-01.jpg" alt="" />
-                </figure>
-                <div className="classTag">
-                  <p className="classLevel">入門</p>
-                  <p className="classTime">3hr</p>
-                </div>
-                <div className="classTitle">
-                  <h3>創造專屬你們的對戒！『草樹工作坊』銀戒雙人體驗課 </h3>
-                  <img className="icons-heart" src="./images/icons-heart.svg" alt="" />
-                </div>
-                <div className="classPrice">
-                  <p className="classStoreName">草樹工作坊</p>
-                  <p className="classPrice">$ 3800</p>
-                </div>
-              </a>
+                </a>
+              </figure>
+              <div className="classTag">
+                <p className="classLevel">入門</p>
+                <p className="classTime">3hr</p>
+              </div>
+              <div className="classTitle">
+                <h3><a href="#">創造專屬你們的對戒！『草樹工作坊』銀戒雙人體驗課</a></h3>
+                <img className="icons-heart" src="./images/icons-heart.svg" alt="" />
+              </div>
+              <div className="classPrice">
+                <p className="classStoreName"><a href="#">草樹工作坊</a></p>
+                <p className="classPrice">$ 3800</p>
+              </div>
+
+            </div>
+            <div className="classCard">
+
+              <figure className="classPhoto">
+                <a href="#">
+                  <img className="defaultPhoto" src="./images/classphoto-01.jpg" alt="" />
+                  <img className="tagHotorNew" src="./images/labels-hot.svg" alt="" />
+                  <img className="maskLayer" src="./images/classphoto-01.jpg" alt="" />
+                </a>
+              </figure>
+              <div className="classTag">
+                <p className="classLevel">入門</p>
+                <p className="classTime">3hr</p>
+              </div>
+              <div className="classTitle">
+                <h3><a href="#">創造專屬你們的對戒！『草樹工作坊』銀戒雙人體驗課</a></h3>
+                <img className="icons-heart" src="./images/icons-heart.svg" alt="" />
+              </div>
+              <div className="classPrice">
+                <p className="classStoreName"><a href="#">草樹工作坊</a></p>
+                <p className="classPrice">$ 3800</p>
+              </div>
+
+            </div>
+            <div className="classCard">
+
+              <figure className="classPhoto">
+                <a href="#">
+                  <img className="defaultPhoto" src="./images/classphoto-01.jpg" alt="" />
+                  <img className="tagHotorNew" src="./images/labels-hot.svg" alt="" />
+                  <img className="maskLayer" src="./images/classphoto-01.jpg" alt="" />
+                </a>
+              </figure>
+              <div className="classTag">
+                <p className="classLevel">入門</p>
+                <p className="classTime">3hr</p>
+              </div>
+              <div className="classTitle">
+                <h3><a href="#">創造專屬你們的對戒！『草樹工作坊』銀戒雙人體驗課</a></h3>
+                <img className="icons-heart" src="./images/icons-heart.svg" alt="" />
+              </div>
+              <div className="classPrice">
+                <p className="classStoreName"><a href="#">草樹工作坊</a></p>
+                <p className="classPrice">$ 3800</p>
+              </div>
+
+            </div>
+            <div className="classCard">
+
+              <figure className="classPhoto">
+                <a href="#">
+                  <img className="defaultPhoto" src="./images/classphoto-01.jpg" alt="" />
+                  <img className="tagHotorNew" src="./images/labels-hot.svg" alt="" />
+                  <img className="maskLayer" src="./images/classphoto-01.jpg" alt="" />
+                </a>
+              </figure>
+              <div className="classTag">
+                <p className="classLevel">入門</p>
+                <p className="classTime">3hr</p>
+              </div>
+              <div className="classTitle">
+                <h3><a href="#">創造專屬你們的對戒！『草樹工作坊』銀戒雙人體驗課</a></h3>
+                <img className="icons-heart" src="./images/icons-heart.svg" alt="" />
+              </div>
+              <div className="classPrice">
+                <p className="classStoreName"><a href="#">草樹工作坊</a></p>
+                <p className="classPrice">$ 3800</p>
+              </div>
+
+            </div>
+            <div className="classCard">
+
+              <figure className="classPhoto">
+                <a href="#">
+                  <img className="defaultPhoto" src="./images/classphoto-01.jpg" alt="" />
+                  <img className="tagHotorNew" src="./images/labels-hot.svg" alt="" />
+                  <img className="maskLayer" src="./images/classphoto-01.jpg" alt="" />
+                </a>
+              </figure>
+              <div className="classTag">
+                <p className="classLevel">入門</p>
+                <p className="classTime">3hr</p>
+              </div>
+              <div className="classTitle">
+                <h3><a href="#">創造專屬你們的對戒！『草樹工作坊』銀戒雙人體驗課</a></h3>
+                <img className="icons-heart" src="./images/icons-heart.svg" alt="" />
+              </div>
+              <div className="classPrice">
+                <p className="classStoreName"><a href="#">草樹工作坊</a></p>
+                <p className="classPrice">$ 3800</p>
+              </div>
+
+            </div>
+            <div className="classCard">
+
+              <figure className="classPhoto">
+                <a href="#">
+                  <img className="defaultPhoto" src="./images/classphoto-01.jpg" alt="" />
+                  <img className="tagHotorNew" src="./images/labels-hot.svg" alt="" />
+                  <img className="maskLayer" src="./images/classphoto-01.jpg" alt="" />
+                </a>
+              </figure>
+              <div className="classTag">
+                <p className="classLevel">入門</p>
+                <p className="classTime">3hr</p>
+              </div>
+              <div className="classTitle">
+                <h3><a href="#">創造專屬你們的對戒！『草樹工作坊』銀戒雙人體驗課</a></h3>
+                <img className="icons-heart" src="./images/icons-heart.svg" alt="" />
+              </div>
+              <div className="classPrice">
+                <p className="classStoreName"><a href="#">草樹工作坊</a></p>
+                <p className="classPrice">$ 3800</p>
+              </div>
+
+            </div>
+            <div className="classCard">
+
+              <figure className="classPhoto">
+                <a href="#">
+                  <img className="defaultPhoto" src="./images/classphoto-01.jpg" alt="" />
+                  <img className="tagHotorNew" src="./images/labels-hot.svg" alt="" />
+                  <img className="maskLayer" src="./images/classphoto-01.jpg" alt="" />
+                </a>
+              </figure>
+              <div className="classTag">
+                <p className="classLevel">入門</p>
+                <p className="classTime">3hr</p>
+              </div>
+              <div className="classTitle">
+                <h3><a href="#">創造專屬你們的對戒！『草樹工作坊』銀戒雙人體驗課</a></h3>
+                <img className="icons-heart" src="./images/icons-heart.svg" alt="" />
+              </div>
+              <div className="classPrice">
+                <p className="classStoreName"><a href="#">草樹工作坊</a></p>
+                <p className="classPrice">$ 3800</p>
+              </div>
+
             </div>
 
           </div>
@@ -369,6 +566,8 @@ function App() {
         </section>
 
 
+        {/* 最新上架課程 */}
+
         <section className="newestClass">
 
           <figure className="listTitle">
@@ -378,144 +577,280 @@ function App() {
           <div className="classList">
 
             <div className="classCard">
-              <a href="#">
+              
                 <figure className="classPhoto">
+                <a href="#">
                   <img className="defaultPhoto" src="./images/classphoto-01.jpg" alt="" />
                   <img className="tagHotorNew" src="./images/labels-new.svg" alt="" />
                   <img className="maskLayer" src="./images/classphoto-01.jpg" alt="" />
+                  </a>
                 </figure>
                 <div className="classTag">
                   <p className="classLevel">入門</p>
                   <p className="classTime">3hr</p>
                 </div>
                 <div className="classTitle">
-                  <h3>創造專屬你們的對戒！『草樹工作坊』銀戒雙人體驗課 </h3>
+                  <h3><a href="#">創造專屬你們的對戒！『草樹工作坊』銀戒雙人體驗課</a></h3>
                   <img className="icons-heart" src="./images/icons-heart.svg" alt="" />
                 </div>
                 <div className="classPrice">
-                  <p className="classStoreName">草樹工作坊</p>
+                  <p className="classStoreName"><a href="#">草樹工作坊</a></p>
                   <p className="classPrice">$ 3800</p>
                 </div>
-              </a>
+              
+            </div>
+
+            <div className="classCard">
+              
+                <figure className="classPhoto">
+                <a href="#">
+                  <img className="defaultPhoto" src="./images/classphoto-01.jpg" alt="" />
+                  <img className="tagHotorNew" src="./images/labels-new.svg" alt="" />
+                  <img className="maskLayer" src="./images/classphoto-01.jpg" alt="" />
+                  </a>
+                </figure>
+                <div className="classTag">
+                  <p className="classLevel">入門</p>
+                  <p className="classTime">3hr</p>
+                </div>
+                <div className="classTitle">
+                  <h3><a href="#">創造專屬你們的對戒！『草樹工作坊』銀戒雙人體驗課</a></h3>
+                  <img className="icons-heart" src="./images/icons-heart.svg" alt="" />
+                </div>
+                <div className="classPrice">
+                  <p className="classStoreName"><a href="#">草樹工作坊</a></p>
+                  <p className="classPrice">$ 3800</p>
+                </div>
+              
+            </div>
+
+            <div className="classCard">
+              
+                <figure className="classPhoto">
+                <a href="#">
+                  <img className="defaultPhoto" src="./images/classphoto-01.jpg" alt="" />
+                  <img className="tagHotorNew" src="./images/labels-new.svg" alt="" />
+                  <img className="maskLayer" src="./images/classphoto-01.jpg" alt="" />
+                  </a>
+                </figure>
+                <div className="classTag">
+                  <p className="classLevel">入門</p>
+                  <p className="classTime">3hr</p>
+                </div>
+                <div className="classTitle">
+                  <h3><a href="#">創造專屬你們的對戒！『草樹工作坊』銀戒雙人體驗課</a></h3>
+                  <img className="icons-heart" src="./images/icons-heart.svg" alt="" />
+                </div>
+                <div className="classPrice">
+                  <p className="classStoreName"><a href="#">草樹工作坊</a></p>
+                  <p className="classPrice">$ 3800</p>
+                </div>
+              
+            </div>
+
+            <div className="classCard">
+              
+                <figure className="classPhoto">
+                <a href="#">
+                  <img className="defaultPhoto" src="./images/classphoto-01.jpg" alt="" />
+                  <img className="tagHotorNew" src="./images/labels-new.svg" alt="" />
+                  <img className="maskLayer" src="./images/classphoto-01.jpg" alt="" />
+                  </a>
+                </figure>
+                <div className="classTag">
+                  <p className="classLevel">入門</p>
+                  <p className="classTime">3hr</p>
+                </div>
+                <div className="classTitle">
+                  <h3><a href="#">創造專屬你們的對戒！『草樹工作坊』銀戒雙人體驗課</a></h3>
+                  <img className="icons-heart" src="./images/icons-heart.svg" alt="" />
+                </div>
+                <div className="classPrice">
+                  <p className="classStoreName"><a href="#">草樹工作坊</a></p>
+                  <p className="classPrice">$ 3800</p>
+                </div>
+              
+            </div>
+
+            <div className="classCard">
+              
+                <figure className="classPhoto">
+                <a href="#">
+                  <img className="defaultPhoto" src="./images/classphoto-01.jpg" alt="" />
+                  <img className="tagHotorNew" src="./images/labels-new.svg" alt="" />
+                  <img className="maskLayer" src="./images/classphoto-01.jpg" alt="" />
+                  </a>
+                </figure>
+                <div className="classTag">
+                  <p className="classLevel">入門</p>
+                  <p className="classTime">3hr</p>
+                </div>
+                <div className="classTitle">
+                  <h3><a href="#">創造專屬你們的對戒！『草樹工作坊』銀戒雙人體驗課</a></h3>
+                  <img className="icons-heart" src="./images/icons-heart.svg" alt="" />
+                </div>
+                <div className="classPrice">
+                  <p className="classStoreName"><a href="#">草樹工作坊</a></p>
+                  <p className="classPrice">$ 3800</p>
+                </div>
+              
+            </div>
+
+            <div className="classCard">
+              
+                <figure className="classPhoto">
+                <a href="#">
+                  <img className="defaultPhoto" src="./images/classphoto-01.jpg" alt="" />
+                  <img className="tagHotorNew" src="./images/labels-new.svg" alt="" />
+                  <img className="maskLayer" src="./images/classphoto-01.jpg" alt="" />
+                  </a>
+                </figure>
+                <div className="classTag">
+                  <p className="classLevel">入門</p>
+                  <p className="classTime">3hr</p>
+                </div>
+                <div className="classTitle">
+                  <h3><a href="#">創造專屬你們的對戒！『草樹工作坊』銀戒雙人體驗課</a></h3>
+                  <img className="icons-heart" src="./images/icons-heart.svg" alt="" />
+                </div>
+                <div className="classPrice">
+                  <p className="classStoreName"><a href="#">草樹工作坊</a></p>
+                  <p className="classPrice">$ 3800</p>
+                </div>
+              
             </div>
 
 
             <div className="classCard">
-              <a href="#">
+              
                 <figure className="classPhoto">
-                  <img className="defaultPhoto" src="./images/classphoto-01.jpg" alt="" />
-                  <img className="tagHotorNew" src="./images/labels-new.svg" alt="" />
-                  <img className="maskLayer2" src="./images/classphoto-01.jpg" alt="" />
-                </figure>
-                <div className="classTag">
-                  <p className="classLevel">入門</p>
-                  <p className="classTime">3hr</p>
-                </div>
-                <div className="classTitle">
-                  <h3>創造專屬你們的對戒！『草樹工作坊』銀戒雙人體驗課 </h3>
-                  <img className="icons-heart" src="./images/icons-heart.svg" alt="" />
-                </div>
-                <div className="classPrice">
-                  <p className="classStoreName">草樹工作坊</p>
-                  <p className="classPrice">$ 3800</p>
-                </div>
-              </a>
-            </div>
-
-            <div className="classCard">
-              <a href="#">
-                <figure className="classPhoto">
+                <a href="#">
                   <img className="defaultPhoto" src="./images/classphoto-01.jpg" alt="" />
                   <img className="tagHotorNew" src="./images/labels-new.svg" alt="" />
                   <img className="maskLayer" src="./images/classphoto-01.jpg" alt="" />
+                  </a>
                 </figure>
                 <div className="classTag">
                   <p className="classLevel">入門</p>
                   <p className="classTime">3hr</p>
                 </div>
                 <div className="classTitle">
-                  <h3>創造專屬你們的對戒！『草樹工作坊』銀戒雙人體驗課 </h3>
+                  <h3><a href="#">創造專屬你們的對戒！『草樹工作坊』銀戒雙人體驗課</a></h3>
                   <img className="icons-heart" src="./images/icons-heart.svg" alt="" />
                 </div>
                 <div className="classPrice">
-                  <p className="classStoreName">草樹工作坊</p>
+                  <p className="classStoreName"><a href="#">草樹工作坊</a></p>
                   <p className="classPrice">$ 3800</p>
                 </div>
-              </a>
+              
             </div>
+
+
+            <div className="classCard">
+              
+                <figure className="classPhoto">
+                <a href="#">
+                  <img className="defaultPhoto" src="./images/classphoto-01.jpg" alt="" />
+                  <img className="tagHotorNew" src="./images/labels-new.svg" alt="" />
+                  <img className="maskLayer" src="./images/classphoto-01.jpg" alt="" />
+                  </a>
+                </figure>
+                <div className="classTag">
+                  <p className="classLevel">入門</p>
+                  <p className="classTime">3hr</p>
+                </div>
+                <div className="classTitle">
+                  <h3><a href="#">創造專屬你們的對戒！『草樹工作坊』銀戒雙人體驗課</a></h3>
+                  <img className="icons-heart" src="./images/icons-heart.svg" alt="" />
+                </div>
+                <div className="classPrice">
+                  <p className="classStoreName"><a href="#">草樹工作坊</a></p>
+                  <p className="classPrice">$ 3800</p>
+                </div>
+              
+            </div>
+
+            <div className="classCard">
+              
+                <figure className="classPhoto">
+                <a href="#">
+                  <img className="defaultPhoto" src="./images/classphoto-01.jpg" alt="" />
+                  <img className="tagHotorNew" src="./images/labels-new.svg" alt="" />
+                  <img className="maskLayer" src="./images/classphoto-01.jpg" alt="" />
+                  </a>
+                </figure>
+                <div className="classTag">
+                  <p className="classLevel">入門</p>
+                  <p className="classTime">3hr</p>
+                </div>
+                <div className="classTitle">
+                  <h3><a href="#">創造專屬你們的對戒！『草樹工作坊』銀戒雙人體驗課</a></h3>
+                  <img className="icons-heart" src="./images/icons-heart.svg" alt="" />
+                </div>
+                <div className="classPrice">
+                  <p className="classStoreName"><a href="#">草樹工作坊</a></p>
+                  <p className="classPrice">$ 3800</p>
+                </div>
+              
+            </div>
+
+            <div className="classCard">
+              
+                <figure className="classPhoto">
+                <a href="#">
+                  <img className="defaultPhoto" src="./images/classphoto-01.jpg" alt="" />
+                  <img className="tagHotorNew" src="./images/labels-new.svg" alt="" />
+                  <img className="maskLayer" src="./images/classphoto-01.jpg" alt="" />
+                  </a>
+                </figure>
+                <div className="classTag">
+                  <p className="classLevel">入門</p>
+                  <p className="classTime">3hr</p>
+                </div>
+                <div className="classTitle">
+                  <h3><a href="#">創造專屬你們的對戒！『草樹工作坊』銀戒雙人體驗課</a></h3>
+                  <img className="icons-heart" src="./images/icons-heart.svg" alt="" />
+                </div>
+                <div className="classPrice">
+                  <p className="classStoreName"><a href="#">草樹工作坊</a></p>
+                  <p className="classPrice">$ 3800</p>
+                </div>
+
+
+                
+              
+            </div>
+
+
+            <div className="classCard">
+              
+                <figure className="classPhoto">
+                <a href="#">
+                  <img className="defaultPhoto" src="./images/classphoto-01.jpg" alt="" />
+                  <img className="tagHotorNew" src="./images/labels-new.svg" alt="" />
+                  <img className="maskLayer" src="./images/classphoto-01.jpg" alt="" />
+                  </a>
+                </figure>
+                <div className="classTag">
+                  <p className="classLevel">入門</p>
+                  <p className="classTime">3hr</p>
+                </div>
+                <div className="classTitle">
+                  <h3><a href="#">創造專屬你們的對戒！『草樹工作坊』銀戒雙人體驗課</a></h3>
+                  <img className="icons-heart" src="./images/icons-heart.svg" alt="" />
+                </div>
+                <div className="classPrice">
+                  <p className="classStoreName"><a href="#">草樹工作坊</a></p>
+                  <p className="classPrice">$ 3800</p>
+                </div>
+              
+            </div>
+
+            
 
           </div>
 
-          <div className="classList">
-
-            <div className="classCard">
-              <a href="#">
-                <figure className="classPhoto">
-                  <img className="defaultPhoto" src="./images/classphoto-01.jpg" alt="" />
-                  <img className="tagHotorNew" src="./images/labels-new.svg" alt="" />
-                  <img className="maskLayer" src="./images/classphoto-01.jpg" alt="" />
-                </figure>
-                <div className="classTag">
-                  <p className="classLevel">入門</p>
-                  <p className="classTime">3hr</p>
-                </div>
-                <div className="classTitle">
-                  <h3>創造專屬你們的對戒！『草樹工作坊』銀戒雙人體驗課 </h3>
-                  <img className="icons-heart" src="./images/icons-heart.svg" alt="" />
-                </div>
-                <div className="classPrice">
-                  <p className="classStoreName">草樹工作坊</p>
-                  <p className="classPrice">$ 3800</p>
-                </div>
-              </a>
-            </div>
-
-
-            <div className="classCard">
-              <a href="#">
-                <figure className="classPhoto">
-                  <img className="defaultPhoto" src="./images/classphoto-01.jpg" alt="" />
-                  <img className="tagHotorNew" src="./images/labels-new.svg" alt="" />
-                  <img className="maskLayer2" src="./images/classphoto-01.jpg" alt="" />
-                </figure>
-                <div className="classTag">
-                  <p className="classLevel">入門</p>
-                  <p className="classTime">3hr</p>
-                </div>
-                <div className="classTitle">
-                  <h3>創造專屬你們的對戒！『草樹工作坊』銀戒雙人體驗課 </h3>
-                  <img className="icons-heart" src="./images/icons-heart.svg" alt="" />
-                </div>
-                <div className="classPrice">
-                  <p className="classStoreName">草樹工作坊</p>
-                  <p className="classPrice">$ 3800</p>
-                </div>
-              </a>
-            </div>
-
-            <div className="classCard">
-              <a href="#">
-                <figure className="classPhoto">
-                  <img className="defaultPhoto" src="./images/classphoto-01.jpg" alt="" />
-                  <img className="tagHotorNew" src="./images/labels-new.svg" alt="" />
-                  <img className="maskLayer" src="./images/classphoto-01.jpg" alt="" />
-                </figure>
-                <div className="classTag">
-                  <p className="classLevel">入門</p>
-                  <p className="classTime">3hr</p>
-                </div>
-                <div className="classTitle">
-                  <h3>創造專屬你們的對戒！『草樹工作坊』銀戒雙人體驗課 </h3>
-                  <img className="icons-heart" src="./images/icons-heart.svg" alt="" />
-                </div>
-                <div className="classPrice">
-                  <p className="classStoreName">草樹工作坊</p>
-                  <p className="classPrice">$ 3800</p>
-                </div>
-              </a>
-            </div>
-
-          </div>
+          
 
           <div className="seeMore">
             <figure><img src="./images/small-circle.svg" alt="" /></figure>
@@ -534,6 +869,8 @@ function App() {
 
       </main>
 
+
+      {/* 頁尾區 */}
 
       <footer>
         <div className="footer-bgDeco">
