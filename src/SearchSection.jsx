@@ -4,7 +4,7 @@ import courseData from "../public/courseData";
 
 
 
-function SearchSection({ handleSearch }) {
+function SearchSection({ handleSearch , setResultVisible }) {
 
 
     // 管理下拉式選單開啟與收合
@@ -256,7 +256,7 @@ function SearchSection({ handleSearch }) {
                     </div>
 
                 </div>
-                <button className="searchBtn" onClick={handleSearchClick}>搜尋課程</button>
+                <button className="searchBtn" onClick={()=>{handleSearchClick();setResultVisible()}}>搜尋課程</button>
             </div>
         </>
     )

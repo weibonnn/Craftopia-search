@@ -11,6 +11,7 @@ import courseData from "../public/courseData";
 
 function App() {
 
+  // 課程搜尋篩選條件
   const [filteredCourses, setFilteredCourses] = useState(courseData); //初始狀態未篩選顯示所有課程
 
   const handleSearch = (filters) => {
@@ -27,6 +28,10 @@ function App() {
 
     setFilteredCourses(filtered);
   };
+
+
+  // 管理點擊搜尋課程後顯示搜尋結果
+  const [resultVisible, setResultVisible] = useState(false);
 
 
   return (
@@ -58,7 +63,7 @@ function App() {
 
 
 
-          <SearchSection handleSearch={handleSearch} />
+          <SearchSection handleSearch={handleSearch} setResultVisible={() => setResultVisible(true)}/>
 
           <figure className="left-filled custom-shake-v shake-constant"><img src="./images/decor-searchBanner-leftbubbleFilled.png" alt="" /></figure>
           <figure className="left-stroke custom-shake-h shake-constant"><img src="./images/decor-searchBanner-leftbubbleStroke.png" alt="" /></figure>
@@ -71,7 +76,7 @@ function App() {
         </section>
 
 
-        <Results filteredCourses={filteredCourses} />
+        <Results filteredCourses={filteredCourses} resultVisible={resultVisible} />
 
 
 
