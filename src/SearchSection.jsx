@@ -1,9 +1,10 @@
-import { useState , useEffect  } from "react";
+import { useState, useEffect } from "react";
+import courseData from "../public/courseData";
 
 
 
 
-function SearchSection() {
+function SearchSection({ handleSearch }) {
 
 
     // 管理下拉式選單開啟與收合
@@ -12,7 +13,7 @@ function SearchSection() {
     const [peopleIsOpen, setPeopleIsOpen] = useState(false);
 
     // 管理下拉式選單選中的選項
-    const [selectedLOption, setSelectedLOption] = useState({ value: null , label: "想去哪裡做？" });
+    const [selectedLOption, setSelectedLOption] = useState({ value: null, label: "想去哪裡做？" });
     const locationOptions = [
         { value: "北投區", label: "北投區" },
         { value: "士林區", label: "士林區" },
@@ -28,12 +29,16 @@ function SearchSection() {
         { value: "文山區", label: "文山區" },
     ];
 
-    const [selectedTOption, setSelectedTOption] = useState({ value: null , label: "想體驗什麼？" });
+    const [selectedTOption, setSelectedTOption] = useState({ value: null, label: "想體驗什麼？" });
     const typeOptions = [
         { value: "金工", label: "金工" },
         { value: "陶藝", label: "陶藝" },
         { value: "皮革", label: "皮革" },
     ];
+
+
+    // 管理選擇日期
+    const [searchDate, setSearchDate] = useState("");
 
     // 管理成人與孩童人數數量
     const [adultCount, setAdultCount] = useState(1);
@@ -80,7 +85,7 @@ function SearchSection() {
 
             if (selectedLOption.value === value) {
 
-                setSelectedLOption({ value: null , label: "想去哪裡做？" });
+                setSelectedLOption({ value: null, label: "想去哪裡做？" });
 
             } else {
 
@@ -93,7 +98,7 @@ function SearchSection() {
 
             if (selectedTOption.value === value) {
 
-                setSelectedTOption({ value: null , label: "想體驗什麼？" });
+                setSelectedTOption({ value: null, label: "想體驗什麼？" });
 
             } else {
 
@@ -124,110 +129,135 @@ function SearchSection() {
 
     }, []);
 
+
+
+    // 點擊按鈕傳遞搜尋條件篩選
+    const handleSearchClick = () => {
+
+        const filters = {
+            location: selectedLOption.value,
+            type: selectedTOption.value,
+            date: searchDate,
+            adults: adultCount,
+            children: childCount,
+        };
+
+        handleSearch(filters);
+
+    };
+
+
+
+
+
+
     return (
         <>
 
-        <div className="searchSection">
-        <figure><img src="./images/icons-search.svg" alt="搜尋" /></figure>
-            <div className="search-select">
+            <div className="searchSection">
+                <figure><img src="./images/icons-search.svg" alt="搜尋" /></figure>
+                <div className="search-select">
 
-                {/* 下拉選單顯示選擇區塊 */}
-                <div className={`select-location ${locationIsOpen ? "open" : ""}`} >
-                    <div className={`select-header ${selectedLOption.value !== null ? "active" : "" }`} onClick={() => toggleDropdown("location")}>
-                        <div>{selectedLOption.label}</div>
-                        <img className="arrowDown" src="./images/icons-arrowDownR.svg" alt="" />
+                    {/* 下拉選單顯示選擇區塊 */}
+                    <div className={`select-location ${locationIsOpen ? "open" : ""}`} >
+                        <div className={`select-header ${selectedLOption.value !== null ? "active" : ""}`} onClick={() => toggleDropdown("location")}>
+                            <div>{selectedLOption.label}</div>
+                            <img className="arrowDown" src="./images/icons-arrowDownR.svg" alt="" />
+                        </div>
+
+                        {/* 選擇選項區塊 */}
+                        {locationIsOpen && (
+                            <div className='option-container'>
+                                {locationOptions.map((option) => (
+                                    <div
+                                        key={option.value}
+                                        className={`select-option  ${selectedLOption.value === option.value ? "active" : ""}`}
+                                        onClick={(e) => handleOptionClick(option.value, option.label, e, "location")}>
+                                        <div>{option.label}</div>
+                                    </div>
+                                ))}
+                            </div>
+                        )}
+
                     </div>
 
-                    {/* 選擇選項區塊 */}
-                    {locationIsOpen && (
+                    {/* 下拉選單顯示選擇區塊 */}
+
+                    <div className={`select-type ${typeIsOpen ? "open" : ""}`} >
+                        <div className={`select-header ${selectedTOption.value !== null ? "active" : ""}`} onClick={() => toggleDropdown("type")}>
+                            <div>{selectedTOption.label}</div>
+                            <img className="arrowDown" src="./images/icons-arrowDownR.svg" alt="" />
+                        </div>
+
+                        {/* 選擇選項區塊 */}
+
+                        {typeIsOpen && (
+                            <div className='option-container'>
+
+                                {typeOptions.map((option) => (
+                                    <div
+                                        key={option.value}
+                                        className={`select-option ${selectedTOption.value === option.value ? "active" : ""}`}
+                                        onClick={(e) => handleOptionClick(option.value, option.label, e, "type")}>
+                                        <div>{option.label}</div>
+                                    </div>
+                                ))}
+
+                            </div>
+                        )}
+
+                    </div>
+
+                    <input  type="date" 
+                            value={searchDate}
+                            onChange={(e) => setSearchDate(e.target.value)}
+                            name="search-day" id="search-day" title="選擇日期" />
+
+                    <div className={`select-people ${peopleIsOpen ? "open" : ""}`} >
+                        <div className="select-header" onClick={() => toggleDropdown("people")}>
+                            <div>{adultCount} 位成人 , {childCount} 位孩童</div>
+                            <img className="arrowDown" src="./images/icons-arrowDownR.svg" alt="" />
+                        </div>
                         <div className='option-container'>
-                            {locationOptions.map((option) => (
-                                <div
-                                    key={option.value}
-                                    className={`select-option  ${selectedLOption.value === option.value ? "active" : ""}`}
-                                    onClick={(e) => handleOptionClick(option.value, option.label, e, "location")}>
-                                    <div>{option.label}</div>
+                            <div className="number-option">
+                                <div className="label">
+                                    <p>成人</p>
+                                    <small>18歲（含）或以上</small>
                                 </div>
-                            ))}
-                        </div>
-                    )}
-
-                </div>
-
-                {/* 下拉選單顯示選擇區塊 */}
-
-                <div className={`select-type ${typeIsOpen ? "open" : ""}`} >
-                    <div className={`select-header ${selectedTOption.value !== null ? "active" : "" }`} onClick={() => toggleDropdown("type")}>
-                        <div>{selectedTOption.label}</div>
-                        <img className="arrowDown" src="./images/icons-arrowDownR.svg" alt="" />
-                    </div>
-
-                    {/* 選擇選項區塊 */}
-
-                    {typeIsOpen && (
-                        <div className='option-container'>
-
-                            {typeOptions.map((option) => (
-                                <div
-                                    key={option.value}
-                                    className={`select-option ${selectedTOption.value === option.value ? "active" : ""}`}
-                                    onClick={(e) => handleOptionClick(option.value, option.label, e, "type")}>
-                                    <div>{option.label}</div>
+                                <div className="number-input">
+                                    <button onClick={() => handleDecrease('adult')}>−</button>
+                                    <input
+                                        type="text"
+                                        readOnly
+                                        value={adultCount}
+                                        name="adultNumber"
+                                        id="adultNumber" />
+                                    <button onClick={() => handleIncrease('adult')}>+</button>
                                 </div>
-                            ))}
-
-                        </div>
-                    )}
-
-                </div>
-
-                <input type="date" name="search-day" id="search-day" title="選擇日期" />
-
-                <div className={`select-people ${peopleIsOpen ? "open" : ""}`} >
-                    <div className="select-header" onClick={() => toggleDropdown("people")}>
-                        <div>{adultCount} 位成人 , {childCount} 位孩童</div>
-                        <img className="arrowDown" src="./images/icons-arrowDownR.svg" alt="" />
-                    </div>
-                    <div className='option-container'>
-                        <div className="number-option">
-                            <div className="label">
-                                <p>成人</p>
-                                <small>18歲（含）或以上</small>
                             </div>
-                            <div className="number-input">
-                                <button onClick={() => handleDecrease('adult')}>−</button>
-                                <input 
-                                type="text"
-                                readOnly
-                                value={adultCount}
-                                name="adultNumber" 
-                                id="adultNumber" />
-                                <button onClick={() => handleIncrease('adult')}>+</button>
-                            </div>
-                        </div>
 
-                        <div className="number-option">
-                            <div className="label">
-                                <p>孩童</p>
-                                <small>12歲至17歲</small>
-                            </div>
-                            <div className="number-input">
-                                <button onClick={() => handleDecrease('child')}>−</button>
-                                <input 
-                                type="text" 
-                                readOnly
-                                value={childCount}
-                                name="childNumber" 
-                                id="childNumber" />
-                                <button onClick={() => handleIncrease('child')}>+</button>
+                            <div className="number-option">
+                                <div className="label">
+                                    <p>孩童</p>
+                                    <small>12歲至17歲</small>
+                                </div>
+                                <div className="number-input">
+                                    <button onClick={() => handleDecrease('child')}>−</button>
+                                    <input
+                                        type="text"
+                                        readOnly
+                                        value={childCount}
+                                        name="childNumber"
+                                        id="childNumber" />
+                                    <button onClick={() => handleIncrease('child')}>+</button>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
 
+                </div>
+                <button className="searchBtn" onClick={handleSearchClick}>搜尋課程</button>
             </div>
-        <button className="searchBtn">搜尋課程</button>
-        </div>
         </>
     )
 }

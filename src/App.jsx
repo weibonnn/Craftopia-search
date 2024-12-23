@@ -1,9 +1,34 @@
+import { useState } from 'react';
 import './css/App.css';
 import 'csshake/dist/csshake.min.css';
 import SearchSection from './SearchSection';
-import Filter from './Filter';
+import Results from './Results';
+import ClassList from './ClassList';
+import courseData from "../public/courseData";
+
+
+
 
 function App() {
+
+  const [filteredCourses, setFilteredCourses] = useState(courseData); //初始狀態未篩選顯示所有課程
+
+  const handleSearch = (filters) => {
+
+    const { location, type, date, adults, children } = filters;
+    const filtered = courseData.filter((course) => {
+      // 目前篩選條件只有地點與類型，後續可加入日期與人數
+      const matchesLocation = location ? course.location === location : true; 
+      const matchesType = type ? course.type === type : true;
+
+      return matchesLocation && matchesType;
+
+    });
+
+    setFilteredCourses(filtered);
+  };
+
+
   return (
     <>
 
@@ -33,7 +58,7 @@ function App() {
 
 
 
-          <SearchSection />
+          <SearchSection handleSearch={handleSearch} />
 
           <figure className="left-filled custom-shake-v shake-constant"><img src="./images/decor-searchBanner-leftbubbleFilled.png" alt="" /></figure>
           <figure className="left-stroke custom-shake-h shake-constant"><img src="./images/decor-searchBanner-leftbubbleStroke.png" alt="" /></figure>
@@ -45,15 +70,19 @@ function App() {
 
         </section>
 
+
+        <Results filteredCourses={filteredCourses} />
+
+
+
         {/* 課程搜尋結果 */}
 
-        <section className="searchResault">
+        {/* <section className="searchResault">
 
           <figure className="listTitle">
             <img src="./images/title-resault.svg" alt="" />
           </figure>
 
-          <Filter />
           <div className="classList">
 
             <div className="classCard">
@@ -305,11 +334,14 @@ function App() {
 
           </div>
 
-        </section>
+        </section> */}
 
-        {/* 熱門課程推薦 */}
+        {/* 熱門課程推薦&最新上架課程 */}
 
-        <section className="hotClassRecommend">
+
+        <ClassList />
+
+        {/* <section className="hotClassRecommend">
 
           <figure className="listTitle">
             <img src="./images/title-hotClass.svg" alt="" />
@@ -565,8 +597,6 @@ function App() {
 
         </section>
 
-
-        {/* 最新上架課程 */}
 
         <section className="newestClass">
 
@@ -864,7 +894,7 @@ function App() {
 
           </div>
 
-        </section>
+        </section> */}
 
 
       </main>
