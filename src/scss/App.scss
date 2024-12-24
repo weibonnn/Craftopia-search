@@ -6,7 +6,7 @@
 body {
     color: #303030;
     background-image: url(../images/BG-searchPage.png);
-    background-size: cover;
+    background-size: contain;
     background-position: top;
 }
 
@@ -642,7 +642,7 @@ body {
 
             margin-bottom: 100px;
             position: relative;
-            width: auto;
+            width: 100%;
 
             div {
 
@@ -847,7 +847,9 @@ body {
 
 }
 
-
+.noresult{
+    font-size: 20px;
+}
 
 
 /* 頁尾區 */

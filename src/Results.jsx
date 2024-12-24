@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 function Results({ filteredCourses, resultVisible }) {
 
@@ -101,146 +103,160 @@ function Results({ filteredCourses, resultVisible }) {
 
 
 
+    useEffect(()=>{
+
+        AOS.init(); // 初始化
+    
+      },[])
+
+
     return (
         <>
 
 
             {resultVisible && (
 
-                <section className="searchResault">
+                <section data-aos="fade-right" className="searchResault">
 
                     <figure className="listTitle">
                         <img src="./images/title-resault.svg" alt="" />
                     </figure>
 
-                    <div className="allFilter">
-                        <div className={`filter classify ${classifyIsOpen ? "open" : ""}`} >
-                            <div className="select-header" onClick={() => toggleDropdown("classify")}>
-                                <div>分類</div>
-                                <img className="arrowDown" src="./images/icons-arrowDownR.svg" alt="" />
-                            </div>
-                            <div className='option-container'>
-                                <div className="select-option">
-                                    <p className="classify-title">價格</p>
-                                    <div>
-                                        {priceOptions.map((option) => (
-                                            <p
-                                                key={option}
-                                                className={`classify-content ${selectedFilters.price.includes(option) ? "selected" : ""}`}
-                                                onClick={() => filtersClicked("price", option)}>
-                                                {option}</p>
-                                        ))}
+
+                    {filteredCourses.length > 0 ? (
+
+
+                        <>
+                            <div className="allFilter">
+                                <div className={`filter classify ${classifyIsOpen ? "open" : ""}`} >
+                                    <div className="select-header" onClick={() => toggleDropdown("classify")}>
+                                        <div>分類</div>
+                                        <img className="arrowDown" src="./images/icons-arrowDownR.svg" alt="" />
                                     </div>
-                                </div>
-                                <div className="select-option">
-                                    <p className="classify-title">課程時長</p>
-                                    <div>
-                                        {durationOptions.map((option) => (
-                                            <p
-                                                key={option}
-                                                className={`classify-content ${selectedFilters.duration.includes(option) ? "selected" : ""}`}
-                                                onClick={() => filtersClicked("duration", option)}>
-                                                {option}</p>
-                                        ))}
-
-                                    </div>
-                                </div>
-                                <div className="select-option">
-                                    <p className="classify-title">難易度</p>
-                                    <div>
-                                        {levelOptions.map((option) => (
-                                            <p
-                                                key={option}
-                                                className={`classify-content ${selectedFilters.level.includes(option) ? "selected" : ""}`}
-                                                onClick={() => filtersClicked("level", option)}>
-                                                {option}</p>
-                                        ))}
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        {/* 排序 - 下拉選單顯示選擇區塊 */}
-                        <div className={`filter order ${oderIsOpen ? "open" : ""}`} onClick={() => toggleDropdown("order")}>
-                            <div className="select-header">
-                                <div>{selectedOrderOption}</div>
-                                <img className="arrowDown" src="./images/icons-arrowDownR.svg" alt="" />
-                            </div>
-
-                            {/* 選擇選項區塊 */}
-                            {oderIsOpen && (
-                                <div className='option-container'>
-                                    {orderOptions.map((option) => (
-                                        <div
-                                            key={option.value}
-                                            className={`select-option ${selectedOrderOption === option.value ? "active" : ""}`}
-                                            onClick={(e) => handleOptionClick(option.value, option.label, e)}>
-                                            <div>{option.label}</div>
+                                    <div className='option-container'>
+                                        <div className="select-option">
+                                            <p className="classify-title">價格</p>
+                                            <div>
+                                                {priceOptions.map((option) => (
+                                                    <p
+                                                        key={option}
+                                                        className={`classify-content ${selectedFilters.price.includes(option) ? "selected" : ""}`}
+                                                        onClick={() => filtersClicked("price", option)}>
+                                                        {option}</p>
+                                                ))}
+                                            </div>
                                         </div>
-                                    ))}
+                                        <div className="select-option">
+                                            <p className="classify-title">課程時長</p>
+                                            <div>
+                                                {durationOptions.map((option) => (
+                                                    <p
+                                                        key={option}
+                                                        className={`classify-content ${selectedFilters.duration.includes(option) ? "selected" : ""}`}
+                                                        onClick={() => filtersClicked("duration", option)}>
+                                                        {option}</p>
+                                                ))}
+
+                                            </div>
+                                        </div>
+                                        <div className="select-option">
+                                            <p className="classify-title">難易度</p>
+                                            <div>
+                                                {levelOptions.map((option) => (
+                                                    <p
+                                                        key={option}
+                                                        className={`classify-content ${selectedFilters.level.includes(option) ? "selected" : ""}`}
+                                                        onClick={() => filtersClicked("level", option)}>
+                                                        {option}</p>
+                                                ))}
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                {/* 排序 - 下拉選單顯示選擇區塊 */}
+                                <div className={`filter order ${oderIsOpen ? "open" : ""}`} onClick={() => toggleDropdown("order")}>
+                                    <div className="select-header">
+                                        <div>{selectedOrderOption}</div>
+                                        <img className="arrowDown" src="./images/icons-arrowDownR.svg" alt="" />
+                                    </div>
+
+                                    {/* 選擇選項區塊 */}
+                                    {oderIsOpen && (
+                                        <div className='option-container'>
+                                            {orderOptions.map((option) => (
+                                                <div
+                                                    key={option.value}
+                                                    className={`select-option ${selectedOrderOption === option.value ? "active" : ""}`}
+                                                    onClick={(e) => handleOptionClick(option.value, option.label, e)}>
+                                                    <div>{option.label}</div>
+                                                </div>
+                                            ))}
+
+                                        </div>
+                                    )}
+
 
                                 </div>
-                            )}
+
+                            </div>
 
 
-                        </div>
+                            <div data-aos="fade-right" className="classList">
+                                {filteredCourses.map((course) => (
+                                    <div key={course.id} className="classCard">
 
-                    </div>
+                                        <figure className="classPhoto">
+                                            <a href="#">
+                                                <img className="defaultPhoto" src="./images/classphoto-01.jpg" alt="" />
+                                                <img className="tagHotorNew" src="./images/labels-hot.svg" alt="" />
+                                                <img className="maskLayer" src="./images/classphoto-01.jpg" alt="" />
+                                            </a>
+                                        </figure>
+                                        <div className="classTag">
+                                            <p className="classLevel">{course.level}</p>
+                                            <p className="classTime">{course.duration}hr</p>
+                                        </div>
+                                        <div className="classTitle">
+                                            <h3><a href="#">{course.courseName}</a></h3>
+                                            <img className="icons-heart" src="./images/icons-heart.svg" alt="" />
+                                        </div>
+                                        <div className="classPrice">
+                                            <p className="classStoreName"><a href="#">{course.storeName}</a></p>
+                                            <p className="classPrice">$ {course.price}</p>
+                                        </div>
 
-
-
-                    <div className="classList">
-
-
-                        {filteredCourses.length > 0 ? (
-                            filteredCourses.map((course) => (
-                                <div key={course.id} className="classCard">
-
-                                    <figure className="classPhoto">
-                                        <a href="#">
-                                            <img className="defaultPhoto" src="./images/classphoto-01.jpg" alt="" />
-                                            <img className="tagHotorNew" src="./images/labels-hot.svg" alt="" />
-                                            <img className="maskLayer" src="./images/classphoto-01.jpg" alt="" />
-                                        </a>
-                                    </figure>
-                                    <div className="classTag">
-                                        <p className="classLevel">{course.level}</p>
-                                        <p className="classTime">{course.duration}hr</p>
                                     </div>
-                                    <div className="classTitle">
-                                        <h3><a href="#">{course.courseName}</a></h3>
-                                        <img className="icons-heart" src="./images/icons-heart.svg" alt="" />
-                                    </div>
-                                    <div className="classPrice">
-                                        <p className="classStoreName"><a href="#">{course.storeName}</a></p>
-                                        <p className="classPrice">$ {course.price}</p>
-                                    </div>
+                                ))}
+                            </div>
 
+                            <div className="seeMore">
+
+                                <figure><img src="./images/small-circle.svg" alt="" /></figure>
+                                <div>
+                                    <a href="#">
+                                        <p>See</p>
+                                        <p>More</p>
+                                        <img className="icons-arrowDown" src="./images/icons-arrowDown.svg" alt="" />
+                                    </a>
                                 </div>
-                            ))
-                        ) : (
-                            <p>沒有符合的課程，換個條件試試看吧！</p>
-                        )}
+
+                            </div>
+
+                        </>
 
 
-                    </div>
+                    ) : (
+                        <p className="noresult">沒有符合的課程，換個條件試試看吧！</p>
+                    )}
 
 
 
 
-                    <div className="seeMore">
 
-                        <figure><img src="./images/small-circle.svg" alt="" /></figure>
-                        <div>
-                            <a href="#">
-                                <p>See</p>
-                                <p>More</p>
-                                <img className="icons-arrowDown" src="./images/icons-arrowDown.svg" alt="" />
-                            </a>
-                        </div>
 
-                    </div>
+
 
                 </section>
 
