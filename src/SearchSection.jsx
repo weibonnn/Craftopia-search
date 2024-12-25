@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 
 
 
-function SearchSection({ handleSearch , setResultVisible }) {
+function SearchSection({ handleSearch , handleSearchResult }) {
 
 
     // 管理下拉式選單開啟與收合
@@ -256,7 +256,7 @@ function SearchSection({ handleSearch , setResultVisible }) {
                     </div>
 
                 </div>
-                <button className="searchBtn" onClick={()=>{handleSearchClick();setResultVisible()}}>搜尋課程</button>
+                <button className="searchBtn" onClick={()=>{handleSearchClick();handleSearchResult()}}>搜尋課程</button>
             </div>
         </>
     )

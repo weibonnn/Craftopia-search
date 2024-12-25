@@ -19,7 +19,7 @@ function App() {
     const { location, type, date, adults, children } = filters;
     const filtered = courseData.filter((course) => {
       // 目前篩選條件只有地點與類型，後續可加入日期與人數
-      const matchesLocation = location ? course.location === location : true; 
+      const matchesLocation = location ? course.location === location : true;
       const matchesType = type ? course.type === type : true;
 
       return matchesLocation && matchesType;
@@ -32,6 +32,14 @@ function App() {
 
   // 管理點擊搜尋課程後顯示搜尋結果
   const [resultVisible, setResultVisible] = useState(false);
+
+  // 點擊搜尋按鈕時的行為
+  const handleSearchResult = () => {
+    setResultVisible(false); // 先隱藏結果
+    setTimeout(() => {
+      setResultVisible(true); // 再次顯示搜尋結果
+    }, 0); // 設置一個短暫延遲 (100ms)
+  };
 
 
   return (
@@ -62,8 +70,8 @@ function App() {
           <h2>想去哪裡體驗什麼?</h2>
 
 
+          <SearchSection handleSearch={handleSearch} handleSearchResult={() => handleSearchResult()} />
 
-          <SearchSection handleSearch={handleSearch} setResultVisible={() => setResultVisible(true)}/>
 
           <figure className="left-filled custom-shake-v shake-constant"><img src="./images/decor-searchBanner-leftbubbleFilled.png" alt="" /></figure>
           <figure className="left-stroke custom-shake-h shake-constant"><img src="./images/decor-searchBanner-leftbubbleStroke.png" alt="" /></figure>
@@ -74,6 +82,9 @@ function App() {
 
 
         </section>
+
+
+
 
 
         <Results filteredCourses={filteredCourses} resultVisible={resultVisible} />
@@ -931,12 +942,7 @@ function App() {
                 <li><a href="">最新課程</a></li>
               </ul>
             </li>
-            <li>
-              <a href="">商城</a>
-              <ul>
-                <li><a href="">商城</a></li>
-              </ul>
-            </li>
+
             <li>
               <a href="">會員中心</a>
               <ul>

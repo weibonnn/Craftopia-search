@@ -1,6 +1,8 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import courseData from "../public/courseData";
-
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+import 'csshake/dist/csshake.min.css';
 
 
 
@@ -64,32 +66,31 @@ function ClassList() {
 
         setVisibleHotCount((prevCount) => prevCount + 3); // 每次多顯示3個
 
-        setVisibleNewCount((prevCount) => prevCount + 3); // 每次多顯示3個
-
 
 
     };
 
 
     const handleNewSeeMore = () => {
-
-
         setVisibleNewCount((prevCount) => prevCount + 3); // 每次多顯示3個
-
-
-
     };
 
+    
 
 
 
+    useEffect(() => {
+
+        AOS.init(); // 初始化
+
+    }, [])
 
 
 
     return (
         <>
             {/* 熱門推薦課程 */}
-            <section className="hotClassRecommend">
+            <section data-aos="fade-zoom-in" data-aos-offset="100" className="hotClassRecommend">
 
                 <figure className="listTitle">
                     <img src="./images/title-hotClass.svg" alt="" />
@@ -98,13 +99,13 @@ function ClassList() {
                 <div className="classList">
 
 
-                    {hotCourse.slice(0, visibleHotCount).map((course, index) => (
-                        <div key={course.id} className={`classCard ${index >= visibleHotCount - 3 && index < visibleHotCount ? "fade-in" : ""} `}>
+                    {hotCourse.slice(0, visibleHotCount).map((course) => (
+                        <div data-aos="fade-up"  data-aos-offset="50" key={course.id} className={`classCard`}>
 
                             <figure className="classPhoto">
                                 <a href="#">
                                     <img className="defaultPhoto" src="./images/classphoto-01.jpg" alt="" />
-                                    <img className="tagHotorNew" src="./images/labels-hot.svg" alt="" />
+                                    <img className="tagHotorNew " src="./images/labels-hot.svg" alt="" />
                                     <img className="maskLayer" src="./images/classphoto-01.jpg" alt="" />
                                 </a>
                             </figure>
@@ -146,7 +147,7 @@ function ClassList() {
             </section>
 
             {/* 最新上架課程 */}
-            <section className="newestClass">
+            <section data-aos="fade-zoom-in" className="newestClass">
 
                 <figure className="listTitle">
                     <img src="./images/title-newClass.svg" alt="" />
@@ -154,9 +155,9 @@ function ClassList() {
 
                 <div className="classList">
 
-                    {latestCourses.slice(0, visibleNewCount).map((course,index) => (
+                    {latestCourses.slice(0, visibleNewCount).map((course) => (
 
-                        <div key={course.id} className={`classCard ${index >= visibleNewCount - 3 && index < visibleNewCount ? "fade-in" : ""} `}>
+                        <div data-aos="fade-up" key={course.id} className={`classCard`}>
 
                             <figure className="classPhoto">
                                 <a href="#">

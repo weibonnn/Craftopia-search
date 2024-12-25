@@ -116,7 +116,7 @@ function Results({ filteredCourses, resultVisible }) {
 
             {resultVisible && (
 
-                <section data-aos="fade-right" className="searchResault">
+                <section data-aos="fade-zoom-in" data-aos-offset="100" className="searchResault">
 
                     <figure className="listTitle">
                         <img src="./images/title-resault.svg" alt="" />
@@ -127,7 +127,7 @@ function Results({ filteredCourses, resultVisible }) {
 
 
                         <>
-                            <div className="allFilter">
+                            <div data-aos="fade-right"  data-aos-offset="80" className="allFilter">
                                 <div className={`filter classify ${classifyIsOpen ? "open" : ""}`} >
                                     <div className="select-header" onClick={() => toggleDropdown("classify")}>
                                         <div>分類</div>
@@ -136,7 +136,7 @@ function Results({ filteredCourses, resultVisible }) {
                                     <div className='option-container'>
                                         <div className="select-option">
                                             <p className="classify-title">價格</p>
-                                            <div>
+                                            <div className="price">
                                                 {priceOptions.map((option) => (
                                                     <p
                                                         key={option}
@@ -148,7 +148,7 @@ function Results({ filteredCourses, resultVisible }) {
                                         </div>
                                         <div className="select-option">
                                             <p className="classify-title">課程時長</p>
-                                            <div>
+                                            <div className="duration">
                                                 {durationOptions.map((option) => (
                                                     <p
                                                         key={option}
@@ -203,9 +203,9 @@ function Results({ filteredCourses, resultVisible }) {
                             </div>
 
 
-                            <div data-aos="fade-right" className="classList">
+                            <div  className="classList">
                                 {filteredCourses.map((course) => (
-                                    <div key={course.id} className="classCard">
+                                    <div data-aos="fade-up" key={course.id} className="classCard">
 
                                         <figure className="classPhoto">
                                             <a href="#">
@@ -231,18 +231,7 @@ function Results({ filteredCourses, resultVisible }) {
                                 ))}
                             </div>
 
-                            <div className="seeMore">
-
-                                <figure><img src="./images/small-circle.svg" alt="" /></figure>
-                                <div>
-                                    <a href="#">
-                                        <p>See</p>
-                                        <p>More</p>
-                                        <img className="icons-arrowDown" src="./images/icons-arrowDown.svg" alt="" />
-                                    </a>
-                                </div>
-
-                            </div>
+                            
 
                         </>
 
@@ -250,11 +239,6 @@ function Results({ filteredCourses, resultVisible }) {
                     ) : (
                         <p className="noresult">沒有符合的課程，換個條件試試看吧！</p>
                     )}
-
-
-
-
-
 
 
 
