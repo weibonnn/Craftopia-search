@@ -6,8 +6,11 @@
 body {
     color: #303030;
     background-image: url(../images/BG-searchPage.png);
-    background-size: contain;
+    background-size: cover;
     background-position: top;
+    background-attachment: fixed;
+    
+    
 }
 
 #topbar {
@@ -405,7 +408,8 @@ body {
             padding: 27px 20px;
             flex-direction: column;
             align-items: center;
-            img{
+
+            img {
                 display: none;
             }
 
@@ -416,26 +420,26 @@ body {
                 gap: 4px;
 
 
-                input{
+                input {
                     width: 100%;
                 }
 
-            .select-location,
-            .select-type,
-            .select-people {
+                .select-location,
+                .select-type,
+                .select-people {
 
-                width: 100%;
+                    width: 100%;
+                }
+
+
+
             }
 
 
-
-            }
-
-            
             .searchBtn {
                 margin: 16px 0 0;
                 width: 100%;
-              
+
             }
 
 
@@ -627,10 +631,12 @@ body {
     .classList {
 
         width: 80%;
+        margin-bottom: 80px;
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         justify-content: space-between;
         column-gap: 8%;
+        row-gap: 80px;
 
 
 
@@ -640,9 +646,11 @@ body {
 
         .classCard {
 
-            margin-bottom: 100px;
+            
             position: relative;
             width: 100%;
+
+            
 
             div {
 
@@ -795,6 +803,30 @@ body {
 
             }
 
+
+            &.fade-in {
+
+                animation: fadeIn 0.5s ease-in-out forwards;
+
+                @keyframes fadeIn {
+                    from {
+                        opacity: 0;
+                        
+                    }
+    
+                    to {
+                        opacity: 1;
+                        
+                    }
+                }
+                
+
+            }
+
+
+           
+
+
         }
 
 
@@ -847,7 +879,7 @@ body {
 
 }
 
-.noresult{
+.noresult {
     font-size: 20px;
 }
 

@@ -1,3 +1,4 @@
+import { useState } from "react";
 import courseData from "../public/courseData";
 
 
@@ -52,7 +53,36 @@ function ClassList() {
 
 
 
-    
+    /* see more 按鈕 */
+    const [visibleHotCount, setVisibleHotCount] = useState(6); // 初始顯示數量為 6
+    const [visibleNewCount, setVisibleNewCount] = useState(3); // 初始顯示數量為 6
+
+
+    // 點擊展開更多卡片
+    const handleHotSeeMore = () => {
+
+
+        setVisibleHotCount((prevCount) => prevCount + 3); // 每次多顯示3個
+
+        setVisibleNewCount((prevCount) => prevCount + 3); // 每次多顯示3個
+
+
+
+    };
+
+
+    const handleNewSeeMore = () => {
+
+
+        setVisibleNewCount((prevCount) => prevCount + 3); // 每次多顯示3個
+
+
+
+    };
+
+
+
+
 
 
 
@@ -68,8 +98,8 @@ function ClassList() {
                 <div className="classList">
 
 
-                    {hotCourse.map((course) => (
-                        <div key={course.id} className="classCard">
+                    {hotCourse.slice(0, visibleHotCount).map((course, index) => (
+                        <div key={course.id} className={`classCard ${index >= visibleHotCount - 3 && index < visibleHotCount ? "fade-in" : ""} `}>
 
                             <figure className="classPhoto">
                                 <a href="#">
@@ -96,18 +126,22 @@ function ClassList() {
 
                 </div>
 
-                <div className="seeMore">
+                {visibleHotCount < hotCourse.length && (
 
-                    <figure><img src="./images/small-circle.svg" alt="" /></figure>
-                    <div>
-                        <a href="#">
+                    <div className="seeMore">
+
+                        <figure><img src="./images/small-circle.svg" alt="" /></figure>
+                        <div onClick={handleHotSeeMore}>
+
                             <p>See</p>
                             <p>More</p>
                             <img className="icons-arrowDown" src="./images/icons-arrowDown.svg" alt="" />
-                        </a>
+
+                        </div>
+
                     </div>
 
-                </div>
+                )}
 
             </section>
 
@@ -120,9 +154,9 @@ function ClassList() {
 
                 <div className="classList">
 
-                    {latestCourses.map((course) => (
+                    {latestCourses.slice(0, visibleNewCount).map((course,index) => (
 
-                        <div key={course.id} className="classCard">
+                        <div key={course.id} className={`classCard ${index >= visibleNewCount - 3 && index < visibleNewCount ? "fade-in" : ""} `}>
 
                             <figure className="classPhoto">
                                 <a href="#">
@@ -157,17 +191,22 @@ function ClassList() {
 
 
 
-                <div className="seeMore">
-                    <figure><img src="./images/small-circle.svg" alt="" /></figure>
-                    <div>
-                        <a href="#">
+                {visibleNewCount < latestCourses.length && (
+
+                    <div className="seeMore">
+
+                        <figure><img src="./images/small-circle.svg" alt="" /></figure>
+                        <div onClick={handleNewSeeMore}>
+
                             <p>See</p>
                             <p>More</p>
                             <img className="icons-arrowDown" src="./images/icons-arrowDown.svg" alt="" />
-                        </a>
+
+                        </div>
+
                     </div>
 
-                </div>
+                )}
 
             </section>
 
