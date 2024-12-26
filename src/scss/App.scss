@@ -5,9 +5,8 @@
 
 body {
     color: #303030;
-    background-image: url(../images/BG-searchPage.png);
+    background-image: url(../images/background-textur.jpg);
     background-size: cover;
-    background-position: top;
     background-attachment: fixed;
 
 
@@ -169,7 +168,7 @@ body {
 
     .search-select {
 
-        width: 92%;
+        width: 90%;
         display: flex;
         justify-content: space-between;
         gap: 4px;
@@ -193,7 +192,7 @@ body {
 
 
             position: relative;
-            width: 25%;
+            width: 24%;
             height: 48px;
             border: 1px solid #ADADAD;
             background-color: #ffffff;
@@ -287,7 +286,7 @@ body {
         }
 
         .select-people {
-            width: 34%;
+            width: 32%;
 
 
             .select-header {
@@ -348,15 +347,22 @@ body {
 
 
     .searchBtn {
-        width: 120px;
+        width: 130px;
         color: #ffffff;
+        font-size: 16px;
         background-color: #483D3F;
         border: none;
         border-radius: 100px;
-        margin-left: 16px;
+        margin-left: 8px;
         padding: 14px 24px;
-        letter-spacing: 2px;
+        letter-spacing: 1px;
         cursor: pointer;
+        transition: all 0.5s ease-in-out;
+
+
+        &:hover{
+            background-color: #78686B;
+        }
     }
 
 
@@ -526,6 +532,16 @@ body {
 
 
 
+}
+
+
+main{
+    width: 100%;
+    background-image: url(/images/BG-search.svg);
+    background-size: 100% auto;
+    background-position: top center;
+    padding-bottom: 144px;
+    
 }
 
 /* 列表分類過濾器 */
@@ -719,6 +735,8 @@ body {
 
                     .classify-title{
                         text-align: center;
+                        
+                        
                     }
 
                     div{
@@ -764,14 +782,17 @@ body {
     }
 }
 
-
+#courseBox{
+    
+    
+}
 
 /* 課程列表區 */
 .searchResault,
 .hotClassRecommend,
 .newestClass {
 
-    margin: 80px 0 144px;
+    margin-top: 80px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -799,11 +820,6 @@ body {
         justify-content: space-between;
         column-gap: 8%;
         row-gap: 80px;
-
-
-
-
-
 
 
         .classCard {
@@ -918,6 +934,19 @@ body {
                     font-size: 18px;
                     font-weight: 600;
 
+                    a {
+
+                        border-bottom: 2px solid transparent;
+                        transition: all 0.5s ease-in-out;
+    
+                        &:hover {
+    
+                            color: #565656;
+                            border-bottom: 2px solid #B07662;
+    
+                        }
+                    }
+
                 }
 
             }
@@ -928,6 +957,19 @@ body {
 
                 .classStoreName {
                     color: #5a5a5a;
+
+                    a {
+
+                        border-bottom: 1px solid transparent;
+                        transition: all 0.5s ease-in-out;
+    
+                        &:hover {
+    
+                            color: #565656;
+                            border-bottom: 1px solid #B07662;
+    
+                        }
+                    }
                 }
 
                 .classPrice {
@@ -1051,6 +1093,57 @@ body {
     }
 
 }
+
+
+.seemore-btn{
+    font-family: "Braah One", serif;
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+    color: #483D3F;
+    
+    padding: 0 40px;
+    position: relative;
+    font-weight: bold;
+    .arr{
+        margin-left: 65px;
+        position: relative;
+        z-index: 10;
+    }
+    &:hover{
+       
+        .ball{
+            transition: .8s;
+            filter: hue-rotate(30deg)  brightness(140%);
+            transform: translateX(85px);
+        }
+    }
+    &.shot{
+        .ball{
+            filter: hue-rotate(30deg)  brightness(140%);
+            transition: .7s cubic-bezier(.3,1.77,.36,.69) /*cubic-bezier(.5,2.77,.25,.35)*/;
+            transform: translateX(150px);
+        }
+        .transform-delay{
+            transition: .4s;
+            transform: translateX(65px);
+        }
+        .transform-delay2{
+            transition: .3s;
+            opacity: 0;
+        }
+       
+    }
+
+
+    span {
+        position: absolute;
+        z-index: 10;
+        width: 100%;
+        margin-left: 15px;
+    }
+}
+
 
 
 /* 搜尋後沒有結果 */

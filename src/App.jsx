@@ -1,10 +1,11 @@
 import { useState } from 'react';
-import './css/App.css';
-import 'csshake/dist/csshake.min.css';
+import './scss/App.scss';
 import SearchSection from './SearchSection';
 import Results from './Results';
 import ClassList from './ClassList';
 import courseData from "../public/courseData";
+
+import 'csshake/dist/csshake.min.css';
 
 
 
@@ -84,16 +85,18 @@ function App() {
         </section>
 
 
+        <section id="courseBox">
 
 
 
-        <Results filteredCourses={filteredCourses} resultVisible={resultVisible} />
+
+          <Results filteredCourses={filteredCourses} resultVisible={resultVisible} />
 
 
 
-        {/* 課程搜尋結果 */}
+          {/* 課程搜尋結果 */}
 
-        {/* <section className="searchResault">
+          {/* <section className="searchResault">
 
           <figure className="listTitle">
             <img src="./images/title-resault.svg" alt="" />
@@ -352,12 +355,12 @@ function App() {
 
         </section> */}
 
-        {/* 熱門課程推薦&最新上架課程 */}
+          {/* 熱門課程推薦&最新上架課程 */}
 
 
-        <ClassList />
+          <ClassList />
 
-        {/* <section className="hotClassRecommend">
+          {/* <section className="hotClassRecommend">
 
           <figure className="listTitle">
             <img src="./images/title-hotClass.svg" alt="" />
@@ -912,6 +915,7 @@ function App() {
 
         </section> */}
 
+        </section>
 
       </main>
 

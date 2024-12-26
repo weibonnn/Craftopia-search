@@ -7,6 +7,7 @@ import 'csshake/dist/csshake.min.css';
 
 
 
+
 function ClassList() {
 
 
@@ -60,22 +61,17 @@ function ClassList() {
     const [visibleNewCount, setVisibleNewCount] = useState(3); // 初始顯示數量為 6
 
 
-    // 點擊展開更多卡片
+    // 點擊展開更多卡片 (熱門)
     const handleHotSeeMore = () => {
-
-
         setVisibleHotCount((prevCount) => prevCount + 3); // 每次多顯示3個
-
-
-
     };
 
-
+    // 點擊展開更多卡片 (最新)
     const handleNewSeeMore = () => {
         setVisibleNewCount((prevCount) => prevCount + 3); // 每次多顯示3個
     };
 
-    
+
 
 
 
@@ -100,12 +96,16 @@ function ClassList() {
 
 
                     {hotCourse.slice(0, visibleHotCount).map((course) => (
-                        <div data-aos="fade-up"  data-aos-offset="50" key={course.id} className={`classCard`}>
+
+                        
+                        <div data-aos="fade-up" data-aos-offset="50" key={course.id} className={`classCard`}>
 
                             <figure className="classPhoto">
                                 <a href="#">
                                     <img className="defaultPhoto" src="./images/classphoto-01.jpg" alt="" />
-                                    <img className="tagHotorNew " src="./images/labels-hot.svg" alt="" />
+                                    {course.hot  && (
+                                        <img className="tagHotorNew " src="./images/labels-hot.svg" alt="" />
+                                    )}
                                     <img className="maskLayer" src="./images/classphoto-01.jpg" alt="" />
                                 </a>
                             </figure>
@@ -129,20 +129,22 @@ function ClassList() {
 
                 {visibleHotCount < hotCourse.length && (
 
-                    <div className="seeMore">
-
-                        <figure><img src="./images/small-circle.svg" alt="" /></figure>
-                        <div onClick={handleHotSeeMore}>
-
-                            <p>See</p>
-                            <p>More</p>
-                            <img className="icons-arrowDown" src="./images/icons-arrowDown.svg" alt="" />
-
-                        </div>
-
+                    <div className="seeMore" onClick={handleHotSeeMore}>
+                        <p className="seemore-btn" href="#">
+                            <img className="ball" src="./images/Vector-circle-b.png" alt="" />
+                            <span className="font">see more</span>
+                            <img className="arr" src="./images/icons-arrowDown.svg" alt="" />
+                        </p>
                     </div>
 
+
+
+
+
+
+
                 )}
+
 
             </section>
 
@@ -194,20 +196,18 @@ function ClassList() {
 
                 {visibleNewCount < latestCourses.length && (
 
-                    <div className="seeMore">
-
-                        <figure><img src="./images/small-circle.svg" alt="" /></figure>
-                        <div onClick={handleNewSeeMore}>
-
-                            <p>See</p>
-                            <p>More</p>
-                            <img className="icons-arrowDown" src="./images/icons-arrowDown.svg" alt="" />
-
-                        </div>
-
+                    <div className="seeMore" onClick={handleNewSeeMore}>
+                        <p className="seemore-btn" href="#">
+                            <img className="ball" src="./images/Vector-circle-b.png" alt="" />
+                            <span className="font">see more</span>
+                            <img className="arr" src="./images/icons-arrowDown.svg" alt="" />
+                        </p>
                     </div>
 
+
                 )}
+
+
 
             </section>
 

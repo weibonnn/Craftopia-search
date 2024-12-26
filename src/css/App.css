@@ -76,9 +76,8 @@ a {
 
 body {
   color: #303030;
-  background-image: url(../images/BG-searchPage.png);
+  background-image: url(../images/background-textur.jpg);
   background-size: cover;
-  background-position: top;
   background-attachment: fixed;
 }
 
@@ -198,7 +197,7 @@ body {
   margin-right: 12px;
 }
 .searchSection .search-select {
-  width: 92%;
+  width: 90%;
   display: flex;
   justify-content: space-between;
   gap: 4px;
@@ -216,7 +215,7 @@ body {
 .searchSection .search-select .select-type,
 .searchSection .search-select .select-people {
   position: relative;
-  width: 25%;
+  width: 24%;
   height: 48px;
   border: 1px solid #ADADAD;
   background-color: #ffffff;
@@ -296,7 +295,7 @@ body {
   display: block;
 }
 .searchSection .search-select .select-people {
-  width: 34%;
+  width: 32%;
 }
 .searchSection .search-select .select-people .select-header {
   color: #222222;
@@ -333,15 +332,20 @@ body {
   cursor: pointer;
 }
 .searchSection .searchBtn {
-  width: 120px;
+  width: 130px;
   color: #ffffff;
+  font-size: 16px;
   background-color: #483D3F;
   border: none;
   border-radius: 100px;
-  margin-left: 16px;
+  margin-left: 8px;
   padding: 14px 24px;
-  letter-spacing: 2px;
+  letter-spacing: 1px;
   cursor: pointer;
+  transition: all 0.5s ease-in-out;
+}
+.searchSection .searchBtn:hover {
+  background-color: #78686B;
 }
 
 @media (max-width:1023px) {
@@ -454,6 +458,14 @@ body {
     flex-direction: column;
   }
 }
+main {
+  width: 100%;
+  background-image: url(/images/BG-search.svg);
+  background-size: 100% auto;
+  background-position: top center;
+  padding-bottom: 144px;
+}
+
 /* 列表分類過濾器 */
 .allFilter {
   display: flex;
@@ -604,7 +616,7 @@ body {
 .searchResault,
 .hotClassRecommend,
 .newestClass {
-  margin: 80px 0 144px;
+  margin-top: 80px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -731,6 +743,18 @@ body {
   font-size: 18px;
   font-weight: 600;
 }
+.searchResault .classList .classCard .classTitle h3 a,
+.hotClassRecommend .classList .classCard .classTitle h3 a,
+.newestClass .classList .classCard .classTitle h3 a {
+  border-bottom: 2px solid transparent;
+  transition: all 0.5s ease-in-out;
+}
+.searchResault .classList .classCard .classTitle h3 a:hover,
+.hotClassRecommend .classList .classCard .classTitle h3 a:hover,
+.newestClass .classList .classCard .classTitle h3 a:hover {
+  color: #565656;
+  border-bottom: 2px solid #B07662;
+}
 .searchResault .classList .classCard .classPrice,
 .hotClassRecommend .classList .classCard .classPrice,
 .newestClass .classList .classCard .classPrice {
@@ -740,6 +764,18 @@ body {
 .hotClassRecommend .classList .classCard .classPrice .classStoreName,
 .newestClass .classList .classCard .classPrice .classStoreName {
   color: #5a5a5a;
+}
+.searchResault .classList .classCard .classPrice .classStoreName a,
+.hotClassRecommend .classList .classCard .classPrice .classStoreName a,
+.newestClass .classList .classCard .classPrice .classStoreName a {
+  border-bottom: 1px solid transparent;
+  transition: all 0.5s ease-in-out;
+}
+.searchResault .classList .classCard .classPrice .classStoreName a:hover,
+.hotClassRecommend .classList .classCard .classPrice .classStoreName a:hover,
+.newestClass .classList .classCard .classPrice .classStoreName a:hover {
+  color: #565656;
+  border-bottom: 1px solid #B07662;
 }
 .searchResault .classList .classCard .classPrice .classPrice,
 .hotClassRecommend .classList .classCard .classPrice .classPrice,
@@ -838,6 +874,46 @@ body {
   width: 24px;
 }
 
+.seemore-btn {
+  font-family: "Braah One", serif;
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  color: #483D3F;
+  padding: 0 40px;
+  position: relative;
+  font-weight: bold;
+}
+.seemore-btn .arr {
+  margin-left: 65px;
+  position: relative;
+  z-index: 10;
+}
+.seemore-btn:hover .ball {
+  transition: 0.8s;
+  filter: hue-rotate(30deg) brightness(140%);
+  transform: translateX(85px);
+}
+.seemore-btn.shot .ball {
+  filter: hue-rotate(30deg) brightness(140%);
+  transition: 0.7s cubic-bezier(0.3, 1.77, 0.36, 0.69);
+  transform: translateX(150px);
+}
+.seemore-btn.shot .transform-delay {
+  transition: 0.4s;
+  transform: translateX(65px);
+}
+.seemore-btn.shot .transform-delay2 {
+  transition: 0.3s;
+  opacity: 0;
+}
+.seemore-btn span {
+  position: absolute;
+  z-index: 10;
+  width: 100%;
+  margin-left: 15px;
+}
+
 /* 搜尋後沒有結果 */
 .noresult {
   font-size: 20px;
@@ -915,16 +991,16 @@ footer small {
 /* 自訂義抖動效果 */
 @keyframes custom-shake-h {
   20% {
-    transform: translate(-5.5px, 1.5px) rotate(-1.5deg);
+    transform: translate(-7.5px, -1.5px) rotate(2.5deg);
   }
   40% {
-    transform: translate(-7.5px, -1.5px) rotate(-1.5deg);
+    transform: translate(0.5px, 0.5px) rotate(-1.5deg);
   }
   60% {
-    transform: translate(5.5px, 1.5px) rotate(1.5deg);
+    transform: translate(-3.5px, -0.5px) rotate(-1.5deg);
   }
   80% {
-    transform: translate(8.5px, 2.5px) rotate(1.5deg);
+    transform: translate(-3.5px, 0.5px) rotate(-1.5deg);
   }
   0%, 100% {
     transform: translate(0, 0) rotate(0);
@@ -938,16 +1014,16 @@ footer small {
 }
 @keyframes custom-shake-v {
   20% {
-    transform: translate(2px, 5px) rotate(-0.5deg);
+    transform: translate(0px, -19px) rotate(-0.5deg);
   }
   40% {
-    transform: translate(-2px, -17px) rotate(-1.5deg);
+    transform: translate(0px, 12px) rotate(-1.5deg);
   }
   60% {
-    transform: translate(2px, -8px) rotate(1.5deg);
+    transform: translate(4px, -10px) rotate(0.5deg);
   }
   80% {
-    transform: translate(1px, 17px) rotate(-0.5deg);
+    transform: translate(-1px, 20px) rotate(-0.5deg);
   }
   0%, 90%, 100% {
     transform: translate(0, 0) rotate(0);
@@ -961,16 +1037,16 @@ footer small {
 }
 @keyframes custom-shake-t {
   20% {
-    transform: translate(1.5px, 4px) rotate(6deg);
+    transform: translate(1.5px, -3px) rotate(-3deg);
   }
   40% {
-    transform: translate(0.5px, -2px) rotate(-3deg);
+    transform: translate(-1.5px, 8px) rotate(6deg);
   }
   60% {
-    transform: translate(0.5px, 5px) rotate(5deg);
+    transform: translate(-0.5px, 4px) rotate(-3deg);
   }
   80% {
-    transform: translate(1.5px, 3px) rotate(0deg);
+    transform: translate(-1.5px, -2px) rotate(6deg);
   }
   0%, 100% {
     transform: translate(0, 0) rotate(0);
