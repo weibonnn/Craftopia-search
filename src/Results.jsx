@@ -103,11 +103,23 @@ function Results({ filteredCourses, resultVisible }) {
 
 
 
-    useEffect(()=>{
+    /* 篩選出最新一個月內上架課程 */
+    // 取得今天的日期
+    const today = new Date();
+
+    // 取得三個月前的日期
+    const monthAgo = new Date();
+    monthAgo.setMonth(today.getMonth() - 3);  //setMonth 設定月份
+
+
+
+
+
+    useEffect(() => {
 
         AOS.init(); // 初始化
-    
-      },[])
+
+    }, [])
 
 
     return (
@@ -116,7 +128,7 @@ function Results({ filteredCourses, resultVisible }) {
 
             {resultVisible && (
 
-                <section data-aos="fade-zoom-in" data-aos-offset="100" className="searchResault">
+                <section data-aos="fade-up" data-aos-offset="100" className="searchResault">
 
                     <figure className="listTitle">
                         <img src="./images/title-resault.svg" alt="" />
@@ -127,7 +139,7 @@ function Results({ filteredCourses, resultVisible }) {
 
 
                         <>
-                            <div data-aos="fade-right"  data-aos-offset="80" className="allFilter">
+                            <div data-aos="fade-right" data-aos-offset="80" className="allFilter">
                                 <div className={`filter classify ${classifyIsOpen ? "open" : ""}`} >
                                     <div className="select-header" onClick={() => toggleDropdown("classify")}>
                                         <div>分類</div>
@@ -203,35 +215,52 @@ function Results({ filteredCourses, resultVisible }) {
                             </div>
 
 
-                            <div  className="classList">
-                                {filteredCourses.map((course) => (
-                                    <div data-aos="fade-up" key={course.id} className="classCard">
+                            <div className="classList">
+                                {filteredCourses.map((course) => {
 
-                                        <figure className="classPhoto">
-                                            <a href="#">
-                                                <img className="defaultPhoto" src="./images/classphoto-01.jpg" alt="" />
-                                                <img className="tagHotorNew" src="./images/labels-hot.svg" alt="" />
-                                                <img className="maskLayer" src="./images/classphoto-01.jpg" alt="" />
-                                            </a>
-                                        </figure>
-                                        <div className="classTag">
-                                            <p className="classLevel">{course.level}</p>
-                                            <p className="classTime">{course.duration}hr</p>
-                                        </div>
-                                        <div className="classTitle">
-                                            <h3><a href="#">{course.courseName}</a></h3>
-                                            <img className="icons-heart" src="./images/icons-heart.svg" alt="" />
-                                        </div>
-                                        <div className="classPrice">
-                                            <p className="classStoreName"><a href="#">{course.storeName}</a></p>
-                                            <p className="classPrice">$ {course.price}</p>
+                                    const courseDate = new Date(course.releaseDate); // 將課程日期轉為 Date 對象
+                                    const newest = courseDate >= monthAgo; // 判斷是否在三個月內
+
+                                    return (
+                                        <div data-aos="fade-zoom-in" key={course.id} className="classCard">
+
+                                            <figure className="classPhoto">
+                                                <a href="#">
+                                                    <img className="defaultPhoto" src="./images/classphoto-01.jpg" alt="" />
+
+                                                      <div className="tagHotorNew ">
+                                        {course.hot && (
+                                            <img  src="./images/labels-hot.svg" alt="" />
+                                        )}
+                                        {newest && (
+                                            <img  src="./images/labels-new.svg" alt="" />
+                                        )}
                                         </div>
 
-                                    </div>
-                                ))}
+
+                                                    <img className="maskLayer" src="./images/classphoto-01.jpg" alt="" />
+                                                </a>
+                                            </figure>
+                                            <div className="classTag">
+                                                <p className="classLevel">{course.level}</p>
+                                                <p className="classTime">{course.duration}hr</p>
+                                            </div>
+                                            <div className="classTitle">
+                                                <h3><a href="#">{course.courseName}</a></h3>
+                                                <img className="icons-heart" src="./images/icons-heart.svg" alt="" />
+                                            </div>
+                                            <div className="classPrice">
+                                                <p className="classStoreName"><a href="#">{course.storeName}</a></p>
+                                                <p className="classPrice">$ {course.price}</p>
+                                            </div>
+
+                                        </div>
+                                    )
+                                }
+                                )}
                             </div>
 
-                            
+
 
                         </>
 

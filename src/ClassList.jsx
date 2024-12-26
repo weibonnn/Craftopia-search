@@ -86,7 +86,7 @@ function ClassList() {
     return (
         <>
             {/* 熱門推薦課程 */}
-            <section data-aos="fade-zoom-in" data-aos-offset="100" className="hotClassRecommend">
+            <section data-aos="fade-up" data-aos-offset="100" className="hotClassRecommend">
 
                 <figure className="listTitle">
                     <img src="./images/title-hotClass.svg" alt="" />
@@ -95,41 +95,57 @@ function ClassList() {
                 <div className="classList">
 
 
-                    {hotCourse.slice(0, visibleHotCount).map((course) => (
+                    {hotCourse.slice(0, visibleHotCount).map((course) => {
 
-                        
-                        <div data-aos="fade-up" data-aos-offset="50" key={course.id} className={`classCard`}>
 
-                            <figure className="classPhoto">
-                                <a href="#">
-                                    <img className="defaultPhoto" src="./images/classphoto-01.jpg" alt="" />
-                                    {course.hot  && (
-                                        <img className="tagHotorNew " src="./images/labels-hot.svg" alt="" />
-                                    )}
-                                    <img className="maskLayer" src="./images/classphoto-01.jpg" alt="" />
-                                </a>
-                            </figure>
-                            <div className="classTag">
-                                <p className="classLevel">{course.level}</p>
-                                <p className="classTime">{course.duration}hr</p>
-                            </div>
-                            <div className="classTitle">
-                                <h3><a href="#">{course.courseName}</a></h3>
-                                <img className="icons-heart" src="./images/icons-heart.svg" alt="" />
-                            </div>
-                            <div className="classPrice">
-                                <p className="classStoreName"><a href="#">{course.storeName}</a></p>
-                                <p className="classPrice">$ {course.price}</p>
-                            </div>
+                        const courseDate = new Date(course.releaseDate); // 將課程日期轉為 Date 對象
+                        const newest = courseDate >= monthAgo; // 判斷是否在三個月內
 
-                        </div>
-                    ))}
+                        return (
+
+
+                            <div data-aos="fade-zoom-in" data-aos-offset="50" key={course.id} className={`classCard`}>
+
+                                <figure className="classPhoto">
+                                    <a href="#">
+                                        <img className="defaultPhoto" src="./images/classphoto-01.jpg" alt="" />
+
+                                        <div className="tagHotorNew ">
+                                        {course.hot && (
+                                            <img  src="./images/labels-hot.svg" alt="" />
+                                        )}
+                                        {newest && (
+                                            <img  src="./images/labels-new.svg" alt="" />
+                                        )}
+                                        </div>
+                                        <img className="maskLayer" src="./images/classphoto-01.jpg" alt="" />
+                                    </a>
+                                </figure>
+                                <div className="classTag">
+                                    <p className="classLevel">{course.level}</p>
+                                    <p className="classTime">{course.duration}hr</p>
+                                </div>
+                                <div className="classTitle">
+                                    <h3><a href="#">{course.courseName}</a></h3>
+                                    <img className="icons-heart" src="./images/icons-heart.svg" alt="" />
+                                </div>
+                                <div className="classPrice">
+                                    <p className="classStoreName"><a href="#">{course.storeName}</a></p>
+                                    <p className="classPrice">$ {course.price}</p>
+                                </div>
+
+                            </div>
+                        )
+
+                    }
+
+                    )}
 
                 </div>
 
                 {visibleHotCount < hotCourse.length && (
 
-                    <div className="seeMore" onClick={handleHotSeeMore}>
+                    <div  data-aos="fade-right" className="seeMore" onClick={handleHotSeeMore}>
                         <p className="seemore-btn" href="#">
                             <img className="ball" src="./images/Vector-circle-b.png" alt="" />
                             <span className="font">see more</span>
@@ -149,7 +165,7 @@ function ClassList() {
             </section>
 
             {/* 最新上架課程 */}
-            <section data-aos="fade-zoom-in" className="newestClass">
+            <section data-aos="fade-up" className="newestClass">
 
                 <figure className="listTitle">
                     <img src="./images/title-newClass.svg" alt="" />
@@ -157,14 +173,22 @@ function ClassList() {
 
                 <div className="classList">
 
-                    {latestCourses.slice(0, visibleNewCount).map((course) => (
+                    {latestCourses.slice(0, visibleNewCount).map((course) => {
+                        
+                        return(
 
-                        <div data-aos="fade-up" key={course.id} className={`classCard`}>
+                        <div data-aos="fade-zoom-in" key={course.id} className={`classCard`}>
 
                             <figure className="classPhoto">
                                 <a href="#">
                                     <img className="defaultPhoto" src="./images/classphoto-01.jpg" alt="" />
-                                    <img className="tagHotorNew" src="./images/labels-new.svg" alt="" />
+                                    <div className="tagHotorNew">
+                                    {course.hot && (
+                                            <img  src="./images/labels-hot.svg" alt="" />
+                                        )}
+                                        <img src="./images/labels-new.svg" alt="" />
+                                    </div>
+                                    
                                     <img className="maskLayer" src="./images/classphoto-01.jpg" alt="" />
                                 </a>
                             </figure>
@@ -184,7 +208,9 @@ function ClassList() {
                         </div>
 
 
-                    ))}
+                    )
+                    
+                    })}
 
 
 
@@ -196,7 +222,7 @@ function ClassList() {
 
                 {visibleNewCount < latestCourses.length && (
 
-                    <div className="seeMore" onClick={handleNewSeeMore}>
+                    <div data-aos="fade-right" className="seeMore" onClick={handleNewSeeMore}>
                         <p className="seemore-btn" href="#">
                             <img className="ball" src="./images/Vector-circle-b.png" alt="" />
                             <span className="font">see more</span>
