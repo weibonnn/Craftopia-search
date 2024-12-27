@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import Hearttoggle from "./Hearttoggle";
 
 function Results({ filteredCourses, resultVisible }) {
 
@@ -8,15 +9,7 @@ function Results({ filteredCourses, resultVisible }) {
     const [classifyIsOpen, setClassifyIsOpen] = useState(false);
 
 
-    /* 課程排序選擇 */
-    const [selectedOrderOption, setSelectedOrderOption] = useState("排序");
-    const orderOptions = [
-        { value: "最新", label: "最新" },
-        { value: "最熱門", label: "最熱門" },
-        { value: "最低價", label: "最低價" },
-        { value: "最高價", label: "最高價" },
-    ];
-
+   
 
     /* 分類篩選器選擇 */
     const [selectedFilters, setSelectedFilters] = useState({ price: [], duration: [], level: [] });
@@ -55,6 +48,39 @@ function Results({ filteredCourses, resultVisible }) {
     };
 
 
+     /* 課程排序選擇 */
+     const [selectedOrderOption, setSelectedOrderOption] = useState("排序");
+     const orderOptions = [
+         { value: "最新", label: "最新" },
+         { value: "最熱門", label: "最熱門" },
+         { value: "最低價", label: "最低價" },
+         { value: "最高價", label: "最高價" },
+     ];
+ 
+
+
+    /* 管理目前選擇的排序方式 */
+    const [sortOption, setSortOption] = useState(null); 
+
+    // 根據選擇的排序方式改變課程顯示順序
+    const sortedCourses = [...filteredCourses].sort((a, b) => {   //把搜尋顯示的課程丟進來重新排序
+        
+        if (sortOption === "最新") {
+            return new Date(b.releaseDate) - new Date(a.releaseDate); // 最新日期優先
+        } else if (sortOption === "最熱門") {
+            return b.sales - a.sales; // 最熱門優先
+        } else if (sortOption === "最高價") {
+            return b.price - a.price; // 價格最高優先
+        } else if (sortOption === "最低價") {
+            return a.price - b.price; // 價格最低優先
+        }else{
+            return 0; // 默認無排序
+        }
+        
+    });
+
+
+
 
     // 點擊選單時顯示&隱藏
     const toggleDropdown = (dropdownType) => {
@@ -75,8 +101,11 @@ function Results({ filteredCourses, resultVisible }) {
 
         if (selectedOrderOption === value) {
             setSelectedOrderOption("排序");
+            setSortOption(null);
+            
         } else {
             setSelectedOrderOption(label); // 更新顯示的選中值
+            setSortOption(value);
 
             console.log(`選的值：${value}`)
         }
@@ -113,7 +142,13 @@ function Results({ filteredCourses, resultVisible }) {
 
 
 
+    
 
+
+
+
+
+    /* AOS 初始化 */
 
     useEffect(() => {
 
@@ -216,7 +251,7 @@ function Results({ filteredCourses, resultVisible }) {
 
 
                             <div className="classList">
-                                {filteredCourses.map((course) => {
+                                {sortedCourses.map((course) => {
 
                                     const courseDate = new Date(course.releaseDate); // 將課程日期轉為 Date 對象
                                     const newest = courseDate >= monthAgo; // 判斷是否在三個月內
@@ -226,11 +261,11 @@ function Results({ filteredCourses, resultVisible }) {
 
                                             <figure className="classPhoto">
                                                 <a href="#">
-                                                <p>See More <img src="./images/icons-arrowRightBold.svg" alt="" /></p>
+                                                    <p>See More <img src="./images/icons-arrowRightBold.svg" alt="" /></p>
                                                     <img className="photo" src="./images/classphoto-01.jpg" alt="" />
 
                                                     <div className="tagHotorNew ">
-                                                        {course.hot && (
+                                                        {course.sales > 20 && (
                                                             <img src="./images/labels-hot.svg" alt="" />
                                                         )}
                                                         {newest && (
@@ -248,7 +283,7 @@ function Results({ filteredCourses, resultVisible }) {
                                             </div>
                                             <div className="classTitle">
                                                 <h3><a href="#">{course.courseName}</a></h3>
-                                                <img className="icons-heart" src="./images/icons-heart.svg" alt="" />
+                                                <Hearttoggle heartFillId='heartfill5' heartStrikeId='heartstrike5' />
                                             </div>
                                             <div className="classPrice">
                                                 <p className="classStoreName"><a href="#">{course.storeName}</a></p>

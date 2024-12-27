@@ -15,7 +15,7 @@ function ClassList() {
 
 
     /* 篩選出熱門課程 */
-    const hotCourse = courseData.filter((course) => course.hot);
+    const hotCourse = courseData.filter((course) => course.sales > 20 );
 
 
 
@@ -192,7 +192,7 @@ function ClassList() {
                                 </div>
                                 <div className="classTitle">
                                     <h3><a href="#">{course.courseName}</a></h3>
-                                    <img className="icons-heart" src="./images/icons-heart.svg" alt="" />
+                                    <Hearttoggle heartFillId='heartfill5' heartStrikeId='heartstrike5' />
                                 </div>
                                 <div className="classPrice">
                                     <p className="classStoreName"><a href="#">{course.storeName}</a></p>
