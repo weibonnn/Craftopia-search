@@ -74,6 +74,13 @@ a {
   animation-play-state: running;
 }
 
+.classCard .classTitle h3, .classCard .classPrice .classStoreName {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+}
+
 /* 全網站背景材質設定區 */
 body {
   color: #303030;
@@ -206,6 +213,7 @@ body {
 }
 .searchSection .search-select input {
   width: 20%;
+  font-size: 16px;
   background-color: rgb(255, 255, 255);
   color: #3d3d3d;
   border: 1px solid #ADADAD;
@@ -214,6 +222,7 @@ body {
   cursor: pointer;
 }
 .searchSection .search-select .select {
+  font-size: 16px;
   position: relative;
   width: 24%;
   height: 48px;
@@ -611,7 +620,8 @@ main {
 .courseSection .listTitle img {
   height: 42px;
 }
-.courseSection .classList {
+
+.classList {
   width: 80%;
   margin-bottom: 80px;
   display: grid;
@@ -620,15 +630,17 @@ main {
   column-gap: 8%;
   row-gap: 80px;
 }
-.courseSection .classList .classCard {
+
+.classCard {
   position: relative;
   width: 100%;
+  height: auto;
 }
-.courseSection .classList .classCard div {
+.classCard div {
   display: flex;
   justify-content: space-between;
 }
-.courseSection .classList .classCard .classPhoto {
+.classCard .classPhoto {
   position: relative;
   width: 100%;
   height: auto;
@@ -638,7 +650,7 @@ main {
   transition: clip-path 0.5s ease;
   /* 設定平滑過渡 */
 }
-.courseSection .classList .classCard .classPhoto .tagHotorNew {
+.classCard .classPhoto .tagHotorNew {
   position: absolute;
   left: 4px;
   top: 4px;
@@ -646,15 +658,15 @@ main {
   opacity: 1;
   transition: opacity 0.5s ease;
 }
-.courseSection .classList .classCard .classPhoto .tagHotorNew img {
+.classCard .classPhoto .tagHotorNew img {
   width: 52px;
 }
-.courseSection .classList .classCard .classPhoto .photo {
+.classCard .classPhoto .photo {
   width: 100%;
-  height: auto;
+  height: 220px;
   object-fit: cover;
 }
-.courseSection .classList .classCard .classPhoto p {
+.classCard .classPhoto p {
   font-family: "Braah One", serif;
   color: #F0E4C6;
   font-size: 18px;
@@ -670,108 +682,184 @@ main {
   opacity: 0;
   transition: all 0.5s ease-in-out;
 }
-.courseSection .classList .classCard .classPhoto p img {
+.classCard .classPhoto p img {
   width: 24px;
 }
-.courseSection .classList .classCard .classTag {
+.classCard .classTag {
   margin: 20px 0;
   justify-content: left;
 }
-.courseSection .classList .classCard .classTag p {
+.classCard .classTag p {
   color: #ffffff;
   font-size: 13px;
   margin-right: 12px;
 }
-.courseSection .classList .classCard .classTag .classLevel {
+.classCard .classTag .classLevel {
   background-image: url(../images/tag-level.svg);
   padding: 7px 16px 8px;
 }
-.courseSection .classList .classCard .classTag .classTime {
+.classCard .classTag .classTime {
   background-image: url(../images/tag-time.svg);
   padding: 5px 17.5px 4px 13px;
 }
-.courseSection .classList .classCard .classTitle {
+.classCard .classTitle {
   align-items: start;
   margin-bottom: 24px;
+  height: 56px;
 }
-.courseSection .classList .classCard .classTitle h3 {
+.classCard .classTitle h3 {
   font-size: 18px;
   font-weight: 600;
+  margin-right: 4px;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
 }
-.courseSection .classList .classCard .classTitle h3 a {
+.classCard .classTitle h3 a {
   border-bottom: 2px solid transparent;
   transition: all 0.5s ease-in-out;
 }
-.courseSection .classList .classCard .classTitle h3 a:hover {
+.classCard .classTitle h3 a:hover {
   color: #565656;
   border-bottom: 2px solid #B07662;
 }
-.courseSection .classList .classCard .classPrice {
+.classCard .classTitle img {
+  width: 24px;
+}
+.classCard .classPrice {
   align-items: center;
+  height: 34px;
 }
-.courseSection .classList .classCard .classPrice .classStoreName {
+.classCard .classPrice .classStoreName {
   color: #5a5a5a;
+  font-size: 16px;
+  width: 130px;
+  -webkit-line-clamp: 1;
+  line-clamp: 1;
 }
-.courseSection .classList .classCard .classPrice .classStoreName a {
-  border-bottom: 1px solid transparent;
+.classCard .classPrice .classStoreName a {
   transition: all 0.5s ease-in-out;
 }
-.courseSection .classList .classCard .classPrice .classStoreName a:hover {
-  color: #565656;
-  border-bottom: 1px solid #B07662;
+.classCard .classPrice .classStoreName a:hover {
+  color: #939393;
 }
-.courseSection .classList .classCard .classPrice .classPrice {
+.classCard .classPrice .price {
   color: #483D3F;
   font-size: 22px;
 }
-.courseSection .classList .classCard .icons-heart {
-  width: 24px;
-}
-.courseSection .classList .classCard:hover .classPhoto {
+.classCard:hover .classPhoto {
   clip-path: polygon(40% 0, 73% 4%, 92% 33%, 89% 75%, 77% 94%, 48% 100%, 17% 95%, 6% 76%, 5% 39%, 15% 10%);
 }
-.courseSection .classList .classCard:hover .classPhoto:hover p {
+.classCard:hover .classPhoto:hover p {
   opacity: 1;
 }
-.courseSection .classList .classCard:hover .classPhoto:hover p img {
+.classCard:hover .classPhoto:hover p img {
   animation: moveArrow 0.6s ease-in-out infinite alternate;
-  /* 啟用動畫 */
 }
-@keyframes moveArrow {
-  0% {
-    transform: translateX(0);
-    /* 初始位置 */
-  }
-  100% {
-    transform: translateX(10px);
-    /* 向右移動 20px */
-  }
-}
-.courseSection .classList .classCard:hover .tagHotorNew {
+.classCard:hover .tagHotorNew {
   opacity: 0;
 }
-.courseSection .classList .classCard.fade-in {
-  animation: fadeIn 0.5s ease-in-out forwards;
+
+.icons-heart {
+  width: 24px;
+  cursor: pointer;
+  z-index: 20;
+  transition: 0.3s;
 }
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+.icons-heart #heartstrike1 {
+  display: flex;
 }
+.icons-heart #heartstrike1.click-h {
+  display: none;
+}
+.icons-heart #heartfill1 {
+  display: none;
+}
+.icons-heart #heartfill1.click-h {
+  display: flex;
+  width: 23px;
+}
+.icons-heart #heartstrike2 {
+  display: flex;
+}
+.icons-heart #heartstrike2.click-h {
+  display: none;
+}
+.icons-heart #heartfill2 {
+  display: none;
+}
+.icons-heart #heartfill2.click-h {
+  display: flex;
+  width: 23px;
+}
+.icons-heart #heartstrike3 {
+  display: flex;
+}
+.icons-heart #heartstrike3.click-h {
+  display: none;
+}
+.icons-heart #heartfill3 {
+  display: none;
+}
+.icons-heart #heartfill3.click-h {
+  display: flex;
+  width: 23px;
+}
+.icons-heart #heartstrike4 {
+  display: flex;
+}
+.icons-heart #heartstrike4.click-h {
+  display: none;
+}
+.icons-heart #heartfill4 {
+  display: none;
+}
+.icons-heart #heartfill4.click-h {
+  display: flex;
+  width: 23px;
+}
+.icons-heart #heartstrike5 {
+  display: flex;
+}
+.icons-heart #heartstrike5.click-h {
+  display: none;
+}
+.icons-heart #heartfill5 {
+  display: none;
+}
+.icons-heart #heartfill5.click-h {
+  display: flex;
+  width: 23px;
+}
+.icons-heart #heartstrike6 {
+  display: flex;
+}
+.icons-heart #heartstrike6.click-h {
+  display: none;
+}
+.icons-heart #heartfill6 {
+  display: none;
+}
+.icons-heart #heartfill6.click-h {
+  display: flex;
+  width: 23px;
+}
+.icons-heart:hover {
+  cursor: pointer;
+  transform: scale(1.2);
+  background-image: url(./images/icons-heart-hover.svg);
+  background-size: cover;
+}
+
 @media (max-width:1023px) {
-  .courseSection .classList {
+  .classList {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 @media (max-width:640px) {
-  .courseSection .classList {
+  .classList {
     grid-template-columns: repeat(1, 1fr);
   }
 }
-
 /* seemore 按鈕 */
 .seemore-btn {
   font-family: "Braah One", serif;
@@ -891,16 +979,16 @@ footer small {
 /* csshake 自訂義抖動效果 */
 @keyframes custom-shake-h {
   20% {
-    transform: translate(1.5px, 0.5px) rotate(1.5deg);
+    transform: translate(-10.5px, 2.5px) rotate(-1.5deg);
   }
   40% {
-    transform: translate(-0.5px, -1.5px) rotate(1.5deg);
+    transform: translate(5.5px, 0.5px) rotate(0.5deg);
   }
   60% {
-    transform: translate(1.5px, 0.5px) rotate(-1.5deg);
+    transform: translate(-8.5px, 0.5px) rotate(1.5deg);
   }
   80% {
-    transform: translate(4.5px, 1.5px) rotate(-1.5deg);
+    transform: translate(-7.5px, 1.5px) rotate(-1.5deg);
   }
   0%, 100% {
     transform: translate(0, 0) rotate(0);
@@ -914,16 +1002,16 @@ footer small {
 }
 @keyframes custom-shake-v {
   20% {
-    transform: translate(1px, -9px) rotate(-1.5deg);
+    transform: translate(1px, 12px) rotate(1.5deg);
   }
   40% {
-    transform: translate(0px, 0px) rotate(-0.5deg);
+    transform: translate(-3px, 4px) rotate(-0.5deg);
   }
   60% {
-    transform: translate(2px, 7px) rotate(-0.5deg);
+    transform: translate(-1px, 3px) rotate(-1.5deg);
   }
   80% {
-    transform: translate(1px, 10px) rotate(0.5deg);
+    transform: translate(-2px, -9px) rotate(-0.5deg);
   }
   0%, 90%, 100% {
     transform: translate(0, 0) rotate(0);
@@ -937,16 +1025,16 @@ footer small {
 }
 @keyframes custom-shake-t {
   20% {
-    transform: translate(1.5px, -2px) rotate(0deg);
+    transform: translate(1.5px, 8px) rotate(0deg);
   }
   40% {
-    transform: translate(-1.5px, -9px) rotate(-3deg);
+    transform: translate(2.5px, -4px) rotate(3deg);
   }
   60% {
-    transform: translate(1.5px, -3px) rotate(3deg);
+    transform: translate(-0.5px, 8px) rotate(6deg);
   }
   80% {
-    transform: translate(-0.5px, 10px) rotate(-1deg);
+    transform: translate(2.5px, 5px) rotate(0deg);
   }
   0%, 100% {
     transform: translate(0, 0) rotate(0);
@@ -957,4 +1045,12 @@ footer small {
   animation-duration: 6000ms;
   animation-timing-function: ease-in-out;
   animation-iteration-count: infinite;
+}
+@keyframes moveArrow {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(10px);
+  }
 }/*# sourceMappingURL=App.css.map */

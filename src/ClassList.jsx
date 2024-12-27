@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
-import courseData from "../public/courseData";
+import courseData from "./courseData";
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import 'csshake/dist/csshake.min.css';
+import Hearttoggle from "./Hearttoggle";
+import ClassCardLatest from "./ClassCardLatest";
 
 
 
@@ -11,7 +13,7 @@ import 'csshake/dist/csshake.min.css';
 function ClassList() {
 
 
-    
+
     /* 篩選出熱門課程 */
     const hotCourse = courseData.filter((course) => course.hot);
 
@@ -60,6 +62,8 @@ function ClassList() {
 
     return (
         <>
+
+            
             {/* 熱門推薦課程 */}
             <section id="hotRecommend" className="courseSection" data-aos="fade-up" data-aos-offset="100" >
 
@@ -70,6 +74,8 @@ function ClassList() {
                 <div className="classList">
 
 
+                {/* <ClassCardLatest/> */}
+                
                     {hotCourse.slice(0, visibleHotCount).map((course) => {
 
 
@@ -78,8 +84,8 @@ function ClassList() {
 
                         return (
 
-
-                            <div data-aos="fade-zoom-in" data-aos-offset="50" key={course.id} className={`classCard`}>
+                                
+                            <div data-aos="fade-up" data-aos-offset="50" key={course.id} className={`classCard`}>
 
                                 <figure className="classPhoto">
                                     <a href="#">
@@ -88,14 +94,14 @@ function ClassList() {
                                         <img className="photo" src="./images/classphoto-01.jpg" alt="" />
 
                                         <div className="tagHotorNew ">
-                                        {course.hot && (
-                                            <img  src="./images/labels-hot.svg" alt="" />
-                                        )}
-                                        {newest && (
-                                            <img  src="./images/labels-new.svg" alt="" />
-                                        )}
+                                            {course.hot && (
+                                                <img src="./images/labels-hot.svg" alt="" />
+                                            )}
+                                            {newest && (
+                                                <img src="./images/labels-new.svg" alt="" />
+                                            )}
                                         </div>
-                                        
+
                                     </a>
                                 </figure>
                                 <div className="classTag">
@@ -104,11 +110,12 @@ function ClassList() {
                                 </div>
                                 <div className="classTitle">
                                     <h3><a href="#">{course.courseName}</a></h3>
-                                    <img className="icons-heart" src="./images/icons-heart.svg" alt="" />
+
+                                    <Hearttoggle heartFillId='heartfill5' heartStrikeId='heartstrike5' />
                                 </div>
                                 <div className="classPrice">
                                     <p className="classStoreName"><a href="#">{course.storeName}</a></p>
-                                    <p className="classPrice">$ {course.price}</p>
+                                    <p className="price">$ {course.price}</p>
                                 </div>
 
                             </div>
@@ -122,7 +129,7 @@ function ClassList() {
 
                 {visibleHotCount < hotCourse.length && (
 
-                    <div  data-aos="fade-right" className="seeMore" onClick={handleHotSeeMore}>
+                    <div data-aos="fade-right" className="seeMore" onClick={handleHotSeeMore}>
                         <p className="seemore-btn" href="#">
                             <img className="ball" src="./images/Vector-circle-b.png" alt="" />
                             <span className="font">see more</span>
@@ -139,10 +146,19 @@ function ClassList() {
                 )}
 
 
+
+                
+
+
             </section>
 
+
+            
+                
+               
+
             {/* 最新上架課程 */}
-            <section  id="newestClass" className="courseSection" data-aos="fade-up">
+            <section id="newestClass" className="courseSection" data-aos="fade-up">
 
                 <figure className="listTitle">
                     <img src="./images/title-newClass.svg" alt="" />
@@ -151,43 +167,43 @@ function ClassList() {
                 <div className="classList">
 
                     {latestCourses.slice(0, visibleNewCount).map((course) => {
-                        
-                        return(
 
-                        <div data-aos="fade-zoom-in" key={course.id} className={`classCard`}>
+                        return (
 
-                            <figure className="classPhoto">
-                                <a href="#">
-                                <p>See More <img src="./images/icons-arrowRightBold.svg" alt="" /></p>
-                                    <img className="photo" src="./images/classphoto-01.jpg" alt="" />
-                                    <div className="tagHotorNew">
-                                    {course.hot && (
-                                            <img  src="./images/labels-hot.svg" alt="" />
-                                        )}
-                                        <img src="./images/labels-new.svg" alt="" />
-                                    </div>
-                                    
-                                    
-                                </a>
-                            </figure>
-                            <div className="classTag">
-                                <p className="classLevel">{course.level}</p>
-                                <p className="classTime">{course.duration}hr</p>
+                            <div data-aos="fade-up" key={course.id} className={`classCard`}>
+
+                                <figure className="classPhoto">
+                                    <a href="#">
+                                        <p>See More <img src="./images/icons-arrowRightBold.svg" alt="" /></p>
+                                        <img className="photo" src="./images/classphoto-01.jpg" alt="" />
+                                        <div className="tagHotorNew">
+                                            {course.hot && (
+                                                <img src="./images/labels-hot.svg" alt="" />
+                                            )}
+                                            <img src="./images/labels-new.svg" alt="" />
+                                        </div>
+
+
+                                    </a>
+                                </figure>
+                                <div className="classTag">
+                                    <p className="classLevel">{course.level}</p>
+                                    <p className="classTime">{course.duration}hr</p>
+                                </div>
+                                <div className="classTitle">
+                                    <h3><a href="#">{course.courseName}</a></h3>
+                                    <img className="icons-heart" src="./images/icons-heart.svg" alt="" />
+                                </div>
+                                <div className="classPrice">
+                                    <p className="classStoreName"><a href="#">{course.storeName}</a></p>
+                                    <p className="price">$ {course.price}</p>
+                                </div>
+
                             </div>
-                            <div className="classTitle">
-                                <h3><a href="#">{course.courseName}</a></h3>
-                                <img className="icons-heart" src="./images/icons-heart.svg" alt="" />
-                            </div>
-                            <div className="classPrice">
-                                <p className="classStoreName"><a href="#">{course.storeName}</a></p>
-                                <p className="classPrice">$ {course.price}</p>
-                            </div>
-
-                        </div>
 
 
-                    )
-                    
+                        )
+
                     })}
 
 

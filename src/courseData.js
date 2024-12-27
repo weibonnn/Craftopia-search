@@ -1,6 +1,6 @@
 const courseData = [
-    { id: 1, courseName: "專屬銀飾打造入門班", storeName: "金藝夢想工坊", type: "金工", location: "中正區", level: "入門", duration: 3, price: 1800, hot: true, releaseDate: "2024-10-15" },
-    { id: 2, courseName: "情侶銀飾設計體驗", storeName: "匠心工坊", type: "金工", location: "大安區", level: "入門", duration: 2, price: 1500, hot: false, releaseDate: "2024-08-10" },
+    { id: 1, courseName: "專屬銀飾打造入門班專屬銀飾打造入門班專屬銀飾打造入門班專屬銀飾打造入門班專屬銀飾打造入門班專屬銀飾打造入門班專屬銀飾打造入門班", storeName: "金藝夢想工坊", type: "金工", location: "中正區", level: "入門", duration: 3, price: 1800, hot: true, releaseDate: "2024-10-15" },
+    { id: 2, courseName: "情侶銀飾設計體驗", storeName: "匠心工坊匠心工坊匠心工坊匠心工坊匠心工坊匠心工坊匠心工坊", type: "金工", location: "大安區", level: "入門", duration: 2, price: 2500, hot: false, releaseDate: "2024-08-10" },
     { id: 3, courseName: "戒指與項鍊製作課程", storeName: "手作時光", type: "金工", location: "信義區", level: "進階", duration: 4, price: 2500, hot: true, releaseDate: "2024-09-01" },
     { id: 4, courseName: "陶瓷碗盤創意課程", storeName: "泥與火生活館", type: "陶藝", location: "士林區", level: "入門", duration: 3, price: 1800, hot: true, releaseDate: "2024-10-05" },
     { id: 5, courseName: "親子陶藝趣味班", storeName: "陶樂時光", type: "陶藝", location: "文山區", level: "入門", duration: 2, price: 1200, hot: false, releaseDate: "2024-11-15" },

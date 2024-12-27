@@ -3,7 +3,7 @@ import './scss/App.scss';
 import SearchSection from './SearchSection';
 import Results from './Results';
 import ClassList from './ClassList';
-import courseData from "../public/courseData";
+import courseData from "./courseData";
 
 import 'csshake/dist/csshake.min.css';
 
@@ -85,6 +85,7 @@ function App() {
 
 
         </section>
+        
 
 
         <Results filteredCourses={filteredCourses} resultVisible={resultVisible} />

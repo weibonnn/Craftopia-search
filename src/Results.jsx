@@ -222,7 +222,7 @@ function Results({ filteredCourses, resultVisible }) {
                                     const newest = courseDate >= monthAgo; // 判斷是否在三個月內
 
                                     return (
-                                        <div data-aos="fade-zoom-in" key={course.id} className="classCard">
+                                        <div data-aos="fade-up" key={course.id} className="classCard">
 
                                             <figure className="classPhoto">
                                                 <a href="#">
@@ -252,7 +252,7 @@ function Results({ filteredCourses, resultVisible }) {
                                             </div>
                                             <div className="classPrice">
                                                 <p className="classStoreName"><a href="#">{course.storeName}</a></p>
-                                                <p className="classPrice">$ {course.price}</p>
+                                                <p className="price">$ {course.price}</p>
                                             </div>
 
                                         </div>
