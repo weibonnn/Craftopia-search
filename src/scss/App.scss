@@ -3,14 +3,17 @@
 @use "function" as *;
 @import url('https://fonts.googleapis.com/css2?family=Braah+One&family=Finger+Paint&family=Noto+Sans+TC:wght@100..900&display=swap');
 
+
+
+/* 全網站背景材質設定區 */
 body {
     color: #303030;
     background-image: url(../images/background-textur.jpg);
     background-size: cover;
     background-attachment: fixed;
-
-
 }
+
+/* 導覽列 */
 
 #topbar {
 
@@ -73,10 +76,11 @@ body {
     }
 }
 
+
+
 /* 課程搜尋區塊 */
 
-
-.banner {
+#SearchBanner {
     z-index: 5;
     height: 460px;
     display: flex;
@@ -186,9 +190,8 @@ body {
         }
 
 
-        .select-location,
-        .select-type,
-        .select-people {
+
+        .select {
 
 
             position: relative;
@@ -279,13 +282,9 @@ body {
                 }
             }
 
-
-
-
-
         }
 
-        .select-people {
+        .people {
             width: 32%;
 
 
@@ -357,10 +356,10 @@ body {
         padding: 14px 24px;
         letter-spacing: 1px;
         cursor: pointer;
-        transition: all 0.5s ease-in-out;
+        transition: background-color 0.5s ease-in-out;
 
 
-        &:hover{
+        &:hover {
             background-color: #78686B;
         }
     }
@@ -371,7 +370,7 @@ body {
 
 @media ($mediaMd) {
 
-    .banner {
+    #SearchBanner {
         height: 560px;
 
         h2 {
@@ -441,13 +440,22 @@ body {
                     width: 100%;
                 }
 
-                .select-location,
-                .select-type,
-                .select-people {
+
+                .select {
 
                     width: 100%;
                 }
 
+                .people {
+                    .number-input {
+
+                        input {
+                            width: 42px;
+                        }
+                    }
+
+
+                }
 
 
             }
@@ -469,7 +477,7 @@ body {
 
 @media ($mediaSm) {
 
-    .banner {
+    #SearchBanner {
         height: 100vh;
 
         h2 {
@@ -535,16 +543,23 @@ body {
 }
 
 
-main{
+/* 主要區塊背景泡泡設定 */
+
+main {
     width: 100%;
     background-image: url(/images/BG-search.svg);
     background-size: 100% auto;
     background-position: top center;
     padding-bottom: 144px;
-    
+
 }
 
-/* 列表分類過濾器 */
+
+
+
+
+
+/* 課程列表篩選器 */
 
 .allFilter {
 
@@ -566,7 +581,7 @@ main{
         background-color: rgba(255, 255, 255, 0.6);
 
         border-radius: 100px;
-        
+
 
 
         .select-header {
@@ -612,7 +627,7 @@ main{
     .classify {
 
 
-        
+
         .option-container {
             display: none;
             background-color: rgb(255, 255, 255);
@@ -695,11 +710,10 @@ main{
         }
 
 
-        &.open{
+        &.open {
             background-color: #ffffff;
         }
     }
-
 
 }
 
@@ -717,7 +731,7 @@ main{
                         grid-template-columns: repeat(2, 1fr);
                         row-gap: 6px;
 
-                       
+
                     }
                 }
             }
@@ -732,29 +746,30 @@ main{
 @media ($mediaSm) {
 
     .allFilter {
-        
+
         font-size: 14px;
+
         .classify {
 
             .option-container {
                 .select-option {
 
-                    
 
-                    .classify-title{
+
+                    .classify-title {
                         text-align: center;
-                        
-                        
+
+
                     }
 
-                    div{
+                    div {
                         justify-content: center;
                     }
 
                     .price {
                         display: flex;
                         flex-direction: column;
-                        
+
                         .classify-content {
                             text-align: center;
                             padding: 8px;
@@ -764,12 +779,12 @@ main{
                         }
                     }
 
-                    .duration{
+                    .duration {
 
                         display: flex;
                         flex-direction: column;
                         row-gap: 6px;
-                        
+
                         .classify-content {
                             text-align: center;
                             padding: 8px;
@@ -778,7 +793,7 @@ main{
                         }
                     }
 
-                    
+
                 }
             }
 
@@ -790,15 +805,10 @@ main{
     }
 }
 
-#courseBox{
-    
-    
-}
 
-/* 課程列表區 */
-.searchResault,
-.hotClassRecommend,
-.newestClass {
+
+/* 共用課程列表區 */
+.courseSection {
 
     margin-top: 80px;
     display: flex;
@@ -851,64 +861,58 @@ main{
                 height: auto;
                 border-radius: 10px;
                 overflow: hidden;
-
+                clip-path: polygon(47% 0, 76% 0, 100% 0, 100% 66%, 100% 100%, 41% 100%, 0 100%, 0 66%, 0 29%, 0 0);
+                transition: clip-path 0.5s ease;
+                /* 設定平滑過渡 */
 
 
 
                 .tagHotorNew {
-                    
+
                     position: absolute;
                     left: 4px;
                     top: 4px;
                     z-index: 10;
 
-                    img{
+                    opacity: 1;
+                    transition: opacity 0.5s ease;
+
+                    img {
                         width: 52px;
                     }
                 }
 
-                .defaultPhoto {
+                .photo {
                     width: 100%;
                     height: auto;
                     object-fit: cover;
-                    transition: all .4s ease-out;
+                    
                 }
 
-                .maskLayer,
-                .maskLayer2 {
-
-                    width: 100%;
-                    height: auto;
-                    object-fit: cover;
-
+                p {
+                    font-family: "Braah One", serif;
+                    color: #F0E4C6;
+                    font-size: 18px;
+                    font-weight: 400;
+                    z-index: 10;
                     position: absolute;
-                    top: 0;
-                    left: 0;
-
-
-                    mask: url("../images/mask-01.svg") no-repeat center center;
-
-                    mask-size: contain;
-
-                    transition: all 0.5s ease-out;
-
-
+                    width: 100%;
+                    height: 100%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    background-color: rgba(66, 66, 66, 0.6);
                     opacity: 0;
-                    /* 初始透明 */
-                    visibility: hidden;
-                    /* 初始不可見 */
 
+                    transition: all 0.5s ease-in-out;
 
-
+                    img {
+                        width: 24px;
+                    }
                 }
 
-                .maskLayer2 {
 
-                    mask: url("../images/mask-02.svg") no-repeat center center;
-                    transition: all 0.5s ease-out;
-
-                }
-
+                
 
 
 
@@ -950,12 +954,12 @@ main{
 
                         border-bottom: 2px solid transparent;
                         transition: all 0.5s ease-in-out;
-    
+
                         &:hover {
-    
+
                             color: #565656;
                             border-bottom: 2px solid #B07662;
-    
+
                         }
                     }
 
@@ -974,12 +978,12 @@ main{
 
                         border-bottom: 1px solid transparent;
                         transition: all 0.5s ease-in-out;
-    
+
                         &:hover {
-    
+
                             color: #565656;
                             border-bottom: 1px solid #B07662;
-    
+
                         }
                     }
                 }
@@ -1000,23 +1004,49 @@ main{
             &:hover {
 
 
-                .maskLayer,
-                .maskLayer2 {
+                .classPhoto {
+                    
+                    clip-path: polygon(40% 0, 73% 4%, 92% 33%, 89% 75%, 77% 94%, 48% 100%, 17% 95%, 6% 76%, 5% 39%, 15% 10%);
+                
+                
+                    &:hover{
 
 
-                    opacity: 1;
-                    visibility: visible;
-                    transition: all 0.5s ease-out;
-                    /* 添加漸變效果 */
+                        p {
+                            opacity: 1;
+        
+                            img {
+        
+                                 animation: moveArrow 0.6s ease-in-out infinite alternate;
+                                 /* 啟用動畫 */
+        
+                                 @keyframes moveArrow {
+                                    0% {
+                                        transform: translateX(0);
+                                        /* 初始位置 */
+                                    }
+            
+                                    100% {
+                                        transform: translateX(10px);
+                                        /* 向右移動 20px */
+                                    }
+                                }
+                            }
+        
+                        }
 
+                    }
+                
                 }
 
-                .defaultPhoto {
+                .tagHotorNew {
+
                     opacity: 0;
-                    visibility: hidden;
-                    transition: all 0.5s ease-in-out;
-                    /* 添加漸變效果 */
+                
+                
                 }
+
+               
 
 
 
@@ -1070,81 +1100,58 @@ main{
     }
 
 
-    .seeMore {
-        width: 160px;
-        position: relative;
-        display: flex;
-        justify-content: center;
-
-        figure {
-            position: absolute;
-            left: -4px;
-            top: -6px;
-            width: 40px;
-            height: 38px;
-        }
-
-        div {
-            z-index: 10;
-
-
-            p {
-                font-weight: 800;
-                margin: 4px;
-            }
-
-            a {
-                display: flex;
-                align-items: center;
-            }
-        }
-
-        .icons-arrowDown {
-            width: 24px;
-        }
-    }
 
 }
 
 
-.seemore-btn{
+
+/* seemore 按鈕 */
+.seemore-btn {
     font-family: "Braah One", serif;
     display: inline-flex;
     align-items: center;
     text-decoration: none;
     color: #483D3F;
-    
+
     padding: 0 40px;
     position: relative;
     font-weight: bold;
-    .arr{
+    cursor: pointer;
+
+    .arr {
         margin-left: 65px;
         position: relative;
         z-index: 10;
     }
-    &:hover{
-       
-        .ball{
+
+    &:hover {
+
+        .ball {
             transition: .8s;
-            filter: hue-rotate(30deg)  brightness(140%);
+            filter: hue-rotate(30deg) brightness(140%);
             transform: translateX(85px);
         }
     }
-    &.shot{
-        .ball{
-            filter: hue-rotate(30deg)  brightness(140%);
-            transition: .7s cubic-bezier(.3,1.77,.36,.69) /*cubic-bezier(.5,2.77,.25,.35)*/;
+
+    &.shot {
+        .ball {
+            filter: hue-rotate(30deg) brightness(140%);
+            transition: .7s cubic-bezier(.3, 1.77, .36, .69)
+                /*cubic-bezier(.5,2.77,.25,.35)*/
+            ;
             transform: translateX(150px);
         }
-        .transform-delay{
+
+        .transform-delay {
             transition: .4s;
             transform: translateX(65px);
         }
-        .transform-delay2{
+
+        .transform-delay2 {
             transition: .3s;
             opacity: 0;
         }
-       
+
     }
 
 
@@ -1157,11 +1164,11 @@ main{
 }
 
 
-
 /* 搜尋後沒有結果 */
 .noresult {
     font-size: 20px;
 }
+
 
 
 /* 頁尾區 */
@@ -1267,7 +1274,7 @@ footer {
 
 
 
-/* 自訂義抖動效果 */
+/* csshake 自訂義抖動效果 */
 
 .custom-shake-h {
     @include do-shake($name: 'custom-shake-h', // 動畫名稱

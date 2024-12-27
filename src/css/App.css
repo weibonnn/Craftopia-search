@@ -74,6 +74,7 @@ a {
   animation-play-state: running;
 }
 
+/* 全網站背景材質設定區 */
 body {
   color: #303030;
   background-image: url(../images/background-textur.jpg);
@@ -81,6 +82,7 @@ body {
   background-attachment: fixed;
 }
 
+/* 導覽列 */
 #topbar {
   width: 100%;
   display: flex;
@@ -127,7 +129,7 @@ body {
 }
 
 /* 課程搜尋區塊 */
-.banner {
+#SearchBanner {
   z-index: 5;
   height: 460px;
   display: flex;
@@ -140,42 +142,42 @@ body {
   background-position: 50% 50%;
   backdrop-filter: brightness(60%);
 }
-.banner h2 {
+#SearchBanner h2 {
   color: #ffffff;
   font-size: 40px;
   margin-top: 24px 0;
   text-shadow: 4px 6px 4px rgba(0, 0, 0, 0.25);
 }
-.banner .engTitle {
+#SearchBanner .engTitle {
   font-family: "Finger Paint", serif;
   font-size: 36px;
 }
-.banner .left-filled {
+#SearchBanner .left-filled {
   position: absolute;
   top: 130px;
   left: 140px;
 }
-.banner .left-stroke {
+#SearchBanner .left-stroke {
   position: absolute;
   top: 220px;
   left: 90px;
 }
-.banner .left-tool {
+#SearchBanner .left-tool {
   position: absolute;
   top: 140px;
   left: 224px;
 }
-.banner .right-filled {
+#SearchBanner .right-filled {
   position: absolute;
   top: 200px;
   right: 100px;
 }
-.banner .right-stroke {
+#SearchBanner .right-stroke {
   position: absolute;
   top: 140px;
   right: 100px;
 }
-.banner .right-tool {
+#SearchBanner .right-tool {
   position: absolute;
   top: 130px;
   right: 150px;
@@ -211,9 +213,7 @@ body {
   border-radius: 6px;
   cursor: pointer;
 }
-.searchSection .search-select .select-location,
-.searchSection .search-select .select-type,
-.searchSection .search-select .select-people {
+.searchSection .search-select .select {
   position: relative;
   width: 24%;
   height: 48px;
@@ -221,9 +221,7 @@ body {
   background-color: #ffffff;
   border-radius: 6px;
 }
-.searchSection .search-select .select-location .select-header,
-.searchSection .search-select .select-type .select-header,
-.searchSection .search-select .select-people .select-header {
+.searchSection .search-select .select .select-header {
   color: #838383;
   display: flex;
   justify-content: space-between;
@@ -231,21 +229,15 @@ body {
   padding: 12px 4px 12px 12px;
   cursor: pointer;
 }
-.searchSection .search-select .select-location .select-header .arrowDown,
-.searchSection .search-select .select-type .select-header .arrowDown,
-.searchSection .search-select .select-people .select-header .arrowDown {
+.searchSection .search-select .select .select-header .arrowDown {
   width: 24px;
   transform: rotate(360deg);
   transition: transform 0.5s ease-in-out;
 }
-.searchSection .search-select .select-location .select-header.active,
-.searchSection .search-select .select-type .select-header.active,
-.searchSection .search-select .select-people .select-header.active {
+.searchSection .search-select .select .select-header.active {
   color: #222222;
 }
-.searchSection .search-select .select-location .option-container,
-.searchSection .search-select .select-type .option-container,
-.searchSection .search-select .select-people .option-container {
+.searchSection .search-select .select .option-container {
   max-height: 200px;
   overflow: auto;
   display: none;
@@ -259,68 +251,56 @@ body {
   z-index: 50;
   border-radius: 0 0 6px 6px;
 }
-.searchSection .search-select .select-location .option-container .select-option,
-.searchSection .search-select .select-type .option-container .select-option,
-.searchSection .search-select .select-people .option-container .select-option {
+.searchSection .search-select .select .option-container .select-option {
   padding: 12px;
   cursor: pointer;
 }
-.searchSection .search-select .select-location .option-container .select-option:hover,
-.searchSection .search-select .select-type .option-container .select-option:hover,
-.searchSection .search-select .select-people .option-container .select-option:hover {
+.searchSection .search-select .select .option-container .select-option:hover {
   background-color: #483D3F;
   color: #ffffff;
 }
-.searchSection .search-select .select-location .option-container .select-option.active,
-.searchSection .search-select .select-type .option-container .select-option.active,
-.searchSection .search-select .select-people .option-container .select-option.active {
+.searchSection .search-select .select .option-container .select-option.active {
   background-color: #483D3F;
   color: #ffffff;
 }
-.searchSection .search-select .select-location.open,
-.searchSection .search-select .select-type.open,
-.searchSection .search-select .select-people.open {
+.searchSection .search-select .select.open {
   border-radius: 6px 6px 0 0;
   border-bottom: 0px;
 }
-.searchSection .search-select .select-location.open .arrowDown,
-.searchSection .search-select .select-type.open .arrowDown,
-.searchSection .search-select .select-people.open .arrowDown {
+.searchSection .search-select .select.open .arrowDown {
   transform: rotate(180deg);
   transition: transform 0.5s ease-in-out;
 }
-.searchSection .search-select .select-location.open .option-container,
-.searchSection .search-select .select-type.open .option-container,
-.searchSection .search-select .select-people.open .option-container {
+.searchSection .search-select .select.open .option-container {
   display: block;
 }
-.searchSection .search-select .select-people {
+.searchSection .search-select .people {
   width: 32%;
 }
-.searchSection .search-select .select-people .select-header {
+.searchSection .search-select .people .select-header {
   color: #222222;
 }
-.searchSection .search-select .select-people .number-option {
+.searchSection .search-select .people .number-option {
   display: flex;
   justify-content: space-between;
   padding: 12px;
 }
-.searchSection .search-select .select-people .number-option .label small {
+.searchSection .search-select .people .number-option .label small {
   color: #5a5a5a;
   font-size: 14px;
 }
-.searchSection .search-select .select-people .number-option .number-input {
+.searchSection .search-select .people .number-option .number-input {
   width: auto;
   height: 100%;
   display: flex;
   align-items: center;
 }
-.searchSection .search-select .select-people .number-option .number-input input {
+.searchSection .search-select .people .number-option .number-input input {
   width: 42px;
   height: 24px;
   text-align: center;
 }
-.searchSection .search-select .select-people .number-option .number-input button {
+.searchSection .search-select .people .number-option .number-input button {
   font-size: 18px;
   width: 28px;
   height: 28px;
@@ -342,122 +322,124 @@ body {
   padding: 14px 24px;
   letter-spacing: 1px;
   cursor: pointer;
-  transition: all 0.5s ease-in-out;
+  transition: background-color 0.5s ease-in-out;
 }
 .searchSection .searchBtn:hover {
   background-color: #78686B;
 }
 
 @media (max-width:1023px) {
-  .banner {
+  #SearchBanner {
     height: 560px;
   }
-  .banner h2 {
+  #SearchBanner h2 {
     font-size: 32px;
   }
-  .banner .engTitle {
+  #SearchBanner .engTitle {
     font-size: 28px;
   }
-  .banner .left-filled {
+  #SearchBanner .left-filled {
     width: 170px;
     top: 140px;
     left: 30px;
   }
-  .banner .left-stroke {
+  #SearchBanner .left-stroke {
     width: 110px;
     top: 220px;
     left: 20px;
   }
-  .banner .left-tool {
+  #SearchBanner .left-tool {
     width: 130px;
     top: 160px;
     left: 110px;
   }
-  .banner .right-filled {
+  #SearchBanner .right-filled {
     width: 220px;
     top: 200px;
     right: 80px;
   }
-  .banner .right-stroke {
+  #SearchBanner .right-stroke {
     width: 100px;
     top: 160px;
     right: 60px;
   }
-  .banner .right-tool {
+  #SearchBanner .right-tool {
     width: 200px;
     top: 160px;
     right: 100px;
   }
-  .banner .searchSection {
+  #SearchBanner .searchSection {
     padding: 27px 20px;
     flex-direction: column;
     align-items: center;
   }
-  .banner .searchSection figure {
+  #SearchBanner .searchSection figure {
     display: none;
   }
-  .banner .searchSection .search-select {
+  #SearchBanner .searchSection .search-select {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     width: 100%;
     gap: 4px;
   }
-  .banner .searchSection .search-select input {
+  #SearchBanner .searchSection .search-select input {
     width: 100%;
   }
-  .banner .searchSection .search-select .select-location,
-  .banner .searchSection .search-select .select-type,
-  .banner .searchSection .search-select .select-people {
+  #SearchBanner .searchSection .search-select .select {
     width: 100%;
   }
-  .banner .searchSection .searchBtn {
+  #SearchBanner .searchSection .search-select .people .number-input input {
+    width: 42px;
+  }
+  #SearchBanner .searchSection .searchBtn {
     margin: 16px 0 0;
     width: 100%;
   }
 }
 @media (max-width:640px) {
-  .banner {
+  #SearchBanner {
     height: 100vh;
   }
-  .banner h2 {
+  #SearchBanner h2 {
     font-size: 28px;
     margin-top: 20px;
   }
-  .banner .engTitle {
+  #SearchBanner .engTitle {
     font-size: 24px;
     text-align: center;
   }
-  .banner .left-filled {
+  #SearchBanner .left-filled {
     width: 120px;
     top: 28%;
     left: 5%;
   }
-  .banner .left-stroke {
+  #SearchBanner .left-stroke {
     width: 90px;
     top: 48%;
     left: 3%;
   }
-  .banner .right-filled {
+  #SearchBanner .right-filled {
     width: 180px;
     top: 46%;
     right: 10px;
   }
-  .banner .right-stroke {
+  #SearchBanner .right-stroke {
     width: 90px;
     top: 30%;
     right: 5%;
   }
-  .banner .left-tool {
+  #SearchBanner .left-tool {
     display: none;
   }
-  .banner .right-tool {
+  #SearchBanner .right-tool {
     display: none;
   }
-  .banner .searchSection .search-select {
+  #SearchBanner .searchSection .search-select {
     display: flex;
     flex-direction: column;
   }
 }
+/* 主要區塊背景泡泡設定 */
 main {
   width: 100%;
   background-image: url(/images/BG-search.svg);
@@ -466,7 +448,7 @@ main {
   padding-bottom: 144px;
 }
 
-/* 列表分類過濾器 */
+/* 課程列表篩選器 */
 .allFilter {
   display: flex;
   justify-content: space-between;
@@ -478,8 +460,8 @@ main {
   position: relative;
   width: 110px;
   height: 48px;
-  border: 1px solid #ADADAD;
-  background-color: #ffffff;
+  border: 1px solid #D9D9D9;
+  background-color: rgba(255, 255, 255, 0.6);
   border-radius: 100px;
 }
 .allFilter .filter .select-header {
@@ -507,8 +489,8 @@ main {
 }
 .allFilter .classify .option-container {
   display: none;
-  background-color: #ffffff;
-  border: 1px solid #ADADAD;
+  background-color: rgb(255, 255, 255);
+  border: 1px solid #D9D9D9;
   border-top: 0px;
   width: calc(100% + 2px);
   position: absolute;
@@ -536,12 +518,13 @@ main {
   color: #ffffff;
 }
 .allFilter .classify.open {
+  background-color: #ffffff;
   width: 640px;
 }
 .allFilter .order .option-container {
   display: none;
   background-color: #ffffff;
-  border: 1px solid #ADADAD;
+  border: 1px solid #d9d9d9;
   border-top: 0px;
   width: calc(100% + 2px);
   position: absolute;
@@ -563,6 +546,9 @@ main {
 .allFilter .order .option-container .select-option.active {
   background-color: #483D3F;
   color: #ffffff;
+}
+.allFilter .order.open {
+  background-color: #ffffff;
 }
 
 @media (max-width:1023px) {
@@ -612,28 +598,20 @@ main {
     width: 180px;
   }
 }
-/* 課程列表區 */
-.searchResault,
-.hotClassRecommend,
-.newestClass {
+/* 共用課程列表區 */
+.courseSection {
   margin-top: 80px;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-.searchResault .listTitle,
-.hotClassRecommend .listTitle,
-.newestClass .listTitle {
+.courseSection .listTitle {
   margin-bottom: 64px;
 }
-.searchResault .listTitle img,
-.hotClassRecommend .listTitle img,
-.newestClass .listTitle img {
+.courseSection .listTitle img {
   height: 42px;
 }
-.searchResault .classList,
-.hotClassRecommend .classList,
-.newestClass .classList {
+.courseSection .classList {
   width: 80%;
   margin-bottom: 80px;
   display: grid;
@@ -642,174 +620,137 @@ main {
   column-gap: 8%;
   row-gap: 80px;
 }
-.searchResault .classList .classCard,
-.hotClassRecommend .classList .classCard,
-.newestClass .classList .classCard {
+.courseSection .classList .classCard {
   position: relative;
   width: 100%;
 }
-.searchResault .classList .classCard div,
-.hotClassRecommend .classList .classCard div,
-.newestClass .classList .classCard div {
+.courseSection .classList .classCard div {
   display: flex;
   justify-content: space-between;
 }
-.searchResault .classList .classCard .classPhoto,
-.hotClassRecommend .classList .classCard .classPhoto,
-.newestClass .classList .classCard .classPhoto {
+.courseSection .classList .classCard .classPhoto {
   position: relative;
   width: 100%;
   height: auto;
   border-radius: 10px;
   overflow: hidden;
+  clip-path: polygon(47% 0, 76% 0, 100% 0, 100% 66%, 100% 100%, 41% 100%, 0 100%, 0 66%, 0 29%, 0 0);
+  transition: clip-path 0.5s ease;
+  /* 設定平滑過渡 */
 }
-.searchResault .classList .classCard .classPhoto .tagHotorNew,
-.hotClassRecommend .classList .classCard .classPhoto .tagHotorNew,
-.newestClass .classList .classCard .classPhoto .tagHotorNew {
-  width: 56px;
+.courseSection .classList .classCard .classPhoto .tagHotorNew {
   position: absolute;
   left: 4px;
   top: 4px;
   z-index: 10;
+  opacity: 1;
+  transition: opacity 0.5s ease;
 }
-.searchResault .classList .classCard .classPhoto .defaultPhoto,
-.hotClassRecommend .classList .classCard .classPhoto .defaultPhoto,
-.newestClass .classList .classCard .classPhoto .defaultPhoto {
+.courseSection .classList .classCard .classPhoto .tagHotorNew img {
+  width: 52px;
+}
+.courseSection .classList .classCard .classPhoto .photo {
   width: 100%;
   height: auto;
   object-fit: cover;
-  transition: all 0.4s ease-out;
 }
-.searchResault .classList .classCard .classPhoto .maskLayer,
-.searchResault .classList .classCard .classPhoto .maskLayer2,
-.hotClassRecommend .classList .classCard .classPhoto .maskLayer,
-.hotClassRecommend .classList .classCard .classPhoto .maskLayer2,
-.newestClass .classList .classCard .classPhoto .maskLayer,
-.newestClass .classList .classCard .classPhoto .maskLayer2 {
-  width: 100%;
-  height: auto;
-  object-fit: cover;
+.courseSection .classList .classCard .classPhoto p {
+  font-family: "Braah One", serif;
+  color: #F0E4C6;
+  font-size: 18px;
+  font-weight: 400;
+  z-index: 10;
   position: absolute;
-  top: 0;
-  left: 0;
-  mask: url("../images/mask-01.svg") no-repeat center center;
-  mask-size: contain;
-  transition: all 0.5s ease-out;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(66, 66, 66, 0.6);
   opacity: 0;
-  /* 初始透明 */
-  visibility: hidden;
-  /* 初始不可見 */
+  transition: all 0.5s ease-in-out;
 }
-.searchResault .classList .classCard .classPhoto .maskLayer2,
-.hotClassRecommend .classList .classCard .classPhoto .maskLayer2,
-.newestClass .classList .classCard .classPhoto .maskLayer2 {
-  mask: url("../images/mask-02.svg") no-repeat center center;
-  transition: all 0.5s ease-out;
+.courseSection .classList .classCard .classPhoto p img {
+  width: 24px;
 }
-.searchResault .classList .classCard .classTag,
-.hotClassRecommend .classList .classCard .classTag,
-.newestClass .classList .classCard .classTag {
+.courseSection .classList .classCard .classTag {
   margin: 20px 0;
   justify-content: left;
 }
-.searchResault .classList .classCard .classTag p,
-.hotClassRecommend .classList .classCard .classTag p,
-.newestClass .classList .classCard .classTag p {
+.courseSection .classList .classCard .classTag p {
   color: #ffffff;
   font-size: 13px;
   margin-right: 12px;
 }
-.searchResault .classList .classCard .classTag .classLevel,
-.hotClassRecommend .classList .classCard .classTag .classLevel,
-.newestClass .classList .classCard .classTag .classLevel {
+.courseSection .classList .classCard .classTag .classLevel {
   background-image: url(../images/tag-level.svg);
   padding: 7px 16px 8px;
 }
-.searchResault .classList .classCard .classTag .classTime,
-.hotClassRecommend .classList .classCard .classTag .classTime,
-.newestClass .classList .classCard .classTag .classTime {
+.courseSection .classList .classCard .classTag .classTime {
   background-image: url(../images/tag-time.svg);
   padding: 5px 17.5px 4px 13px;
 }
-.searchResault .classList .classCard .classTitle,
-.hotClassRecommend .classList .classCard .classTitle,
-.newestClass .classList .classCard .classTitle {
+.courseSection .classList .classCard .classTitle {
   align-items: start;
   margin-bottom: 24px;
 }
-.searchResault .classList .classCard .classTitle h3,
-.hotClassRecommend .classList .classCard .classTitle h3,
-.newestClass .classList .classCard .classTitle h3 {
+.courseSection .classList .classCard .classTitle h3 {
   font-size: 18px;
   font-weight: 600;
 }
-.searchResault .classList .classCard .classTitle h3 a,
-.hotClassRecommend .classList .classCard .classTitle h3 a,
-.newestClass .classList .classCard .classTitle h3 a {
+.courseSection .classList .classCard .classTitle h3 a {
   border-bottom: 2px solid transparent;
   transition: all 0.5s ease-in-out;
 }
-.searchResault .classList .classCard .classTitle h3 a:hover,
-.hotClassRecommend .classList .classCard .classTitle h3 a:hover,
-.newestClass .classList .classCard .classTitle h3 a:hover {
+.courseSection .classList .classCard .classTitle h3 a:hover {
   color: #565656;
   border-bottom: 2px solid #B07662;
 }
-.searchResault .classList .classCard .classPrice,
-.hotClassRecommend .classList .classCard .classPrice,
-.newestClass .classList .classCard .classPrice {
+.courseSection .classList .classCard .classPrice {
   align-items: center;
 }
-.searchResault .classList .classCard .classPrice .classStoreName,
-.hotClassRecommend .classList .classCard .classPrice .classStoreName,
-.newestClass .classList .classCard .classPrice .classStoreName {
+.courseSection .classList .classCard .classPrice .classStoreName {
   color: #5a5a5a;
 }
-.searchResault .classList .classCard .classPrice .classStoreName a,
-.hotClassRecommend .classList .classCard .classPrice .classStoreName a,
-.newestClass .classList .classCard .classPrice .classStoreName a {
+.courseSection .classList .classCard .classPrice .classStoreName a {
   border-bottom: 1px solid transparent;
   transition: all 0.5s ease-in-out;
 }
-.searchResault .classList .classCard .classPrice .classStoreName a:hover,
-.hotClassRecommend .classList .classCard .classPrice .classStoreName a:hover,
-.newestClass .classList .classCard .classPrice .classStoreName a:hover {
+.courseSection .classList .classCard .classPrice .classStoreName a:hover {
   color: #565656;
   border-bottom: 1px solid #B07662;
 }
-.searchResault .classList .classCard .classPrice .classPrice,
-.hotClassRecommend .classList .classCard .classPrice .classPrice,
-.newestClass .classList .classCard .classPrice .classPrice {
+.courseSection .classList .classCard .classPrice .classPrice {
   color: #483D3F;
   font-size: 22px;
 }
-.searchResault .classList .classCard .icons-heart,
-.hotClassRecommend .classList .classCard .icons-heart,
-.newestClass .classList .classCard .icons-heart {
+.courseSection .classList .classCard .icons-heart {
   width: 24px;
 }
-.searchResault .classList .classCard:hover .maskLayer,
-.searchResault .classList .classCard:hover .maskLayer2,
-.hotClassRecommend .classList .classCard:hover .maskLayer,
-.hotClassRecommend .classList .classCard:hover .maskLayer2,
-.newestClass .classList .classCard:hover .maskLayer,
-.newestClass .classList .classCard:hover .maskLayer2 {
+.courseSection .classList .classCard:hover .classPhoto {
+  clip-path: polygon(40% 0, 73% 4%, 92% 33%, 89% 75%, 77% 94%, 48% 100%, 17% 95%, 6% 76%, 5% 39%, 15% 10%);
+}
+.courseSection .classList .classCard:hover .classPhoto:hover p {
   opacity: 1;
-  visibility: visible;
-  transition: all 0.5s ease-out;
-  /* 添加漸變效果 */
 }
-.searchResault .classList .classCard:hover .defaultPhoto,
-.hotClassRecommend .classList .classCard:hover .defaultPhoto,
-.newestClass .classList .classCard:hover .defaultPhoto {
+.courseSection .classList .classCard:hover .classPhoto:hover p img {
+  animation: moveArrow 0.6s ease-in-out infinite alternate;
+  /* 啟用動畫 */
+}
+@keyframes moveArrow {
+  0% {
+    transform: translateX(0);
+    /* 初始位置 */
+  }
+  100% {
+    transform: translateX(10px);
+    /* 向右移動 20px */
+  }
+}
+.courseSection .classList .classCard:hover .tagHotorNew {
   opacity: 0;
-  visibility: hidden;
-  transition: all 0.5s ease-in-out;
-  /* 添加漸變效果 */
 }
-.searchResault .classList .classCard.fade-in,
-.hotClassRecommend .classList .classCard.fade-in,
-.newestClass .classList .classCard.fade-in {
+.courseSection .classList .classCard.fade-in {
   animation: fadeIn 0.5s ease-in-out forwards;
 }
 @keyframes fadeIn {
@@ -821,59 +762,17 @@ main {
   }
 }
 @media (max-width:1023px) {
-  .searchResault .classList,
-  .hotClassRecommend .classList,
-  .newestClass .classList {
+  .courseSection .classList {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 @media (max-width:640px) {
-  .searchResault .classList,
-  .hotClassRecommend .classList,
-  .newestClass .classList {
+  .courseSection .classList {
     grid-template-columns: repeat(1, 1fr);
   }
 }
-.searchResault .seeMore,
-.hotClassRecommend .seeMore,
-.newestClass .seeMore {
-  width: 160px;
-  position: relative;
-  display: flex;
-  justify-content: center;
-}
-.searchResault .seeMore figure,
-.hotClassRecommend .seeMore figure,
-.newestClass .seeMore figure {
-  position: absolute;
-  left: -4px;
-  top: -6px;
-  width: 40px;
-  height: 38px;
-}
-.searchResault .seeMore div,
-.hotClassRecommend .seeMore div,
-.newestClass .seeMore div {
-  z-index: 10;
-}
-.searchResault .seeMore div p,
-.hotClassRecommend .seeMore div p,
-.newestClass .seeMore div p {
-  font-weight: 800;
-  margin: 4px;
-}
-.searchResault .seeMore div a,
-.hotClassRecommend .seeMore div a,
-.newestClass .seeMore div a {
-  display: flex;
-  align-items: center;
-}
-.searchResault .seeMore .icons-arrowDown,
-.hotClassRecommend .seeMore .icons-arrowDown,
-.newestClass .seeMore .icons-arrowDown {
-  width: 24px;
-}
 
+/* seemore 按鈕 */
 .seemore-btn {
   font-family: "Braah One", serif;
   display: inline-flex;
@@ -883,6 +782,7 @@ main {
   padding: 0 40px;
   position: relative;
   font-weight: bold;
+  cursor: pointer;
 }
 .seemore-btn .arr {
   margin-left: 65px;
@@ -988,19 +888,19 @@ footer small {
     display: none;
   }
 }
-/* 自訂義抖動效果 */
+/* csshake 自訂義抖動效果 */
 @keyframes custom-shake-h {
   20% {
-    transform: translate(-7.5px, -1.5px) rotate(2.5deg);
+    transform: translate(1.5px, 0.5px) rotate(1.5deg);
   }
   40% {
-    transform: translate(0.5px, 0.5px) rotate(-1.5deg);
+    transform: translate(-0.5px, -1.5px) rotate(1.5deg);
   }
   60% {
-    transform: translate(-3.5px, -0.5px) rotate(-1.5deg);
+    transform: translate(1.5px, 0.5px) rotate(-1.5deg);
   }
   80% {
-    transform: translate(-3.5px, 0.5px) rotate(-1.5deg);
+    transform: translate(4.5px, 1.5px) rotate(-1.5deg);
   }
   0%, 100% {
     transform: translate(0, 0) rotate(0);
@@ -1014,16 +914,16 @@ footer small {
 }
 @keyframes custom-shake-v {
   20% {
-    transform: translate(0px, -19px) rotate(-0.5deg);
+    transform: translate(1px, -9px) rotate(-1.5deg);
   }
   40% {
-    transform: translate(0px, 12px) rotate(-1.5deg);
+    transform: translate(0px, 0px) rotate(-0.5deg);
   }
   60% {
-    transform: translate(4px, -10px) rotate(0.5deg);
+    transform: translate(2px, 7px) rotate(-0.5deg);
   }
   80% {
-    transform: translate(-1px, 20px) rotate(-0.5deg);
+    transform: translate(1px, 10px) rotate(0.5deg);
   }
   0%, 90%, 100% {
     transform: translate(0, 0) rotate(0);
@@ -1037,16 +937,16 @@ footer small {
 }
 @keyframes custom-shake-t {
   20% {
-    transform: translate(1.5px, -3px) rotate(-3deg);
+    transform: translate(1.5px, -2px) rotate(0deg);
   }
   40% {
-    transform: translate(-1.5px, 8px) rotate(6deg);
+    transform: translate(-1.5px, -9px) rotate(-3deg);
   }
   60% {
-    transform: translate(-0.5px, 4px) rotate(-3deg);
+    transform: translate(1.5px, -3px) rotate(3deg);
   }
   80% {
-    transform: translate(-1.5px, -2px) rotate(6deg);
+    transform: translate(-0.5px, 10px) rotate(-1deg);
   }
   0%, 100% {
     transform: translate(0, 0) rotate(0);

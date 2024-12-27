@@ -128,7 +128,7 @@ function Results({ filteredCourses, resultVisible }) {
 
             {resultVisible && (
 
-                <section data-aos="fade-up" data-aos-offset="100" className="searchResault">
+                <section data-aos="fade-up" data-aos-offset="100" id="searchResault" className="courseSection" >
 
                     <figure className="listTitle">
                         <img src="./images/title-resault.svg" alt="" />
@@ -226,19 +226,20 @@ function Results({ filteredCourses, resultVisible }) {
 
                                             <figure className="classPhoto">
                                                 <a href="#">
-                                                    <img className="defaultPhoto" src="./images/classphoto-01.jpg" alt="" />
+                                                <p>See More <img src="./images/icons-arrowRightBold.svg" alt="" /></p>
+                                                    <img className="photo" src="./images/classphoto-01.jpg" alt="" />
 
-                                                      <div className="tagHotorNew ">
-                                        {course.hot && (
-                                            <img  src="./images/labels-hot.svg" alt="" />
-                                        )}
-                                        {newest && (
-                                            <img  src="./images/labels-new.svg" alt="" />
-                                        )}
-                                        </div>
+                                                    <div className="tagHotorNew ">
+                                                        {course.hot && (
+                                                            <img src="./images/labels-hot.svg" alt="" />
+                                                        )}
+                                                        {newest && (
+                                                            <img src="./images/labels-new.svg" alt="" />
+                                                        )}
+                                                    </div>
 
 
-                                                    <img className="maskLayer" src="./images/classphoto-01.jpg" alt="" />
+
                                                 </a>
                                             </figure>
                                             <div className="classTag">

@@ -1,9 +1,6 @@
 import { useState, useEffect } from "react";
 
 
-
-
-
 function SearchSection({ handleSearch , handleSearchResult }) {
 
 
@@ -159,7 +156,7 @@ function SearchSection({ handleSearch , handleSearchResult }) {
                 <div className="search-select">
 
                     {/* 下拉選單顯示選擇區塊 */}
-                    <div className={`select-location ${locationIsOpen ? "open" : ""}`} >
+                    <div className={`select location ${locationIsOpen ? "open" : ""}`} >
                         <div className={`select-header ${selectedLOption.value !== null ? "active" : ""}`} onClick={() => toggleDropdown("location")}>
                             <div>{selectedLOption.label}</div>
                             <img className="arrowDown" src="./images/icons-arrowDownR.svg" alt="" />
@@ -183,7 +180,7 @@ function SearchSection({ handleSearch , handleSearchResult }) {
 
                     {/* 下拉選單顯示選擇區塊 */}
 
-                    <div className={`select-type ${typeIsOpen ? "open" : ""}`} >
+                    <div className={`select type ${typeIsOpen ? "open" : ""}`} >
                         <div className={`select-header ${selectedTOption.value !== null ? "active" : ""}`} onClick={() => toggleDropdown("type")}>
                             <div>{selectedTOption.label}</div>
                             <img className="arrowDown" src="./images/icons-arrowDownR.svg" alt="" />
@@ -213,7 +210,7 @@ function SearchSection({ handleSearch , handleSearchResult }) {
                             onChange={(e) => setSearchDate(e.target.value)}
                             name="search-day" id="search-day" title="選擇日期" />
 
-                    <div className={`select-people ${peopleIsOpen ? "open" : ""}`} >
+                    <div className={`select people  select-people ${peopleIsOpen ? "open" : ""}`} >
                         <div className="select-header" onClick={() => toggleDropdown("people")}>
                             <div>{adultCount} 位成人 , {childCount} 位孩童</div>
                             <img className="arrowDown" src="./images/icons-arrowDownR.svg" alt="" />
