@@ -187,6 +187,7 @@ body {
             border: 1px solid #ADADAD;
             padding: 12px;
             border-radius: 6px;
+            letter-spacing: 1px;
             cursor: pointer;
 
         }
@@ -289,11 +290,6 @@ body {
         .people {
             width: 32%;
 
-
-            .select-header {
-                color: #222222;
-
-            }
 
             .number-option {
 
@@ -547,7 +543,7 @@ body {
 
 /* 主要區塊背景泡泡設定 */
 
-main {
+#SearchPage {
     width: 100%;
     background-image: url(./images/BG-search.svg);
     background-size: 100% auto;
@@ -583,7 +579,7 @@ main {
         background-color: rgba(255, 255, 255, 0.6);
 
         border-radius: 100px;
-        transition:  background-color 0.5s ease-in-out;
+
 
 
 
@@ -602,9 +598,16 @@ main {
                 transition: transform 0.5s ease-in-out;
 
             }
+
+
+
+
+
+
+
         }
 
-        &:hover{
+        &:hover {
             background-color: rgba(255, 255, 255);
         }
 
@@ -613,6 +616,7 @@ main {
 
         &.open {
             border-radius: 24px 24px 0 0;
+
             border-bottom: 0px;
 
 
@@ -622,12 +626,29 @@ main {
 
             }
 
+            .select-header {
+                color: #222222;
+                background-color: #ffffff;
+                border-radius: 100px;
+            }
+
 
             .option-container {
                 display: block;
-                
+                height: auto;
                 background-color: rgb(255, 255, 255);
             }
+        }
+
+
+        &.active {
+
+
+            background-color: #B99C92;
+
+
+
+
         }
 
 
@@ -639,7 +660,8 @@ main {
 
         .option-container {
             display: none;
-            
+            height: 0px;
+
             background-color: rgba(255, 255, 255, 0.6);
 
             border: 1px solid #D9D9D9;
@@ -651,7 +673,8 @@ main {
             z-index: 20;
 
             border-radius: 0 0 24px 24px;
-            transition:  background-color 0.5s ease-in-out;
+
+
             .select-option {
 
                 padding: 24px;
@@ -683,10 +706,14 @@ main {
             background-color: #ffffff;
             width: 640px;
         }
+
+
     }
 
 
     .order {
+
+
 
         .option-container {
             display: none;
@@ -838,7 +865,7 @@ main {
 
     }
 
-    
+
 }
 
 .classList {
@@ -858,13 +885,14 @@ main {
     position: relative;
     width: 100%;
     height: auto;
-    
+
 
     div {
 
         display: flex;
         justify-content: space-between;
     }
+
     .classPhoto {
 
         position: relative;
@@ -877,7 +905,7 @@ main {
         /* 設定平滑過渡 */
 
         .tagHotorNew {
-
+            
             position: absolute;
             left: 4px;
             top: 4px;
@@ -885,9 +913,42 @@ main {
 
             opacity: 1;
             transition: opacity 0.5s ease;
+            
+
+            .box{
+                position: relative;
+                .shine {
+                    position: absolute;
+                    top: 0;
+                    left: 0; /* 初始位置在圖片左側之外 */
+                    width: 100%; /* 確保光帶足夠寬以覆蓋整張圖片 */
+                    height: 100%;
+                    
+                    
+                    background: linear-gradient(
+                      90deg,
+                      rgba(255, 255, 255, 0) 0%,
+                      rgba(255, 255, 255, .6) 50%,
+                      rgba(255, 255, 255, 0) 100%
+                    ); /* 定義一個透明到亮白的漸變光帶 */
+                    transform: skewX(-0deg); /* 將光帶傾斜，讓效果更自然 */
+                    opacity: .9;
+                    mask: radial-gradient(closest-side circle,#000 1%, transparent 100%);
+                    animation: shineMoveVertical .3s infinite;
+                  }
+                
+            }
+            
+        
+              
+           
+            
 
             img {
+                position: relative;
                 width: 52px;
+                
+                
             }
         }
 
@@ -935,13 +996,13 @@ main {
 
         .classLevel {
             background-image: url(./images/tag-level.svg);
-            background-size:100% 100%;
+            background-size: 100% 100%;
             padding: 7px 16px 8px;
         }
 
         .classTime {
             background-image: url(./images/tag-time.svg);
-            background-size:100% 100%;
+            background-size: 100% 100%;
             padding: 5px 17.5px 4px 13px;
         }
     }
@@ -958,8 +1019,8 @@ main {
             margin-right: 4px;
 
             @extend %line-multiple;
-            -webkit-line-clamp: 2; 
-            line-clamp: 2; 
+            -webkit-line-clamp: 2;
+            line-clamp: 2;
 
             a {
 
@@ -975,7 +1036,7 @@ main {
             }
         }
 
-        img{
+        img {
             width: 24px;
         }
     }
@@ -987,23 +1048,23 @@ main {
 
         .classStoreName {
             color: #5a5a5a;
-            font-size: 16px;
-            width:  130px;
-             
-            
+            font-size: 14px;
+            width: auto;
+
+
             @extend %line-multiple;
             -webkit-line-clamp: 1; // 行數6行
             line-clamp: 1; // 要重複寫一個沒有webkit的 以防之後變成正式的寫法
 
             a {
 
-                
+
                 transition: all 0.5s ease-in-out;
 
                 &:hover {
 
                     color: #939393;
-                    
+
                 }
             }
         }
@@ -1011,18 +1072,20 @@ main {
         .price {
             color: #483D3F;
             font-size: 22px;
-            
+            width: 110px;
+            text-align: end;
+
         }
     }
 
-    
+
 
     &:hover {
 
         .classPhoto {
 
             clip-path: polygon(40% 0, 73% 4%, 92% 33%, 89% 75%, 77% 94%, 48% 100%, 17% 95%, 6% 76%, 5% 39%, 15% 10%);
-            
+
             &:hover {
 
                 p {
@@ -1031,7 +1094,7 @@ main {
                     img {
 
                         animation: moveArrow 0.6s ease-in-out infinite alternate;
-                        
+
                     }
 
                 }
@@ -1047,38 +1110,42 @@ main {
     }
 }
 
- 
+
 .icons-heart {
-        width: 24px;
-        cursor: pointer;
-        z-index: 20;
-        transition: .3s;
-        @for $HeartNum from 1 through 6{
+    width: 24px;
+    cursor: pointer;
+    z-index: 20;
+    transition: .3s;
+
+    @for $HeartNum from 1 through 6 {
 
 
-            #heartstrike#{$HeartNum}{
-                display: flex;
-                &.click-h{
-                    display: none;
-                }
-            }
-            #heartfill#{$HeartNum}{
+        #heartstrike#{$HeartNum} {
+            display: flex;
+
+            &.click-h {
                 display: none;
-                &.click-h{
-                    display: flex;
-                    width: 23px;
-                }
             }
         }
 
+        #heartfill#{$HeartNum} {
+            display: none;
 
-        &:hover {
-            cursor: pointer;
-            transform: scale(1.2);
-            background-image: url(./images/icons-heart-hover.svg);
-            background-size: cover;
+            &.click-h {
+                display: flex;
+                width: 23px;
+            }
         }
     }
+
+
+    &:hover {
+        cursor: pointer;
+        transform: scale(1.2);
+        background-image: url(./images/icons-heart-hover.svg);
+        background-size: cover;
+    }
+}
 
 
 @media ($mediaMd) {
@@ -1163,6 +1230,37 @@ main {
 .noresult {
     font-size: 20px;
 }
+
+
+/* totop按鈕 */
+.toTop {
+    z-index: 30;
+
+
+    .toTop-btn {
+        border: none;
+        background: none;
+        cursor: pointer;
+
+
+        #toTopHover {
+            display: none;
+        }
+
+
+        &:hover {
+            >#toTop {
+                display: none;
+            }
+
+
+            #toTopHover {
+                display: block;
+            }
+        }
+    }
+}
+
 
 
 
@@ -1320,11 +1418,43 @@ footer {
 @keyframes moveArrow {
     0% {
         transform: translateX(0);
-        
+
     }
 
     100% {
         transform: translateX(10px);
-        
+
+    }
+}
+
+
+@keyframes shineEffect {
+    0% {
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+    }
+
+    50% {
+        box-shadow: 0 0 30px rgba(255, 255, 255, 0.8);
+    }
+
+    100% {
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+    }
+}
+
+
+
+/* 動畫：光帶從上到下掃過 */
+@keyframes shineMoveVertical {
+    0% {
+      transform: rotate(25deg); /* 光帶位於圖片上方 */
+      
+    }
+    50%{
+        transform: rotate(46deg);
+       
+    }
+    100% {
+        transform: rotate(25deg); /* 光帶移動到圖片下方 */
     }
 }

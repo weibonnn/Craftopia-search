@@ -1,7 +1,10 @@
 import { useState, useEffect } from "react";
 
 
-function SearchSection({ handleSearch , handleSearchResult }) {
+function SearchSection({ handleSearch, handleSearchResult }) {
+
+
+    const [inputType, setInputType] = useState("text");
 
 
     // 管理下拉式選單開啟與收合
@@ -38,7 +41,7 @@ function SearchSection({ handleSearch , handleSearchResult }) {
     const [searchDate, setSearchDate] = useState("");
 
     // 管理成人與孩童人數數量
-    const [adultCount, setAdultCount] = useState(1);
+    const [adultCount, setAdultCount] = useState(0);
     const [childCount, setChildCount] = useState(0);
 
     const handleIncrease = (type) => {
@@ -205,14 +208,29 @@ function SearchSection({ handleSearch , handleSearchResult }) {
 
                     </div>
 
-                    <input  type="date" 
-                            value={searchDate}
-                            onChange={(e) => setSearchDate(e.target.value)}
-                            name="search-day" id="search-day" title="選擇日期" />
+                    <input
+
+                        type={inputType}
+                        value={searchDate}
+                        placeholder="什麼時候去？"
+                        onChange={(e) => setSearchDate(e.target.value)}
+                        onFocus={() => setInputType("date")}
+                        onBlur={() => setInputType("text")}
+                        name="search-day" id="search-day" title="選擇日期" />
+
+
 
                     <div className={`select people  select-people ${peopleIsOpen ? "open" : ""}`} >
-                        <div className="select-header" onClick={() => toggleDropdown("people")}>
-                            <div>{adultCount} 位成人 , {childCount} 位孩童</div>
+                        <div className={`select-header ${adultCount > 0 || childCount > 0 ? "active" : ""}`} onClick={() => toggleDropdown("people")}>
+
+                            {
+                                (adultCount > 0 || childCount > 0) ? (
+                                    <div>{adultCount} 位成人 , {childCount} 位孩童</div>
+                                ) : (
+                                    <div>想去哪裡做？</div>
+                                )
+                            }
+
                             <img className="arrowDown" src="./images/icons-arrowDownR.svg" alt="" />
                         </div>
                         <div className='option-container'>
@@ -253,7 +271,7 @@ function SearchSection({ handleSearch , handleSearchResult }) {
                     </div>
 
                 </div>
-                <button className="searchBtn" onClick={()=>{handleSearchClick();handleSearchResult()}}>搜尋課程</button>
+                <button className="searchBtn" onClick={() => { handleSearchClick(); handleSearchResult() }}>搜尋課程</button>
             </div>
         </>
     )

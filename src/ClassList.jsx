@@ -91,14 +91,19 @@ function ClassList() {
                                     <a href="#">
 
                                         <p>See More <img src="./images/icons-arrowRightBold.svg" alt="" /></p>
-                                        <img className="photo" src="./images/classphoto-01.jpg" alt="" />
+                                        <img className="photo" src={`./images/course/${course.image}`} alt="" />
 
                                         <div className="tagHotorNew ">
-                                            {course.hot && (
+                                            {course.sales > 20 && (
+                                                
                                                 <img src="./images/labels-hot.svg" alt="" />
+                                               
                                             )}
                                             {newest && (
+                                                
+                                                
                                                 <img src="./images/labels-new.svg" alt="" />
+                                               
                                             )}
                                         </div>
 
@@ -175,12 +180,17 @@ function ClassList() {
                                 <figure className="classPhoto">
                                     <a href="#">
                                         <p>See More <img src="./images/icons-arrowRightBold.svg" alt="" /></p>
-                                        <img className="photo" src="./images/classphoto-01.jpg" alt="" />
+                                        <img className="photo" src={`./images/course/${course.image}`} alt="" />
                                         <div className="tagHotorNew">
-                                            {course.hot && (
+                                            {course.sales > 20  && (
                                                 <img src="./images/labels-hot.svg" alt="" />
                                             )}
-                                            <img src="./images/labels-new.svg" alt="" />
+
+                                            
+                                              
+                                                <img src="./images/labels-new.svg" alt="" />
+                                               
+                                                
                                         </div>
 
 

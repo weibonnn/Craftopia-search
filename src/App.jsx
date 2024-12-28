@@ -4,9 +4,9 @@ import SearchSection from './SearchSection';
 import Results from './Results';
 import ClassList from './ClassList';
 import courseData from "./courseData";
+import ToTop from './ToTop';
 
 import 'csshake/dist/csshake.min.css';
-
 
 
 
@@ -42,6 +42,15 @@ function App() {
     }, 0); // 設置一個短暫延遲 (100ms)
   };
 
+
+
+   /* totop 位置設定 */
+   const initialStyle = {
+    position: "fixed",
+    bottom: "20px",
+    right: "10px",
+  };
+
   
 
   return (
@@ -65,7 +74,7 @@ function App() {
       </header>
 
 
-      <main>
+      <main id="SearchPage">
 
 
 
@@ -99,6 +108,11 @@ function App() {
 
       </main>
 
+      
+
+
+      {/* ToTop */}
+      <ToTop initialStyle={initialStyle} />
 
       {/* 頁尾區 */}
 
