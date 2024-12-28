@@ -135,7 +135,7 @@ function ClassList() {
                 {visibleHotCount < hotCourse.length && (
 
                     <div data-aos="fade-right" className="seeMore" onClick={handleHotSeeMore}>
-                        <p className="seemore-btn" href="#">
+                        <p className="btn-seemore-searchPage" href="#">
                             <img className="ball" src="./images/Vector-circle-b.png" alt="" />
                             <span className="font">see more</span>
                             <img className="arr" src="./images/icons-arrowDown.svg" alt="" />
@@ -227,7 +227,7 @@ function ClassList() {
                 {visibleNewCount < latestCourses.length && (
 
                     <div data-aos="fade-right" className="seeMore" onClick={handleNewSeeMore}>
-                        <p className="seemore-btn" href="#">
+                        <p className="btn-seemore-searchPage" href="#">
                             <img className="ball" src="./images/Vector-circle-b.png" alt="" />
                             <span className="font">see more</span>
                             <img className="arr" src="./images/icons-arrowDown.svg" alt="" />
